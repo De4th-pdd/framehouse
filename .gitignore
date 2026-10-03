@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scratch & test artifacts
+/scratch/
+
+# IDE / editors
+.vscode/
+.idea/
+*.swp
+*.swo
