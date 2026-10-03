@@ -118,7 +118,7 @@ export function ConceptTeaser() {
                     SEND PROJECT BRIEF ↗
                   </Button>
                   <span className="text-xs font-mono text-white/50 tracking-wider">
-                    REPLY WITHIN 24-48 HOURS
+                    Usually replying within 24 hours.
                   </span>
                 </div>
               </div>
@@ -207,7 +207,7 @@ export function ConceptTeaser() {
                       href="/contact"
                       className="inline-flex items-center gap-1.5 text-[#C8FF3D] hover:underline font-bold"
                     >
-                      LOCK IN BRIEF <ArrowRight className="w-3 h-3" />
+                      DISCUSS SCOPE <ArrowRight className="w-3 h-3" />
                     </a>
                   </div>
                 </div>

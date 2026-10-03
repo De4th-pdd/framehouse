@@ -208,7 +208,7 @@ export function Services() {
                           Form &amp; Digital Architecture
                         </h5>
                         <p className="text-[11px] text-white/70 leading-relaxed font-sans line-clamp-2">
-                          Engineered layouts that seamlessly adapt from 320px mobile displays to 4K studio monitors.
+                          Responsive layouts, optimized assets and lightweight interactions built for real devices.
                         </p>
                         <div className="pt-2 flex items-center justify-between text-[10px] font-mono text-[#C8FF3D]">
                           <span>PERFORMANCE FIRST</span>
@@ -295,34 +295,34 @@ export function Services() {
                     <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-xs font-mono text-white/50">
                       <div className="flex items-center gap-2">
                         <Cpu className="w-3.5 h-3.5 text-[#C8FF3D]" />
-                        <span>APP WORKSPACE // CLUSTER 01</span>
+                        <span>APP ARCHITECTURE // WORKSPACE UI</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF3D] animate-ping" />
-                        <span className="text-[10px] text-white/70">99.98% SLA</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF3D]" />
+                        <span className="text-[10px] text-white/70">INTERACTIVE DEMO</span>
                       </div>
                     </div>
 
                     {/* Operational App Cards */}
                     <div className="grid grid-cols-3 gap-2 text-center font-mono">
                       <div className="p-2.5 bg-white/5 border border-white/10 rounded-xs">
-                        <div className="text-[9px] text-white/40 uppercase">AVG LATENCY</div>
-                        <div className="text-sm font-bold text-[#C8FF3D]">12ms</div>
+                        <div className="text-[9px] text-white/40 uppercase">STATE SYNC</div>
+                        <div className="text-xs sm:text-sm font-bold text-[#C8FF3D]">Optimistic</div>
                       </div>
                       <div className="p-2.5 bg-white/5 border border-white/10 rounded-xs">
-                        <div className="text-[9px] text-white/40 uppercase">THROUGHPUT</div>
-                        <div className="text-sm font-bold text-white">4.2k req/s</div>
+                        <div className="text-[9px] text-white/40 uppercase">WORKFLOWS</div>
+                        <div className="text-xs sm:text-sm font-bold text-white">Keyboard-First</div>
                       </div>
                       <div className="p-2.5 bg-white/5 border border-white/10 rounded-xs">
-                        <div className="text-[9px] text-white/40 uppercase">UPTIME</div>
-                        <div className="text-sm font-bold text-white">100.0%</div>
+                        <div className="text-[9px] text-white/40 uppercase">DATA STACK</div>
+                        <div className="text-xs sm:text-sm font-bold text-white">Type-Safe</div>
                       </div>
                     </div>
 
                     {/* Chart Bar Visualization */}
                     <div className="p-3 bg-white/[0.03] border border-white/10 rounded-xs space-y-2">
                       <div className="flex justify-between text-[10px] font-mono text-white/50">
-                        <span>REAL-TIME TELEMETRY</span>
+                        <span>SIMULATED ACTIVITY DISTRIBUTION</span>
                         <div className="flex gap-2">
                           {(["24h", "7d", "30d"] as const).map((r) => (
                             <button
@@ -391,7 +391,7 @@ export function Services() {
                     <div className="p-3 bg-black/60 border border-white/10 rounded-xs font-mono text-[11px] text-white/70 space-y-1">
                       <div className="text-[9px] text-white/40 uppercase">{"// LIVE PAYLOAD SPECIFICATION"}</div>
                       <div className="text-white/80">
-                        {`{ service: "core_cluster", status: "healthy", latency_p99: "8ms", isolation: "tenant_isolated" }`}
+                        {`{ service: "core_logic", status: "production_ready", architecture: "modular_domain", validation: "type_safe" }`}
                       </div>
                     </div>
                   </div>
@@ -456,13 +456,13 @@ export function Services() {
                       <div className="text-[9px] text-white/40 uppercase">{"// REAL-TIME EXECUTION LOG"}</div>
                       <div className="space-y-0.5 text-[10px]">
                         <div className="text-white/60">
-                          [10:48:01] INCOMING PAYLOAD RECEIVED • 48 TOKENS INGESTED
+                          [10:48:01] INCOMING PAYLOAD RECEIVED • DOCUMENT INGESTED
                         </div>
                         <div className="text-[#C8FF3D]">
-                          [10:48:02] CONTEXT PARSER COMPLETED (99.2% RECALL SCORE)
+                          [10:48:02] CONTEXT PARSER COMPLETED • ENTITY EXTRACTION VERIFIED
                         </div>
                         <div className="text-white/80">
-                          [10:48:03] AGENT ROUTED TO PRODUCTION DB • ZERO BOTTLENECK
+                          [10:48:03] PIPELINE DISPATCHED TO WORKSPACE DATABASE
                         </div>
                       </div>
                     </div>

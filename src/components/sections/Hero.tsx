@@ -322,7 +322,7 @@ export function Hero() {
                   "text-[10px] font-mono tracking-widest uppercase",
                   activeMode === 0 ? "text-[#121110]/50" : activeMode === 1 ? "text-white/40" : "text-[#0A0A0A]/50"
                 )}>
-                  {activeMode === 0 ? "FLAGSHIP E-COMMERCE" : activeMode === 1 ? "TREASURY & SETTLEMENT" : "SPATIAL MONOGRAPH"}
+                  {activeMode === 0 ? "FLAGSHIP E-COMMERCE" : activeMode === 1 ? "BUSINESS OPERATIONS APP" : "SPATIAL MONOGRAPH"}
                 </div>
               </div>
 
@@ -546,7 +546,7 @@ export function Hero() {
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-[#0D1016] border border-white/10 p-5 sm:p-6 rounded-xs text-white relative overflow-hidden">
                     <div className="md:col-span-6 space-y-4">
                       <div className="flex items-center gap-2 text-[10px] font-mono text-[#C8FF3D] tracking-widest uppercase font-bold">
-                        <span>MERIDIAN // TREASURY &amp; ASSET ENGINE</span>
+                        <span>MERIDIAN // OPERATIONS &amp; WORKFLOW ENGINE</span>
                       </div>
 
                       <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-sans">

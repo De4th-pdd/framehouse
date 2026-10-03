@@ -4,7 +4,7 @@ export const processSteps: ProcessStep[] = [
   {
     number: "01",
     title: "DISCOVER",
-    description: "Deconstruct the business model, commercial objectives, and technical constraints.",
+    description: "Understand the business, audience and goals.",
     deliverables: [
       "System scope & technical feasibility",
       "User flow & page architecture",
@@ -14,7 +14,7 @@ export const processSteps: ProcessStep[] = [
   {
     number: "02",
     title: "FRAME",
-    description: "Establish the structural hierarchy, typographic discipline, and bespoke art direction.",
+    description: "Shape the structure, visual direction and experience.",
     deliverables: [
       "Information architecture",
       "Interactive wireframe models",
@@ -24,7 +24,7 @@ export const processSteps: ProcessStep[] = [
   {
     number: "03",
     title: "BUILD",
-    description: "Engineer modern, clean-coded digital surfaces with production TypeScript and Next.js.",
+    description: "Turn the design into a responsive, production-ready product.",
     deliverables: [
       "Component-driven engineering",
       "Bespoke motion choreography",
@@ -34,7 +34,7 @@ export const processSteps: ProcessStep[] = [
   {
     number: "04",
     title: "REFINE",
-    description: "Stress-test across 8 responsive viewports, eliminate layout shifts, and tune latency.",
+    description: "Test, optimize and polish across real devices.",
     deliverables: [
       "320px–1440px viewport QA",
       "Performance & accessibility audit",
@@ -44,7 +44,7 @@ export const processSteps: ProcessStep[] = [
   {
     number: "05",
     title: "LAUNCH",
-    description: "Deploy to production infrastructure with verified DNS, security headers, and live verification.",
+    description: "Deploy, test and hand over the finished product cleanly.",
     deliverables: [
       "Production deployment & DNS setup",
       "Performance & SEO verification",

@@ -142,7 +142,7 @@ export default function ContactPage() {
                   </h3>
                   <p className="text-sm text-[#0A0A0A]/80 leading-relaxed font-normal">
                     Thank you, <span className="font-bold text-[#0A0A0A]">{formData.name}</span>.
-                    Our lead designers review all briefs directly and will follow up with you at{" "}
+                    We review all briefs directly and will follow up with you at{" "}
                     <span className="font-mono text-[#0A0A0A]">{formData.email}</span> within 24 hours.
                   </p>
                 </div>

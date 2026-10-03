@@ -6,7 +6,6 @@ export interface NoorProduct {
   priceNum: number;
   edition: string;
   material: string;
-  provenance: string;
   description: string;
   swatches: { name: string; hex: string; texture: string }[];
   tag: string;
@@ -31,7 +30,6 @@ export const NOOR_PRODUCTS: NoorProduct[] = [
     priceNum: 480,
     edition: "SERIES SPECIFICATION",
     material: "Hand-Spun Raw Mulberry Silk",
-    provenance: "Northern Punjab Workshop Study",
     description: "Relaxed silhouette tailored with unbleached organic mulberry silk, hand-carved buffalo horn buttons, and french seams.",
     swatches: [
       { name: "Raw Ivory", hex: "#F3EDE2", texture: "Matte organic slub" },
@@ -43,12 +41,11 @@ export const NOOR_PRODUCTS: NoorProduct[] = [
   {
     id: "prod-02",
     name: "Mizan Low Credenza",
-    category: "OBJECT // ATELIER JOINERY",
+    category: "CONCEPT PRODUCT // ATELIER JOINERY",
     price: "$3,650 USD",
     priceNum: 3650,
     edition: "STUDIO ARCHIVE SPEC",
     material: "Charred Ash & Honed Alabaster",
-    provenance: "Chiniot Guild Workshop Study",
     description: "Solid flamed ash credenza framed with unlacquered cast bronze hardware and a solid honed stone slab top.",
     swatches: [
       { name: "Charred Ash", hex: "#1A1A1A", texture: "Hand-planed charred grain" },
@@ -65,7 +62,6 @@ export const NOOR_PRODUCTS: NoorProduct[] = [
     priceNum: 720,
     edition: "FOUNDRY SERIES SPEC",
     material: "Heavy Cast Bronze",
-    provenance: "Lahore Foundry Study",
     description: "Monolithic weighted centerpiece cast via traditional lost-wax technique with hand-patinated exterior and mirror-polished interior rim.",
     swatches: [
       { name: "Living Bronze", hex: "#7D5D3B", texture: "Oxidized natural patina" },

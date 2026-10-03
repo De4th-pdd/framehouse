@@ -71,18 +71,21 @@ export function About() {
         <SectionHeader
           eyebrow="06 / STUDIO PROFILE"
           title="Independent by design."
-          description="Direct founder involvement. Senior technical execution. No agency bloat."
+          description="Direct founder involvement. Small by design. No agency bloat."
           theme="light"
         />
 
         {/* Primary Manifesto Statement */}
-        <div className="max-w-5xl">
+        <div className="max-w-5xl space-y-4">
           <p
             ref={headlineRef}
             className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0A0A0A] leading-[1.18]"
           >
             FRAMEHOUSE is an independent digital studio based in Pakistan, building custom websites,
             software and digital experiences for businesses worldwide.
+          </p>
+          <p className="text-lg sm:text-2xl text-[#0A0A0A]/70 font-medium leading-relaxed">
+            Small by design. Direct by default. Focused on making excellent digital work.
           </p>
         </div>
 
@@ -154,7 +157,7 @@ export function About() {
               ENGAGEMENT
             </div>
             <div className="font-bold text-[#0A0A0A]">
-              Bespoke Sprints & Retainers
+              Bespoke Digital Projects
             </div>
           </div>
         </div>

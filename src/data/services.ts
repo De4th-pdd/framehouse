@@ -12,8 +12,8 @@ export const services: Service[] = [
       "High-Performance Frontends",
       "Responsive & Accessible Architecture",
     ],
-    previewHeadline: "Websites that make competitors feel outdated.",
-    previewSub: "Zero off-the-shelf templates. Every layout, typographic rhythm, and interaction is engineered around your specific market advantage.",
+    previewHeadline: "Websites built around your advantage.",
+    previewSub: "No off-the-shelf templates. We shape the structure, visual system and interactions around what makes your business different.",
     techFocus: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GSAP"],
   },
   {

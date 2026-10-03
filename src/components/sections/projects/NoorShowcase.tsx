@@ -30,7 +30,6 @@ export interface FurnitureFinish {
     timber: string;
     stone: string;
     hardware: string;
-    leadTime: string;
   };
 }
 
@@ -51,7 +50,6 @@ export const FURNITURE_FINISHES: FurnitureFinish[] = [
       timber: "Quarter-Sawn Flamed Ash",
       stone: "Translucent Honed Alabaster",
       hardware: "Unlacquered Sand-Cast Bronze",
-      leadTime: "6–8 Weeks (Bespoke)",
     },
   },
   {
@@ -70,7 +68,6 @@ export const FURNITURE_FINISHES: FurnitureFinish[] = [
       timber: "Bleached Mountain Maple",
       stone: "Honed Greek White Alabaster",
       hardware: "Brushed Raw Champagne Bronze",
-      leadTime: "8–10 Weeks (Quarried)",
     },
   },
   {
@@ -89,7 +86,6 @@ export const FURNITURE_FINISHES: FurnitureFinish[] = [
       timber: "Reclaimed River Teak (Waxed)",
       stone: "Smoked Honed Travertine",
       hardware: "Heavy Sand-Cast Living Bronze",
-      leadTime: "6–8 Weeks (Foundry Cast)",
     },
   },
 ];
@@ -282,7 +278,7 @@ export function NoorShowcase() {
                   </p>
                 </div>
                 <div className="text-xs font-mono text-[#121110]/50 tracking-wider">
-                  EDITION 04 OF 12 • LAHORE FOUNDRY &amp; CHINIOT GUILD
+                  CONCEPT SPECIFICATION // BESPOKE STUDY
                 </div>
               </div>
 
@@ -393,10 +389,10 @@ export function NoorShowcase() {
                     </div>
                   </div>
 
-                  {/* Action CTA: Commission Inquiry */}
+                  {/* Action CTA */}
                   <div className="pt-2 space-y-3">
                     <div className="flex justify-between items-baseline text-xs font-mono">
-                      <span className="text-[#121110]/60">SAMPLE PRICE SPEC:</span>
+                      <span className="text-[#121110]/60">CONCEPT PRODUCT SPEC:</span>
                       <span className="text-base font-bold text-[#121110]">
                         {currentFinish.price}
                       </span>
@@ -426,7 +422,7 @@ export function NoorShowcase() {
                       <span className="text-[#8C6D46] font-bold">
                         FINISH // {currentFinish.name.toUpperCase()}
                       </span>
-                      <span>SCALE 1:1 ATELIER</span>
+                      <span>SCALE 1:1 CONCEPT STUDY</span>
                     </div>
 
                     {/* Editorial Lighting & Layered Shadow Stage */}
@@ -569,7 +565,7 @@ export function NoorShowcase() {
                       {/* Editorial Caption Tag */}
                       <div className="relative z-10 text-center space-y-1 pt-4">
                         <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#121110]/50">
-                          ATELIER ARCHIVE // MONOGRAPH NO. 04
+                          CONCEPT MONOGRAPH // STUDY NO. 04
                         </span>
                         <p className="text-xs font-mono text-[#121110]/80">
                           {currentFinish.name} • Honed {currentFinish.specs.stone} • Unlacquered Bronze

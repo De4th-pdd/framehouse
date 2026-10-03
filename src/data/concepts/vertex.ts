@@ -57,7 +57,7 @@ export const VERTEX_PROJECTS: ArchProject[] = [
     scale: "8,900 M²",
     materials: ["Perforated Basalt", "Low-E Solar Glazing", "Brushed Titanium"],
     headline: "High-density institutional corporate campus study with shaded courtyards.",
-    statement: "Engineered with dual-skin facade fins that reduce solar heat gain by 42% while filtering daylight into double-height atrium gardens.",
+    statement: "Engineered with dual-skin facade fins designed to mitigate solar heat gain while filtering daylight into double-height atrium gardens.",
     palette: [
       { name: "Black Basalt", hex: "#1C1C1E" },
       { name: "Reflective Glass", hex: "#5C6A78" },

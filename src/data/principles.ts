@@ -22,7 +22,7 @@ export const principles: Principle[] = [
   {
     number: "04",
     title: "NO HANDOFF-AND-DISAPPEAR.",
-    description: "We build, launch and maintain.",
-    detail: "We partner with ambitious teams for the long haul. We ensure smooth deployments, ongoing optimizations, and dependable technical stewardship.",
+    description: "We stay involved through launch and can continue improving the product when needed.",
+    detail: "We stay involved through launch and can continue improving the product when needed. We ensure clean deployments, robust code handoff, and direct practitioner support.",
   },
 ];

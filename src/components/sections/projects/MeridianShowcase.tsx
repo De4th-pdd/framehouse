@@ -98,7 +98,7 @@ export function MeridianShowcase() {
           <div className="flex items-center gap-3">
             <Badge variant="concept">CONCEPT / 02</Badge>
             <span className="text-xs font-mono tracking-[0.2em] uppercase text-white/70">
-              MERIDIAN // CONCEPT — BUSINESS WEB APP
+              MERIDIAN // CONCEPT — BUSINESS OPERATIONS APP
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs font-mono text-white/70">
@@ -181,7 +181,7 @@ export function MeridianShowcase() {
             </div>
           </div>
 
-          {/* Real SVG Liquidity Trajectory Chart with Timeframe Switcher */}
+          {/* Real SVG Operational Throughput Chart with Timeframe Switcher */}
           <div className="space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-xs font-mono">
