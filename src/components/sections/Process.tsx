@@ -69,7 +69,7 @@ export function Process() {
         <SectionHeader
           eyebrow="05 / PROCESS"
           title="A better way to build."
-          description="A structured five-phase delivery methodology that removes guesswork and guarantees structural polish from Day 1 to post-launch."
+          description="A structured five-phase delivery methodology focused on clear milestones, iterative feedback, and rigorous technical execution."
           theme="light"
         />
 

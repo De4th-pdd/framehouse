@@ -96,7 +96,7 @@ export function About() {
               {"// HOW WE WORK"}
             </span>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0A0A0A]">
-              Senior creative engineers, not layers of account managers.
+              Direct collaboration, not layers of account managers.
             </h3>
             <p className="text-base text-[#0A0A0A]/75 leading-relaxed font-normal">
               When you hire Framehouse, you work directly with the practitioners who design
@@ -110,7 +110,7 @@ export function About() {
               {"// STUDIO PRESENCE"}
             </span>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0A0A0A]">
-              Pakistan roots. Global execution standards.
+              Pakistan roots. Global ambitions.
             </h3>
             <p className="text-base text-[#0A0A0A]/75 leading-relaxed font-normal">
               Rooted in Pakistan with a worldwide operating footprint. We bring the highest tier

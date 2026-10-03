@@ -67,13 +67,13 @@ export function VertexShowcase() {
           <div className="flex items-center gap-3">
             <Badge variant="concept">CONCEPT / 03</Badge>
             <span className="text-xs font-mono tracking-[0.2em] uppercase text-[#0A0A0A]/70">
-              ARCHITECTURAL MONOGRAPH & SPATIAL PLATFORM
+              VERTEX STUDIO // CONCEPT — ARCHITECTURE PORTFOLIO
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs font-mono text-[#0A0A0A]/70">
-            <span>ZURICH • DUBAI • ISLAMABAD</span>
+            <span>SPATIAL PRACTICE MONOGRAPH</span>
             <span className="text-[#0A0A0A]/20">•</span>
-            <span>SPATIAL MONOGRAPH PLATFORM</span>
+            <span>PORTFOLIO CONCEPT DEMO</span>
           </div>
         </div>
 
@@ -82,14 +82,13 @@ export function VertexShowcase() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
             <div className="lg:col-span-8 space-y-2">
               <span className="text-xs font-mono tracking-[0.22em] text-[#1E3A5F] uppercase font-semibold">
-                MONOLITHIC ARCHITECTURE & URBAN DEVELOPMENT
+                CONTEMPORARY ARCHITECTURE PORTFOLIO CONCEPT
               </span>
               <h3 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#0A0A0A] leading-[1.02] font-sans">
                 VERTEX STUDIO
               </h3>
               <p className="text-base sm:text-lg text-[#0A0A0A]/80 max-w-2xl font-normal leading-relaxed pt-1">
-                A digital monograph engineered for progressive architecture practices and spatial developers.
-                Replacing flat portfolios with multi-axis project filtering, materiality archives, and spatial scale presentation.
+                A self-initiated portfolio concept exploring how architecture practices can present projects, drawings, materials and spatial studies online.
               </p>
             </div>
 
@@ -430,7 +429,7 @@ export function VertexShowcase() {
             <div className="flex items-center justify-between border-b border-[#0A0A0A]/15 pb-4">
               <div className="space-y-0.5">
                 <span className="text-[10px] font-mono text-[#1E3A5F] font-bold uppercase tracking-wider">
-                  COMMISSION DOSSIER // {activeProject.number}
+                  STUDY DOSSIER // {activeProject.number}
                 </span>
                 <h4 className="text-xl font-bold font-sans text-[#0A0A0A]">
                   {activeProject.name}
@@ -458,7 +457,7 @@ export function VertexShowcase() {
             {dossierNotice && (
               <div className="p-3 bg-[#1E3A5F]/10 border border-[#1E3A5F]/30 rounded-xs space-y-1 font-mono text-xs text-[#0A0A0A]">
                 <div className="flex justify-between items-center">
-                  <span className="font-bold text-[#1E3A5F]">DISCOVERY BRIEF DISPATCHED</span>
+                  <span className="font-bold text-[#1E3A5F]">INQUIRY FLOW SIMULATED</span>
                   <button
                     onClick={() => setDossierNotice(false)}
                     className="text-[10px] text-[#0A0A0A]/60 hover:text-[#0A0A0A] cursor-pointer"
@@ -467,7 +466,7 @@ export function VertexShowcase() {
                   </button>
                 </div>
                 <p className="text-[10px] text-[#0A0A0A]/80">
-                  Simulation: In production, this schedules an immediate private architectural discovery call with lead studio partner.
+                  Concept simulation: In production, this routes the project inquiry directly to the studio partner team.
                 </p>
               </div>
             )}
@@ -477,7 +476,7 @@ export function VertexShowcase() {
                 onClick={() => setDossierNotice(true)}
                 className="flex-1 py-3 px-4 bg-[#0A0A0A] text-white text-xs font-mono font-bold uppercase tracking-wider hover:bg-[#282828] transition-colors rounded-xs shadow-md cursor-pointer"
               >
-                COMMISSION AN ARCHITECTURAL PLATFORM
+                TEST INQUIRY FLOW
               </button>
               <button
                 onClick={() => setDossierOpen(false)}

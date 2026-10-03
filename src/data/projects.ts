@@ -4,13 +4,13 @@ export const projects: Project[] = [
   {
     id: "noor",
     name: "NOOR",
-    eyebrow: "PAKISTAN CRAFTSMANSHIP / CONTEMPORARY EDITORIAL",
+    eyebrow: "SELF-INITIATED CONCEPT / CONTEMPORARY EDITORIAL",
     conceptLabel: "CONCEPT / 01",
     category: "BRAND / E-COMMERCE / WEB",
     tags: ["E-Commerce", "Art Direction", "Tactile UI", "Custom Catalog"],
     description:
-      "A digital flagship for a contemporary furniture & lifestyle house. Grounded in raw timber, cast bronze, and architectural silhouettes, balanced with micro-fluid purchasing interactions and tactile material storytelling.",
-    year: "2026",
+      "A self-initiated storefront concept for a contemporary Pakistani design house, combining editorial storytelling with a considered e-commerce experience.",
+    year: "Concept",
     deliverables: [
       "Custom E-Commerce Architecture",
       "Material Spec Switcher",
@@ -27,18 +27,18 @@ export const projects: Project[] = [
   {
     id: "meridian",
     name: "MERIDIAN",
-    eyebrow: "GLOBAL TREASURY & ASSET ENGINE",
+    eyebrow: "SELF-INITIATED CONCEPT / OPERATIONAL WEB APP",
     conceptLabel: "CONCEPT / 02",
     category: "WEB / APPLICATION / SOFTWARE",
-    tags: ["High-Perf Web App", "Settlement Engine", "Command Palette (⌘K)", "Telemetry"],
+    tags: ["High-Perf Web App", "Interactive Prototype", "Command Palette (⌘K)", "Telemetry"],
     description:
-      "A high-performance institutional liquidity platform and treasury management engine. Engineered for instant cross-border settlement visibility with sub-50ms interaction latency, keyboard-first navigation, and real-time ledger auditing.",
-    year: "2026",
+      "A self-initiated operational web application exploring high-density data architecture, Linear-style keyboard workflows (⌘K), and instant state transitions.",
+    year: "Concept",
     deliverables: [
       "Command Palette (⌘K) Interaction",
-      "Interactive Liquidity Trajectory Chart",
-      "Multi-Currency Audit Ledger",
-      "Real-time Settlement Feed",
+      "Interactive Throughput Trajectory Chart",
+      "High-Density Workstream Ledger",
+      "State Filtering & Search",
     ],
     palette: {
       bg: "#090B0E",
@@ -50,18 +50,18 @@ export const projects: Project[] = [
   {
     id: "vertex",
     name: "VERTEX",
-    eyebrow: "MONOLITHIC ARCHITECTURE & URBAN DEVELOPMENT",
+    eyebrow: "SELF-INITIATED CONCEPT / ARCHITECTURE PORTFOLIO",
     conceptLabel: "CONCEPT / 03",
     category: "WEB / INTERACTIVE / DIGITAL",
-    tags: ["Real Estate", "Interactive Floorplans", "Elevation Viewer", "High-End Web"],
+    tags: ["Spatial Monograph", "Project Archive", "Material Studies", "High-End Web"],
     description:
-      "A digital showcase for a progressive real estate developer crafting brutalist-inspired residential towers. Featuring coordinate-driven blueprint framing, spatial elevation views, and bespoke property inquiry flows.",
-    year: "2026",
+      "A self-initiated portfolio concept exploring how architecture practices can present projects, drawings, materials and spatial studies online.",
+    year: "Concept",
     deliverables: [
-      "Spatial Elevation Viewer",
-      "Coordinate Blueprint Grid",
-      "Unit Spec Comparison Matrix",
-      "Private Investor Portal",
+      "Spatial Project Viewer",
+      "Materiality Specification Matrix",
+      "Multi-Axis Typology Filtering",
+      "Interactive Study Dossier",
     ],
     palette: {
       bg: "#121417",

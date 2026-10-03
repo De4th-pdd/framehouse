@@ -11,17 +11,18 @@ import { Badge } from "@/components/common/Badge";
 import { FrameContainer } from "@/components/common/FrameContainer";
 import {
   MERIDIAN_METRICS,
-  MERIDIAN_TRANSACTIONS,
+  MERIDIAN_WORKSTREAMS,
   COMMAND_ACTIONS,
+  WorkstreamItem,
 } from "@/data/concepts/meridian";
 import { cn } from "@/lib/utils";
 
 export function MeridianShowcase() {
   const [timeframe, setTimeframe] = useState<"24H" | "7D" | "30D" | "YTD">("7D");
-  const [selectedCurrency, setSelectedCurrency] = useState<"ALL" | "USD" | "AED" | "PKR">("ALL");
+  const [selectedEnv, setSelectedEnv] = useState<"ALL" | "Production" | "Staging" | "Sandbox">("ALL");
   const [searchQuery, setSearchQuery] = useState("");
   const [isCommandOpen, setIsCommandOpen] = useState(false);
-  const [highValueOnly, setHighValueOnly] = useState(false);
+  const [highDensityOnly, setHighDensityOnly] = useState(false);
   const [statusNotice, setStatusNotice] = useState<string | null>(null);
 
   // Keyboard shortcut listener for ⌘K / Ctrl+K and Escape
@@ -52,18 +53,18 @@ export function MeridianShowcase() {
 
   const metrics = MERIDIAN_METRICS[timeframe];
 
-  // Filter transactions based on currency, high-value flag, and search query
-  const filteredTransactions = useMemo(() => {
-    return MERIDIAN_TRANSACTIONS.filter((tx) => {
-      const matchCurrency = selectedCurrency === "ALL" || tx.currency === selectedCurrency;
-      const matchHighValue = !highValueOnly || tx.amountNum >= 50000;
+  // Filter workstreams based on environment, high-density flag, and search query
+  const filteredWorkstreams = useMemo(() => {
+    return MERIDIAN_WORKSTREAMS.filter((item) => {
+      const matchEnv = selectedEnv === "ALL" || item.environment === selectedEnv;
+      const matchDensity = !highDensityOnly || item.unitsNum >= 10000;
       const matchSearch =
-        tx.counterparty.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        tx.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        tx.id.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchCurrency && matchHighValue && matchSearch;
+        item.stream.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.module.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.id.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchEnv && matchDensity && matchSearch;
     });
-  }, [selectedCurrency, highValueOnly, searchQuery]);
+  }, [selectedEnv, highDensityOnly, searchQuery]);
 
   // Construct SVG polygon points for smooth liquidity trajectory curve
   const svgPoints = useMemo(() => {
@@ -97,13 +98,13 @@ export function MeridianShowcase() {
           <div className="flex items-center gap-3">
             <Badge variant="concept">CONCEPT / 02</Badge>
             <span className="text-xs font-mono tracking-[0.2em] uppercase text-white/70">
-              CUSTOM SOFTWARE & HIGH-PERFORMANCE WEB APP
+              MERIDIAN // CONCEPT — OPERATIONAL WEB APP
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs font-mono text-white/70">
-            <span>TREASURY & SETTLEMENT ENGINE</span>
+            <span>SIMULATED DATA — CONCEPT UI</span>
             <span className="text-white/20">•</span>
-            <span className="text-[#C8FF3D] font-bold">SUB-50MS ASSET RUNTIME</span>
+            <span className="text-[#C8FF3D] font-bold">KEYBOARD-DRIVEN PROTOTYPE</span>
           </div>
         </div>
 
@@ -112,14 +113,14 @@ export function MeridianShowcase() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
             <div className="lg:col-span-8 space-y-2">
               <span className="text-xs font-mono tracking-[0.22em] text-[#C8FF3D] uppercase font-semibold">
-                GLOBAL TREASURY OS & CROSS-BORDER ASSET PLATFORM
+                HIGH-DENSITY OPERATIONAL INTERFACE CONCEPT
               </span>
               <h3 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.02] font-sans">
                 MERIDIAN
               </h3>
               <p className="text-base sm:text-lg text-white/80 max-w-2xl font-normal leading-relaxed pt-1">
-                A high-density operational web application engineered for cross-border treasury desks. Designed
-                with Linear and Ramp level keyboard fluidity, sub-50ms reaction speeds, and zero visual clutter.
+                A self-initiated operational web application exploring high-density data architecture,
+                Linear-style keyboard workflows (⌘K), and instant state transitions for complex teams.
               </p>
             </div>
 
@@ -145,10 +146,10 @@ export function MeridianShowcase() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pb-6 border-b border-white/10">
             <div className="p-4 bg-white/5 border border-white/10 rounded-xs space-y-1">
               <div className="text-[10px] font-mono uppercase tracking-widest text-white/50">
-                SETTLED LIQUIDITY ({timeframe})
+                PROCESSED OPERATIONS ({timeframe})
               </div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white font-sans tracking-tight">
-                {metrics.volume}
+                {metrics.operations}
               </div>
               <div className="text-xs font-mono text-[#C8FF3D] font-bold flex items-center gap-1 pt-0.5">
                 <TrendingUp className="w-3.5 h-3.5" />
@@ -158,25 +159,25 @@ export function MeridianShowcase() {
 
             <div className="p-4 bg-white/5 border border-white/10 rounded-xs space-y-1">
               <div className="text-[10px] font-mono uppercase tracking-widest text-white/50">
-                NET INFLOW BALANCE
+                THROUGHPUT RUNTIME
               </div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white font-sans tracking-tight">
-                {metrics.netFlow}
+                {metrics.throughput}
               </div>
               <div className="text-xs font-mono text-white/60 pt-0.5">
-                Automated multi-currency clearing
+                Simulated cluster telemetry
               </div>
             </div>
 
             <div className="p-4 bg-white/5 border border-white/10 rounded-xs space-y-1">
               <div className="text-[10px] font-mono uppercase tracking-widest text-white/50">
-                SETTLEMENT LATENCY SLA
+                UI REACTION LATENCY
               </div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white font-sans tracking-tight">
-                42ms
+                &lt; 50ms
               </div>
               <div className="text-xs font-mono text-[#C8FF3D] font-bold pt-0.5">
-                Direct WebSocket feed active
+                Client-side reactive state
               </div>
             </div>
           </div>
@@ -187,9 +188,9 @@ export function MeridianShowcase() {
               <div className="flex items-center gap-2 text-xs font-mono">
                 <span className="w-2 h-2 rounded-full bg-[#C8FF3D]" />
                 <span className="font-bold uppercase tracking-wider text-white">
-                  REAL-TIME TREASURY CURVE
+                  OPERATIONAL THROUGHPUT CURVE
                 </span>
-                <span className="text-white/40">({timeframe} AGGREGATE)</span>
+                <span className="text-white/40">({timeframe} SIMULATION)</span>
               </div>
 
               {/* Timeframe Selector Pills */}
@@ -263,34 +264,34 @@ export function MeridianShowcase() {
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-mono uppercase tracking-wider text-white font-bold">
-                  TRANSACTION LEDGER
+                  OPERATIONAL WORKSTREAMS
                 </span>
                 <span className="text-[10px] font-mono px-2 py-0.5 bg-white/10 text-white/80 rounded-xs">
-                  {filteredTransactions.length} ENTRIES
+                  {filteredWorkstreams.length} ENTRIES
                 </span>
-                {highValueOnly && (
+                {highDensityOnly && (
                   <span className="text-[10px] font-mono px-2 py-0.5 bg-[#C8FF3D]/20 text-[#C8FF3D] rounded-xs font-bold">
-                    &gt; $50K FILTER
+                    &gt; 10K DENSITY FILTER
                   </span>
                 )}
               </div>
 
-              {/* Currency & Search Controls */}
+              {/* Environment & Search Controls */}
               <div className="flex flex-wrap items-center gap-3">
-                {/* Currency Filter */}
+                {/* Environment Filter */}
                 <div className="inline-flex p-0.5 bg-white/5 border border-white/10 rounded-xs text-[11px] font-mono">
-                  {(["ALL", "USD", "AED", "PKR"] as const).map((curr) => (
+                  {(["ALL", "Production", "Staging", "Sandbox"] as const).map((env) => (
                     <button
-                      key={curr}
-                      onClick={() => setSelectedCurrency(curr)}
+                      key={env}
+                      onClick={() => setSelectedEnv(env)}
                       className={cn(
                         "px-2.5 py-1 rounded-xs transition-all",
-                        selectedCurrency === curr
+                        selectedEnv === env
                           ? "bg-white text-black font-bold"
                           : "text-white/60 hover:text-white"
                       )}
                     >
-                      {curr}
+                      {env}
                     </button>
                   ))}
                 </div>
@@ -300,7 +301,7 @@ export function MeridianShowcase() {
                   <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
                   <input
                     type="text"
-                    placeholder="Search ledger..."
+                    placeholder="Search workstreams..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-8 pr-3 py-1 bg-white/5 border border-white/15 text-xs font-mono text-white rounded-xs focus:outline-none focus:border-[#C8FF3D] w-36 sm:w-48 placeholder:text-white/30"
@@ -309,54 +310,54 @@ export function MeridianShowcase() {
               </div>
             </div>
 
-            {/* High-Density Ledger Table */}
+            {/* High-Density Workstream Table */}
             <div className="overflow-x-auto">
               <table className="w-full text-left font-mono text-xs">
                 <thead>
                   <tr className="text-white/40 border-b border-white/10 text-[10px] uppercase tracking-wider">
-                    <th className="py-2.5 px-3">ENTRY ID</th>
-                    <th className="py-2.5 px-3">COUNTERPARTY</th>
-                    <th className="py-2.5 px-3">CATEGORY</th>
-                    <th className="py-2.5 px-3 text-right">SETTLEMENT AMOUNT</th>
+                    <th className="py-2.5 px-3">JOB ID</th>
+                    <th className="py-2.5 px-3">WORKSTREAM</th>
+                    <th className="py-2.5 px-3">MODULE</th>
+                    <th className="py-2.5 px-3 text-right">WORKLOAD UNITS</th>
                     <th className="py-2.5 px-3">STATUS</th>
-                    <th className="py-2.5 px-3">NETWORK</th>
+                    <th className="py-2.5 px-3">HANDLER</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
-                  {filteredTransactions.length === 0 ? (
+                  {filteredWorkstreams.length === 0 ? (
                     <tr>
                       <td colSpan={6} className="py-8 text-center text-white/40 text-xs font-mono">
-                        No transactions found matching your filter criteria.
+                        No workstreams found matching your filter criteria.
                       </td>
                     </tr>
                   ) : (
-                    filteredTransactions.map((tx) => (
+                    filteredWorkstreams.map((item) => (
                       <tr
-                        key={tx.id}
+                        key={item.id}
                         className="hover:bg-white/5 transition-colors group cursor-default"
                       >
-                        <td className="py-3 px-3 text-white/70 font-semibold">{tx.id}</td>
-                        <td className="py-3 px-3 text-white font-bold">{tx.counterparty}</td>
-                        <td className="py-3 px-3 text-white/60">{tx.category}</td>
+                        <td className="py-3 px-3 text-white/70 font-semibold">{item.id}</td>
+                        <td className="py-3 px-3 text-white font-bold">{item.stream}</td>
+                        <td className="py-3 px-3 text-white/60">{item.module}</td>
                         <td className="py-3 px-3 text-right font-bold text-white group-hover:text-[#C8FF3D] transition-colors">
-                          {tx.amount}
+                          {item.units}
                         </td>
                         <td className="py-3 px-3">
                           <span
                             className={cn(
                               "inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] rounded-xs font-bold uppercase",
-                              tx.status === "Settled"
+                              item.status === "Completed"
                                 ? "bg-[#C8FF3D]/10 text-[#C8FF3D] border border-[#C8FF3D]/30"
-                                : tx.status === "In Escrow"
+                                : item.status === "Active"
                                 ? "bg-amber-400/10 text-amber-300 border border-amber-400/30"
                                 : "bg-white/10 text-white/70 border border-white/20"
                             )}
                           >
                             <span className="w-1.5 h-1.5 rounded-full bg-current" />
-                            <span>{tx.status}</span>
+                            <span>{item.status}</span>
                           </span>
                         </td>
-                        <td className="py-3 px-3 text-white/50 text-[10px]">{tx.network}</td>
+                        <td className="py-3 px-3 text-white/50 text-[10px]">{item.handler}</td>
                       </tr>
                     ))
                   )}
@@ -403,23 +404,23 @@ export function MeridianShowcase() {
                   <button
                     key={cmd.id}
                     onClick={() => {
-                      if (cmd.id === "curr-all") {
-                        setSelectedCurrency("ALL");
-                        setStatusNotice("Filter reset: Stream shows all settlement currencies.");
-                      } else if (cmd.id === "curr-usd") {
-                        setSelectedCurrency("USD");
-                        setStatusNotice("Currency filter: Active view USD only.");
-                      } else if (cmd.id === "curr-aed") {
-                        setSelectedCurrency("AED");
-                        setStatusNotice("Currency filter: Active view AED only.");
-                      } else if (cmd.id === "curr-pkr") {
-                        setSelectedCurrency("PKR");
-                        setStatusNotice("Currency filter: Active view PKR only.");
+                      if (cmd.id === "env-all") {
+                        setSelectedEnv("ALL");
+                        setStatusNotice("Filter reset: Active stream shows all execution environments.");
+                      } else if (cmd.id === "env-prod") {
+                        setSelectedEnv("Production");
+                        setStatusNotice("Environment filter: Active view Production only.");
+                      } else if (cmd.id === "env-stg") {
+                        setSelectedEnv("Staging");
+                        setStatusNotice("Environment filter: Active view Staging only.");
+                      } else if (cmd.id === "env-sbx") {
+                        setSelectedEnv("Sandbox");
+                        setStatusNotice("Environment filter: Active view Sandbox only.");
                       } else if (cmd.id === "filter-high") {
-                        setHighValueOnly((prev) => !prev);
-                        setStatusNotice("High-value threshold (> $50k) toggled.");
+                        setHighDensityOnly((prev) => !prev);
+                        setStatusNotice("High-density threshold (> 10k units) toggled.");
                       } else if (cmd.id === "export-data") {
-                        setStatusNotice("Export simulated: Full settlement ledger compiled to local session bundle.");
+                        setStatusNotice("Export simulated: Operational telemetry ledger compiled to local session bundle.");
                       }
                       setIsCommandOpen(false);
                     }}

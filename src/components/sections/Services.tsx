@@ -211,7 +211,7 @@ export function Services() {
                           Engineered layouts that seamlessly adapt from 320px mobile displays to 4K studio monitors.
                         </p>
                         <div className="pt-2 flex items-center justify-between text-[10px] font-mono text-[#C8FF3D]">
-                          <span>SPEED: 99/100</span>
+                          <span>PERFORMANCE FIRST</span>
                           <span>FRAME: FULL-BLEED</span>
                         </div>
                       </div>

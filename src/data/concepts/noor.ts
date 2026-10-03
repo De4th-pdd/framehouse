@@ -26,19 +26,19 @@ export const NOOR_PRODUCTS: NoorProduct[] = [
   {
     id: "prod-01",
     name: "Raw Mulberry Silk Overshirt",
-    category: "TEXTILE // READY-TO-WEAR",
+    category: "TEXTILE // CONCEPT SPEC",
     price: "$480 USD",
     priceNum: 480,
-    edition: "LIMITED EDITION OF 40",
+    edition: "SERIES SPECIFICATION",
     material: "Hand-Spun Raw Mulberry Silk",
-    provenance: "Northern Punjab Atelier, Pakistan",
+    provenance: "Northern Punjab Workshop Study",
     description: "Relaxed silhouette tailored with unbleached organic mulberry silk, hand-carved buffalo horn buttons, and french seams.",
     swatches: [
       { name: "Raw Ivory", hex: "#F3EDE2", texture: "Matte organic slub" },
       { name: "Charcoal Sumi", hex: "#222120", texture: "Botanical charcoal wash" },
       { name: "Peshawar Indigo", hex: "#1C2430", texture: "Natural vat-dyed indigo" },
     ],
-    tag: "FEATURED LOOK",
+    tag: "STUDY LOOK",
   },
   {
     id: "prod-02",
@@ -46,16 +46,16 @@ export const NOOR_PRODUCTS: NoorProduct[] = [
     category: "OBJECT // ATELIER JOINERY",
     price: "$3,650 USD",
     priceNum: 3650,
-    edition: "COMMISSIONED // ED. OF 12",
+    edition: "STUDIO ARCHIVE SPEC",
     material: "Charred Ash & Honed Alabaster",
-    provenance: "Chiniot Guild Workshop & Lahore Foundry",
+    provenance: "Chiniot Guild Workshop Study",
     description: "Solid flamed ash credenza framed with unlacquered cast bronze hardware and a solid honed stone slab top.",
     swatches: [
       { name: "Charred Ash", hex: "#1A1A1A", texture: "Hand-planed charred grain" },
       { name: "Aged Teak", hex: "#5C4632", texture: "Waxed reclaimed river wood" },
       { name: "Raw Alabaster", hex: "#EBE5D8", texture: "Translucent honed mineral" },
     ],
-    tag: "ARCHITECTURAL PIECE",
+    tag: "ARCHITECTURAL STUDY",
   },
   {
     id: "prod-03",
@@ -63,16 +63,16 @@ export const NOOR_PRODUCTS: NoorProduct[] = [
     category: "VESSEL // LOST-WAX CASTING",
     price: "$720 USD",
     priceNum: 720,
-    edition: "NUMBERED SERIES OF 25",
+    edition: "FOUNDRY SERIES SPEC",
     material: "Heavy Cast Bronze",
-    provenance: "Lahore Brass Foundry",
+    provenance: "Lahore Foundry Study",
     description: "Monolithic weighted centerpiece cast via traditional lost-wax technique with hand-patinated exterior and mirror-polished interior rim.",
     swatches: [
       { name: "Living Bronze", hex: "#7D5D3B", texture: "Oxidized natural patina" },
       { name: "Mirror Polished", hex: "#C49E65", texture: "High-specular brass luster" },
       { name: "Gunmetal Smoke", hex: "#2D2F33", texture: "Sulfur flame blackened" },
     ],
-    tag: "GALLERY EDITION",
+    tag: "GALLERY SPEC",
   },
 ];
 
@@ -85,7 +85,7 @@ export const NOOR_LOOKBOOK: LookbookStory = {
   featuredProduct: "Raw Mulberry Silk Overshirt",
   aestheticNotes: [
     "Zero synthetic blends or chemical stabilizers",
-    "Tailored in limited small-batch cycles",
-    "Global DHL Express delivery with numbered provenance certificate",
+    "Material explorations rendered for bespoke storefronts",
+    "Sample e-commerce flow with responsive bag interaction",
   ],
 };

@@ -94,9 +94,9 @@ export function ConceptTeaser() {
               {/* Left Content */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex items-center gap-3">
-                  <Badge variant="green">DESIGN AUDIT</Badge>
+                  <Badge variant="green">START A PROJECT</Badge>
                   <span className="text-xs font-mono text-white/50 tracking-wider">
-                    BESPOKE STUDIO PROPOSAL // ZERO OBLIGATION
+                    DIRECT FOUNDER REVIEW // CLEAR SCOPE
                   </span>
                 </div>
 
@@ -109,17 +109,16 @@ export function ConceptTeaser() {
                 </h2>
 
                 <p className="text-base sm:text-xl text-white/70 max-w-xl font-normal leading-relaxed">
-                  Tell us what you&apos;re building. We&apos;ll show you where it could go.
-                  Our senior designers evaluate your current brand presence, identify points of friction,
-                  and draft a tailored visual proposal within 48 hours.
+                  Tell us what you&apos;re building, what isn&apos;t working, and where you want to take it.
+                  We evaluate your current presence, identify points of friction, and draft a structured proposal.
                 </p>
 
                 <div className="pt-2 flex flex-wrap items-center gap-4">
                   <Button href="/contact" variant="accent" icon="right" className="text-sm py-4 px-8 shadow-lg">
-                    REQUEST A FREE CONCEPT
+                    SEND PROJECT BRIEF ↗
                   </Button>
                   <span className="text-xs font-mono text-white/50 tracking-wider">
-                    ~48 HOUR TURNAROUND
+                    REPLY WITHIN 24-48 HOURS
                   </span>
                 </div>
               </div>

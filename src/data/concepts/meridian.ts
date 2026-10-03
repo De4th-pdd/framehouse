@@ -1,112 +1,112 @@
-export interface Transaction {
+export interface WorkstreamItem {
   id: string;
-  counterparty: string;
-  category: string;
-  amount: string;
-  amountNum: number;
-  currency: "USD" | "GBP" | "AED" | "PKR";
-  status: "Settled" | "In Escrow" | "Pending";
-  date: string;
-  network: string;
+  stream: string;
+  module: string;
+  units: string;
+  unitsNum: number;
+  environment: "Production" | "Staging" | "Sandbox";
+  status: "Completed" | "Active" | "Queued";
+  timestamp: string;
+  handler: string;
 }
 
 export interface MetricTimeframe {
-  volume: string;
+  operations: string;
   change: string;
-  netFlow: string;
+  throughput: string;
   points: number[];
 }
 
 export const MERIDIAN_METRICS: Record<"24H" | "7D" | "30D" | "YTD", MetricTimeframe> = {
   "24H": {
-    volume: "$482,900.00",
-    change: "+14.2% vs yesterday",
-    netFlow: "+$128,450.00",
+    operations: "48,290 OPS",
+    change: "+14.2% activity",
+    throughput: "1,280 OPS/HR",
     points: [35, 42, 40, 58, 62, 54, 78, 85, 92],
   },
   "7D": {
-    volume: "$2,845,300.00",
-    change: "+28.6% vs last week",
-    netFlow: "+$892,100.00",
+    operations: "284,530 OPS",
+    change: "+28.6% activity",
+    throughput: "8,920 OPS/HR",
     points: [28, 38, 45, 60, 55, 74, 82, 88, 96],
   },
   "30D": {
-    volume: "$12,410,000.00",
-    change: "+41.3% vs last month",
-    netFlow: "+$3,620,000.00",
+    operations: "1,241,000 OPS",
+    change: "+41.3% activity",
+    throughput: "36,200 OPS/HR",
     points: [20, 32, 44, 52, 68, 64, 79, 86, 100],
   },
   YTD: {
-    volume: "$84,200,000.00",
-    change: "+112% year-to-date",
-    netFlow: "+$24,500,000.00",
+    operations: "8,420,000 OPS",
+    change: "+112% activity",
+    throughput: "245,000 OPS/HR",
     points: [15, 25, 38, 48, 62, 70, 81, 91, 105],
   },
 };
 
-export const MERIDIAN_TRANSACTIONS: Transaction[] = [
+export const MERIDIAN_WORKSTREAMS: WorkstreamItem[] = [
   {
-    id: "TX-9042",
-    counterparty: "Atelier Noor Global Holdings",
-    category: "Cross-Border Settlement",
-    amount: "$142,500.00",
-    amountNum: 142500,
-    currency: "USD",
-    status: "Settled",
-    date: "TODAY • 14:22",
-    network: "SWIFT GPI / CHIPS",
+    id: "OP-9042",
+    stream: "Inventory Sync Pipeline",
+    module: "Catalog Synchronization",
+    units: "14,250 RECORDS",
+    unitsNum: 14250,
+    environment: "Production",
+    status: "Completed",
+    timestamp: "TODAY • 14:22",
+    handler: "Batch Worker Node 04",
   },
   {
-    id: "TX-9041",
-    counterparty: "Vertex Architecture AG",
-    category: "Master Services Retainer",
-    amount: "$68,400.00",
-    amountNum: 68400,
-    currency: "USD",
-    status: "Settled",
-    date: "TODAY • 11:05",
-    network: "FedNow Direct",
+    id: "OP-9041",
+    stream: "Spatial Asset Rendering",
+    module: "Asset Generation Pipeline",
+    units: "6,840 ASSETS",
+    unitsNum: 6840,
+    environment: "Production",
+    status: "Completed",
+    timestamp: "TODAY • 11:05",
+    handler: "GPU Compute Cluster",
   },
   {
-    id: "TX-9040",
-    counterparty: "Foundry Capital Syndicate",
-    category: "Private Placement Escrow",
-    amount: "$350,000.00",
-    amountNum: 350000,
-    currency: "USD",
-    status: "In Escrow",
-    date: "YESTERDAY • 18:40",
-    network: "Smart Escrow Vault",
+    id: "OP-9040",
+    stream: "Data Extraction & Indexing",
+    module: "Document Parser Service",
+    units: "35,000 PAGES",
+    unitsNum: 35000,
+    environment: "Staging",
+    status: "Active",
+    timestamp: "YESTERDAY • 18:40",
+    handler: "Parallel OCR Ingestion",
   },
   {
-    id: "TX-9039",
-    counterparty: "Loom Dynamics Karachi",
-    category: "Supply Chain Reconciliation",
-    amount: "₨ 18,450,000",
-    amountNum: 66300,
-    currency: "PKR",
-    status: "Settled",
-    date: "OCT 01 • 16:15",
-    network: "Raast RTGS",
+    id: "OP-9039",
+    stream: "Regional Cache Invalidation",
+    module: "Edge Distribution Router",
+    units: "1,845 ENDPOINTS",
+    unitsNum: 1845,
+    environment: "Production",
+    status: "Completed",
+    timestamp: "OCT 01 • 16:15",
+    handler: "Anycast Global Purge",
   },
   {
-    id: "TX-9038",
-    counterparty: "Gulf Maritime Logistics",
-    category: "Freight Customs Escrow",
-    amount: "AED 184,000.00",
-    amountNum: 50100,
-    currency: "AED",
-    status: "Pending",
-    date: "OCT 01 • 09:30",
-    network: "UAE CBUAE IPI",
+    id: "OP-9038",
+    stream: "Telemetry Anomaly Scan",
+    module: "Auditing & Health Sentinel",
+    units: "18,400 EVENTS",
+    unitsNum: 18400,
+    environment: "Sandbox",
+    status: "Queued",
+    timestamp: "OCT 01 • 09:30",
+    handler: "Heuristic Sentinel Bot",
   },
 ];
 
 export const COMMAND_ACTIONS = [
-  { label: "View All Currencies", id: "curr-all", shortcut: "⌘A" },
-  { label: "Switch Currency: USD ($)", id: "curr-usd", shortcut: "⌘1" },
-  { label: "Switch Currency: AED (د.إ)", id: "curr-aed", shortcut: "⌘2" },
-  { label: "Switch Currency: PKR (₨)", id: "curr-pkr", shortcut: "⌘3" },
-  { label: "Filter: High-Value Settlements (> $50k)", id: "filter-high", shortcut: "⌘F" },
+  { label: "View All Environments", id: "env-all", shortcut: "⌘A" },
+  { label: "Switch Env: Production", id: "env-prod", shortcut: "⌘1" },
+  { label: "Switch Env: Staging", id: "env-stg", shortcut: "⌘2" },
+  { label: "Switch Env: Sandbox", id: "env-sbx", shortcut: "⌘3" },
+  { label: "Filter: High-Density Jobs (> 10k)", id: "filter-high", shortcut: "⌘F" },
   { label: "Simulate Ledger Export (CSV/JSON)", id: "export-data", shortcut: "⌘E" },
 ];

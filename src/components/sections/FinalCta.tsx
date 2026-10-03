@@ -12,7 +12,7 @@ export function FinalCta() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0A0A0A]/5 border border-[#0A0A0A]/10 text-xs font-mono tracking-widest uppercase text-[#0A0A0A]/70">
           <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF3D] border border-[#0A0A0A]" aria-hidden="true" />
-          <span>COMMISSIONS OPEN FOR Q4 2026</span>
+          <span>CURRENTLY ACCEPTING PROJECTS</span>
         </div>
 
         <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold tracking-[-0.03em] text-[#0A0A0A] leading-[0.96] break-words">

@@ -12,12 +12,12 @@ export function SelectedWork() {
           <SectionHeader
             eyebrow="02 / SELECTED WORK"
             title="Concept explorations."
-            description="Polished concept directions engineered to demonstrate how Framehouse approaches domain-specific digital architecture, interaction depth, and art direction."
+            description="Self-initiated concepts created to demonstrate how FRAMEHOUSE approaches different digital problems, industries and interaction models."
             theme="light"
           />
 
           <div className="text-xs font-mono text-[#0A0A0A]/60 uppercase tracking-widest self-start md:self-end">
-            [ ALL PIECES LABELED AS CONCEPTS ]
+            [ SELF-INITIATED CONCEPTS ]
           </div>
         </div>
 

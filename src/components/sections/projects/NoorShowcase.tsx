@@ -202,13 +202,13 @@ export function NoorShowcase() {
           <div className="flex items-center gap-3">
             <Badge variant="concept">CONCEPT / 01</Badge>
             <span className="text-xs font-mono tracking-[0.2em] uppercase text-[#121110]/70">
-              FLAGSHIP E-COMMERCE & EDITORIAL MONOGRAPH
+              ATELIER NOOR // CONCEPT — LUXURY COMMERCE
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs font-mono text-[#121110]/70">
-            <span>LAHORE // DIRECT TO CONSUMER</span>
+            <span>STOREFRONT CONCEPT</span>
             <span className="text-[#121110]/20">•</span>
-            <span>BESPOKE FLAGSHIP STOREFRONT</span>
+            <span>EDITORIAL MONOGRAPH DEMO</span>
           </div>
         </div>
 
@@ -217,14 +217,13 @@ export function NoorShowcase() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
             <div className="lg:col-span-8 space-y-2">
               <span className="text-xs font-mono tracking-[0.22em] text-[#8C6D46] uppercase font-semibold">
-                CONTEMPORARY PUNJAB TEXTILE & ARTISANAL ATELIER
+                CONTEMPORARY PUNJAB DESIGN HOUSE CONCEPT
               </span>
               <h3 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#121110] leading-[1.02] font-sans">
                 ATELIER NOOR
               </h3>
               <p className="text-base sm:text-lg text-[#121110]/80 max-w-2xl font-normal leading-relaxed pt-1">
-                A digital flagship engineered for a high-end luxury pret and joinery house. Built to escape
-                cookie-cutter Shopify templates by fusing editorial magazine storytelling with friction-free commerce mechanics.
+                A self-initiated storefront concept for a contemporary Pakistani design house, combining editorial storytelling with a considered e-commerce experience.
               </p>
             </div>
 
@@ -389,15 +388,15 @@ export function NoorShowcase() {
                       <span className="font-semibold text-[#121110]">{currentFinish.specs.hardware}</span>
                     </div>
                     <div className="py-2.5 flex justify-between items-baseline">
-                      <span className="text-[#121110]/50 tracking-wider">LEAD TIME</span>
-                      <span className="font-semibold text-[#8C6D46]">{currentFinish.specs.leadTime}</span>
+                      <span className="text-[#121110]/50 tracking-wider">STUDY SPEC</span>
+                      <span className="font-semibold text-[#8C6D46]">PROTOTYPE FINISH</span>
                     </div>
                   </div>
 
                   {/* Action CTA: Commission Inquiry */}
                   <div className="pt-2 space-y-3">
                     <div className="flex justify-between items-baseline text-xs font-mono">
-                      <span className="text-[#121110]/60">VALUATION PER PIECE:</span>
+                      <span className="text-[#121110]/60">SAMPLE PRICE SPEC:</span>
                       <span className="text-base font-bold text-[#121110]">
                         {currentFinish.price}
                       </span>
@@ -407,13 +406,13 @@ export function NoorShowcase() {
                       onClick={() => handleAddToCart(selectedProduct, activeFinish)}
                       className="group w-full py-4 px-6 bg-[#121110] hover:bg-[#282725] text-white text-xs font-mono font-bold tracking-[0.16em] uppercase rounded-xs shadow-md transition-all duration-200 flex items-center justify-between cursor-pointer"
                     >
-                      <span>INQUIRE FOR COMMISSION — EDITION OF 12</span>
+                      <span>TEST COMMERCE FLOW — ADD TO BAG</span>
                       <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 text-[#8C6D46]" />
                     </button>
 
                     <div className="flex justify-between text-[11px] font-mono text-[#121110]/50 pt-1">
-                      <span>CHINIOT WORKSHOP DISPATCH</span>
-                      <span>NUMBERED BRONZE CERTIFICATE</span>
+                      <span>SELF-INITIATED CONCEPT</span>
+                      <span>INTERACTIVE CART DEMO</span>
                     </div>
                   </div>
                 </div>
@@ -582,9 +581,9 @@ export function NoorShowcase() {
                     <div className="flex flex-wrap justify-between items-center px-6 py-3.5 border-t border-[#121110]/10 bg-[#FAF8F5]/80 text-[11px] font-mono text-[#121110]/70">
                       <span>FINISH: {currentFinish.name.toUpperCase()}</span>
                       <div className="flex items-center gap-4">
-                        <span>LEAD TIME: {currentFinish.specs.leadTime}</span>
+                        <span>STUDY: ATELIER JOINERY</span>
                         <span className="text-[#121110]/20">•</span>
-                        <span className="text-[#8C6D46] font-bold">100% ARTISAN HANDMADE</span>
+                        <span className="text-[#8C6D46] font-bold">CONCEPT STOREFRONT DEMO</span>
                       </div>
                     </div>
                   </div>
@@ -616,10 +615,10 @@ export function NoorShowcase() {
             <div className="space-y-6 animate-in fade-in duration-300">
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#121110]/10 pb-4">
                 <div className="text-xs font-mono tracking-widest uppercase text-[#121110]/60">
-                  CATALOGUE ARCHIVE // 3 EXCLUSIVE COMMISSIONS ACTIVE
+                  CATALOGUE ARCHIVE // 3 CONCEPT SPECS
                 </div>
                 <div className="text-xs font-mono text-[#8C6D46] font-bold">
-                  DIRECT ATELIER PURCHASE • WORLDWIDE EXPRESS
+                  SIMULATED COMMERCE // INTERACTIVE DEMO
                 </div>
               </div>
 

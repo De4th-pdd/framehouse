@@ -17,8 +17,8 @@ const SHOWCASE_MODES = [
     id: "commerce",
     label: "01 NOOR",
     shortName: "NOOR",
-    title: "ATELIER NOOR — Luxury Editorial Flagship",
-    clientType: "FLAGSHIP E-COMMERCE",
+    title: "ATELIER NOOR — Concept Luxury Storefront",
+    clientType: "SELF-INITIATED CONCEPT",
     spec: "Lookbook Storytelling & Dynamic Bag Drawer",
     bgClass: "bg-[#FAF8F5] text-[#121110] border-[#121110]/15",
     accentColor: "#8C6D48",
@@ -27,9 +27,9 @@ const SHOWCASE_MODES = [
     id: "software",
     label: "02 MERIDIAN",
     shortName: "MERIDIAN",
-    title: "MERIDIAN — Global Treasury & Asset Engine",
-    clientType: "CUSTOM B2B WEB APPLICATION",
-    spec: "Command Palette (⌘K) & Sub-50ms Settlement Ledger",
+    title: "MERIDIAN — Concept Operational Web App",
+    clientType: "SELF-INITIATED CONCEPT",
+    spec: "Command Palette (⌘K) & High-Density Workstream Ledger",
     bgClass: "bg-[#090B0E] text-white border-white/15",
     accentColor: "#C8FF3D",
   },
@@ -37,9 +37,9 @@ const SHOWCASE_MODES = [
     id: "spatial",
     label: "03 VERTEX",
     shortName: "VERTEX",
-    title: "VERTEX STUDIO — Spatial Architectural Monograph",
-    clientType: "ARCHITECTURAL MONOGRAPH",
-    spec: "Multi-Axis Project Archive & Materiality Curation",
+    title: "VERTEX STUDIO — Concept Architecture Monograph",
+    clientType: "SELF-INITIATED CONCEPT",
+    spec: "Multi-Axis Project Archive & Materiality Studies",
     bgClass: "bg-[#E8EBEE] text-[#0A0A0A] border-[#0A0A0A]/20",
     accentColor: "#1E3A5F",
   },
@@ -383,9 +383,9 @@ export function Hero() {
                       </div>
 
                       <div className="pt-2 flex items-center justify-between text-xs font-mono border-t border-[#121110]/10">
-                        <span className="text-[#121110]/60">VALUATION: <strong className="text-[#121110]">{activeNoorMaterial.price}</strong></span>
+                        <span className="text-[#121110]/60">SAMPLE FINISH: <strong className="text-[#121110]">{activeNoorMaterial.price}</strong></span>
                         <a href="#work" className="text-[#8C6D46] font-bold hover:underline">
-                          INQUIRE FOR COMMISSION →
+                          EXPLORE CONCEPT →
                         </a>
                       </div>
                     </div>
