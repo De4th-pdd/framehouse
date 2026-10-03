@@ -101,7 +101,7 @@ export default function ContactPage() {
             </Link>
 
             <span className="text-xs font-mono tracking-widest text-[#0A0A0A]/50 uppercase">
-              START A PROJECT • COMMISSION INQUIRY
+              START A PROJECT • PROJECT INTAKE
             </span>
           </div>
 

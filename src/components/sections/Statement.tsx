@@ -75,9 +75,8 @@ export function Statement() {
 
             <div ref={copyRef} className="lg:col-span-4 lg:pt-3 space-y-6">
               <p className="text-lg sm:text-xl text-[#0A0A0A]/80 leading-relaxed font-normal">
-                Most agencies start with pre-made templates, swap out the logo, and call it a day.
-                We engineer bespoke digital experiences from the ground up—grounded in your actual
-                business model, product depth, and distinct market edge.
+                Most agencies start with a template and work backwards. We start with your business,
+                then design and build around it.
               </p>
 
               <div className="pt-4 border-t border-[#0A0A0A]/15 flex items-center justify-between text-xs font-mono tracking-wider uppercase text-[#0A0A0A]/60">

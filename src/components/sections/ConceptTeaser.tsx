@@ -15,8 +15,8 @@ if (typeof window !== "undefined") {
 
 const BUSINESS_MODELS = [
   { id: "ecom", label: "Luxury / E-Com", scope: "Lookbook + Cart Architecture + High-Performance Storefront", turnaround: "3-4 Weeks" },
-  { id: "saas", label: "SaaS / Fintech", scope: "Command Hub + Complex Dashboards + Sub-50ms React Architecture", turnaround: "4-6 Weeks" },
-  { id: "brand", label: "Studio / Monograph", scope: "Spatial Archive + Typography Direction + Cinematic Web Presence", turnaround: "2-3 Weeks" },
+  { id: "saas", label: "SaaS / Fintech", scope: "Command Hub + Complex Dashboards + High-Performance React Architecture", turnaround: "4-6 Weeks" },
+  { id: "brand", label: "Studio / Monograph", scope: "Spatial Archive + Typography Direction + High-End Web Presence", turnaround: "2-3 Weeks" },
 ];
 
 const DELIVERABLE_GOALS = [
@@ -186,7 +186,7 @@ export function ConceptTeaser() {
                   {/* Calculated Scope Output Plate */}
                   <div className="p-3.5 bg-white/[0.03] border border-white/10 space-y-2 rounded-xs">
                     <div className="flex items-center justify-between text-[11px]">
-                      <span className="text-white/40">DELIVERY TIMELINE</span>
+                      <span className="text-white/40">TYPICAL BUILD RANGE</span>
                       <span className="text-[#C8FF3D] font-bold">{currentModel.turnaround}</span>
                     </div>
                     <div className="border-t border-white/5 pt-2">
@@ -194,6 +194,9 @@ export function ConceptTeaser() {
                       <p className="text-[11px] text-white/80 font-sans leading-relaxed">
                         {currentModel.scope}
                       </p>
+                      <div className="text-[10px] text-white/40 pt-1">
+                        *Actual timeline determined by final project scope and technical requirements.
+                      </div>
                     </div>
                   </div>
 

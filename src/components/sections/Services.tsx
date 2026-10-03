@@ -166,7 +166,7 @@ export function Services() {
                     <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-xs font-mono text-white/50">
                       <div className="flex items-center gap-2">
                         <Globe className="w-3.5 h-3.5 text-[#C8FF3D]" />
-                        <span className="truncate">framehouse.studio/editorial</span>
+                        <span className="truncate">PREVIEW // EDITORIAL SHOWCASE</span>
                       </div>
                       <div className="flex items-center gap-1.5 bg-white/5 p-0.5 rounded-xs border border-white/10">
                         <button

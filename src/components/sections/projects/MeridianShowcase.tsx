@@ -98,7 +98,7 @@ export function MeridianShowcase() {
           <div className="flex items-center gap-3">
             <Badge variant="concept">CONCEPT / 02</Badge>
             <span className="text-xs font-mono tracking-[0.2em] uppercase text-white/70">
-              MERIDIAN // CONCEPT — OPERATIONAL WEB APP
+              MERIDIAN // CONCEPT — BUSINESS WEB APP
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs font-mono text-white/70">
@@ -113,14 +113,13 @@ export function MeridianShowcase() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
             <div className="lg:col-span-8 space-y-2">
               <span className="text-xs font-mono tracking-[0.22em] text-[#C8FF3D] uppercase font-semibold">
-                HIGH-DENSITY OPERATIONAL INTERFACE CONCEPT
+                DENSE OPERATIONAL INTERFACE CONCEPT
               </span>
               <h3 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.02] font-sans">
                 MERIDIAN
               </h3>
               <p className="text-base sm:text-lg text-white/80 max-w-2xl font-normal leading-relaxed pt-1">
-                A self-initiated operational web application exploring high-density data architecture,
-                Linear-style keyboard workflows (⌘K), and instant state transitions for complex teams.
+                A self-initiated operations dashboard concept exploring dense information architecture, keyboard workflows and fast state transitions.
               </p>
             </div>
 
@@ -171,13 +170,13 @@ export function MeridianShowcase() {
 
             <div className="p-4 bg-white/5 border border-white/10 rounded-xs space-y-1">
               <div className="text-[10px] font-mono uppercase tracking-widest text-white/50">
-                UI REACTION LATENCY
+                STATE TRANSITIONS
               </div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white font-sans tracking-tight">
-                &lt; 50ms
+                INSTANT
               </div>
               <div className="text-xs font-mono text-[#C8FF3D] font-bold pt-0.5">
-                Client-side reactive state
+                Optimistic client updates
               </div>
             </div>
           </div>

@@ -81,8 +81,8 @@ export function About() {
             ref={headlineRef}
             className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0A0A0A] leading-[1.18]"
           >
-            Framehouse is an independent digital studio built for companies that refuse
-            to settle for generic templates, slow agency layers, or disposable software.
+            FRAMEHOUSE is an independent digital studio based in Pakistan, building custom websites,
+            software and digital experiences for businesses worldwide.
           </p>
         </div>
 
@@ -113,9 +113,9 @@ export function About() {
               Pakistan roots. Global ambitions.
             </h3>
             <p className="text-base text-[#0A0A0A]/75 leading-relaxed font-normal">
-              Rooted in Pakistan with a worldwide operating footprint. We bring the highest tier
-              of international digital craft, modern front-end performance, and fullstack reliability
-              to local market leaders and international businesses alike.
+              Modern design and engineering for businesses in Pakistan and beyond. We bring
+              dedicated focus, front-end precision, and fullstack reliability to every digital
+              product we build.
             </p>
           </div>
         </div>

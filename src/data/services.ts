@@ -65,7 +65,7 @@ export const services: Service[] = [
     id: "ai-automation",
     number: "05",
     title: "AI & AUTOMATION",
-    description: "Pragmatic AI integrations and autonomous workflows that permanently remove repetitive operational bottlenecks.",
+    description: "Practical AI integrations and automated workflows that reduce repetitive work and connect the tools your business already uses.",
     capabilities: [
       "Custom LLM & Agent Workflows",
       "Automated Document Processing",
@@ -73,7 +73,7 @@ export const services: Service[] = [
       "Internal Knowledge Retrieval (RAG)",
     ],
     previewHeadline: "Real operational leverage, zero AI buzzword slop.",
-    previewSub: "We build targeted AI systems that do tangible work—automating hours of manual processing and delivering measurable business throughput.",
+    previewSub: "We build targeted automations that connect into your daily operations—saving hours of repetitive work and delivering measurable business throughput.",
     techFocus: ["OpenAI / Anthropic APIs", "Vector Retrieval", "Custom Pipelines", "Webhook Automation"],
   },
 ];

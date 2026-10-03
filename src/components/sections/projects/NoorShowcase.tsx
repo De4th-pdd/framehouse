@@ -202,7 +202,7 @@ export function NoorShowcase() {
           <div className="flex items-center gap-3">
             <Badge variant="concept">CONCEPT / 01</Badge>
             <span className="text-xs font-mono tracking-[0.2em] uppercase text-[#121110]/70">
-              ATELIER NOOR // CONCEPT — LUXURY COMMERCE
+              ATELIER NOOR // CONCEPT — LUXURY E-COMMERCE
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs font-mono text-[#121110]/70">
@@ -293,7 +293,7 @@ export function NoorShowcase() {
                   {/* Monograph Title & Summary */}
                   <div className="space-y-3">
                     <span className="text-[10px] font-mono tracking-[0.28em] uppercase text-[#8C6D46] font-bold">
-                      OBJECT 02 // ATELIER JOINERY
+                      CONCEPT PRODUCT // ATELIER JOINERY STUDY
                     </span>
                     <h4 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal tracking-tight text-[#121110] leading-[1.06]">
                       The Mizan Low Credenza
@@ -301,7 +301,7 @@ export function NoorShowcase() {
                     <p className="text-sm sm:text-base text-[#121110]/80 leading-relaxed font-sans pt-2">
                       Hand-planed solid timber sideboard anchored with precision mortise-and-tenon
                       joinery, unlacquered sand-cast bronze pulls, and a monolithic honed slab surface.
-                      Engineered as an architectural presence rather than conventional residential storage.
+                      Engineered as a concept demonstration for bespoke physical product e-commerce.
                     </p>
                   </div>
 
@@ -603,7 +603,7 @@ export function NoorShowcase() {
                         FOUNDRY PATINA
                       </span>
                       <p className="text-[11px] leading-relaxed">
-                        Hardware left unlacquered to develop a rich, living amber oxidation tailored to the commissioner&apos;s climate.
+                        Hardware left unlacquered to develop a rich, living amber oxidation tailored to the natural ambient climate.
                       </p>
                     </div>
                   </div>

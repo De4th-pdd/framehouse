@@ -79,9 +79,9 @@ const NOOR_MATERIALS = [
 ];
 
 const MERIDIAN_RANGES = [
-  { tf: "24H", vol: "$482.9K", flow: "+$128.4K", change: "+14.2%" },
-  { tf: "7D", vol: "$2.84M", flow: "+$892.1K", change: "+28.6%" },
-  { tf: "30D", vol: "$12.4M", flow: "+$3.62M", change: "+41.3%" },
+  { tf: "24H", vol: "48.2K OPS", flow: "1.2K OPS/HR", change: "+14.2%" },
+  { tf: "7D", vol: "284K OPS", flow: "8.9K OPS/HR", change: "+28.6%" },
+  { tf: "30D", vol: "1.24M OPS", flow: "36.2K OPS/HR", change: "+41.3%" },
 ];
 
 const VERTEX_PROJECT_PREVIEWS = [
@@ -225,7 +225,7 @@ export function Hero() {
 
           <div className="lg:col-span-4 lg:pl-4 space-y-5">
             <p className="text-sm sm:text-base lg:text-lg text-[#0A0A0A]/80 leading-relaxed font-normal">
-              Websites, software &amp; digital experiences for businesses ready to look different.
+              Custom websites, software and digital experiences built around your business.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-1">
@@ -534,8 +534,8 @@ export function Hero() {
 
                       {/* Viewport Bottom Bar */}
                       <div className="flex justify-between items-center px-4 py-2 border-t border-[#121110]/10 bg-[#FAF8F5]/80 text-[10px] font-mono text-[#121110]/60">
-                        <span>EDITION OF 12 // COMMISSION ONLY</span>
-                        <span className="text-[#8C6D48] font-bold">CHINIOT &amp; LAHORE ATELIER</span>
+                        <span>CONCEPT PRODUCT // BESPOKE STUDY</span>
+                        <span className="text-[#8C6D48] font-bold">ATELIER JOINERY DEMO</span>
                       </div>
                     </div>
                   </div>
@@ -550,17 +550,17 @@ export function Hero() {
                       </div>
 
                       <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-sans">
-                        Sub-50ms Settlement Platform
+                        Operational Workstream Platform
                       </h3>
 
                       <p className="text-xs sm:text-sm text-white/70 font-sans leading-relaxed">
-                        A high-density operational web application engineered for cross-border treasury desks. Linear-grade keyboard navigation with instant data filtering.
+                        A high-density operational web application engineered for complex teams. Linear-grade keyboard navigation with instant state filtering and reactive state.
                       </p>
 
                       {/* Timeframe Selector */}
                       <div className="space-y-2 pt-1 font-mono">
                         <div className="flex justify-between text-[11px] text-white/60 uppercase">
-                          <span>AGGREGATE LIQUIDITY:</span>
+                          <span>ACTIVITY METRIC:</span>
                           <span className="text-[#C8FF3D] font-bold">{activeMeridian.change}</span>
                         </div>
                         <div className="grid grid-cols-3 gap-2">
@@ -583,7 +583,7 @@ export function Hero() {
                       </div>
 
                       <div className="pt-2 flex items-center justify-between text-xs font-mono border-t border-white/10 text-white/60">
-                        <span>NET INFLOW: <strong className="text-white">{activeMeridian.flow}</strong></span>
+                        <span>THROUGHPUT: <strong className="text-white">{activeMeridian.flow}</strong></span>
                         <a href="#work" className="text-[#C8FF3D] font-bold hover:underline">
                           TEST LIVE COMMAND PALETTE →
                         </a>
@@ -592,8 +592,8 @@ export function Hero() {
 
                     <div className="md:col-span-6 bg-[#080A0D] border border-white/10 p-5 rounded-xs space-y-3 relative z-10">
                       <div className="flex justify-between text-[9px] font-mono text-white/50 border-b border-white/10 pb-2">
-                        <span className="text-[#C8FF3D] font-bold">REAL-TIME TRAJECTORY</span>
-                        <span>LATENCY: 42MS SLA</span>
+                        <span className="text-[#C8FF3D] font-bold">OPERATIONAL TRAJECTORY</span>
+                        <span>SIMULATED UI FEED</span>
                       </div>
 
                       {/* Mini Live Curve */}
@@ -610,9 +610,9 @@ export function Hero() {
                       </div>
 
                       <div className="p-2.5 bg-white/5 border border-white/10 rounded-xs flex justify-between items-center text-xs font-mono">
-                        <span className="text-white/80 font-bold truncate">TX-9042 // ATELIER NOOR</span>
+                        <span className="text-white/80 font-bold truncate">OP-9042 // INVENTORY SYNC</span>
                         <span className="px-2 py-0.5 bg-[#C8FF3D]/10 text-[#C8FF3D] text-[10px] font-bold rounded-xs">
-                          SETTLED
+                          COMPLETED
                         </span>
                       </div>
                     </div>
@@ -632,12 +632,12 @@ export function Hero() {
                       </h3>
 
                       <p className="text-xs sm:text-sm text-[#0A0A0A]/75 font-sans leading-relaxed">
-                        A digital monograph engineered for progressive architecture practices and spatial developers to command eight-figure private commissions.
+                        A digital monograph concept exploring how progressive architecture practices present spatial scale, materiality, and project archives online.
                       </p>
 
                       <div className="space-y-2 pt-1 font-mono">
                         <div className="text-[11px] text-[#0A0A0A]/60 uppercase">
-                          FEATURED COMMISSION:
+                          CONCEPT STUDY:
                         </div>
                         <div className="grid grid-cols-3 gap-2">
                           {VERTEX_PROJECT_PREVIEWS.map((item, idx) => (
@@ -682,8 +682,8 @@ export function Hero() {
                       </div>
 
                       <div className="flex justify-between items-center text-[10px] text-[#0A0A0A]/60 pt-2 border-t border-[#0A0A0A]/15">
-                        <span>DELIVERY: 2026</span>
-                        <span className="text-[#1E3A5F] font-bold">COMMISSIONED WORK</span>
+                        <span>STATUS: CONCEPT</span>
+                        <span className="text-[#1E3A5F] font-bold">CONCEPT STUDY</span>
                       </div>
                     </div>
                   </div>

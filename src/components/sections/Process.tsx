@@ -179,8 +179,8 @@ export function Process() {
                 </div>
 
                 <div className="pt-3 border-t border-[#0A0A0A]/10 text-[11px] font-mono text-[#0A0A0A]/60 flex justify-between">
-                  <span>SCROLL TO ADVANCE</span>
-                  <span className="text-[#0A0A0A] font-bold">0{activeStep + 1} / 05</span>
+                  <span>METHODOLOGY</span>
+                  <span className="text-[#0A0A0A] font-bold">PHASE 0{activeStep + 1} / 05</span>
                 </div>
               </div>
             </div>

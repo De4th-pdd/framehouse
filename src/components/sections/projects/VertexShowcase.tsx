@@ -161,7 +161,7 @@ export function VertexShowcase() {
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#0A0A0A]/15 pb-4">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-mono text-[#1E3A5F] font-bold">
-                    SELECT COMMISSIONED WORK:
+                    SELECTED CONCEPT WORK:
                   </span>
                   <div className="flex gap-1.5">
                     {filteredProjects.map((p) => (
@@ -192,7 +192,7 @@ export function VertexShowcase() {
                 <div className="lg:col-span-7 bg-[#DFE2E6] border border-[#0A0A0A]/15 p-8 rounded-xs min-h-[380px] flex flex-col justify-between relative overflow-hidden group">
                   <div className="flex justify-between items-start text-[10px] font-mono uppercase tracking-widest text-[#0A0A0A]/60 z-10">
                     <span>PLATE {activeProject.number} — SPATIAL STUDY</span>
-                    <span>COMPLETION: {activeProject.year}</span>
+                    <span>STATUS: {activeProject.year.toUpperCase()}</span>
                   </div>
 
                   {/* Architectural Elevation & Spatial Vector Drawing */}
@@ -327,7 +327,7 @@ export function VertexShowcase() {
                       <div className="text-[#0A0A0A] font-bold text-sm">{activeProject.scale}</div>
                     </div>
                     <div className="p-3 bg-white border border-[#0A0A0A]/15 rounded-xs">
-                      <div className="text-[#0A0A0A]/50 text-[9px] uppercase">DELIVERY YEAR</div>
+                      <div className="text-[#0A0A0A]/50 text-[9px] uppercase">STATUS</div>
                       <div className="text-[#0A0A0A] font-bold text-sm">{activeProject.year}</div>
                     </div>
                   </div>
@@ -339,7 +339,7 @@ export function VertexShowcase() {
                       className="w-full py-3.5 px-6 bg-[#0A0A0A] text-white text-xs font-mono font-bold tracking-widest uppercase hover:bg-[#282828] transition-colors rounded-xs shadow-md flex items-center justify-center gap-2"
                     >
                       <Building2 className="w-4 h-4" />
-                      <span>REQUEST COMMISSION BRIEF</span>
+                      <span>INSPECT STUDY DOSSIER</span>
                     </button>
                   </div>
                 </div>
@@ -350,7 +350,7 @@ export function VertexShowcase() {
             <div className="space-y-6 animate-in fade-in duration-300">
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#0A0A0A]/15 pb-4 text-xs font-mono">
                 <span className="text-[#0A0A0A]/60 uppercase tracking-widest">
-                  COMMISSION ARCHIVE // COMPLETE MONOGRAPH INDEX
+                  CONCEPT ARCHIVE // COMPLETE MONOGRAPH INDEX
                 </span>
                 <span className="text-[#1E3A5F] font-bold">
                   {filteredProjects.length} PROJECTS CATALOGUED
@@ -366,7 +366,7 @@ export function VertexShowcase() {
                       <th scope="col" className="py-2.5 px-3">TYPOLOGY</th>
                       <th scope="col" className="py-2.5 px-3">LOCATION</th>
                       <th scope="col" className="py-2.5 px-3">SCALE</th>
-                      <th scope="col" className="py-2.5 px-3">YEAR</th>
+                      <th scope="col" className="py-2.5 px-3">STATUS</th>
                       <th scope="col" className="py-2.5 px-3 text-right">ACTION</th>
                     </tr>
                   </thead>
@@ -420,7 +420,7 @@ export function VertexShowcase() {
           className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200"
           role="dialog"
           aria-modal="true"
-          aria-label="Commission Dossier"
+          aria-label="Study Dossier"
         >
           <div
             onClick={(e) => e.stopPropagation()}

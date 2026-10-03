@@ -44,11 +44,11 @@ export const processSteps: ProcessStep[] = [
   {
     number: "05",
     title: "LAUNCH",
-    description: "Deploy to global edge infrastructure with continuous monitoring and stewardship.",
+    description: "Deploy to production infrastructure with verified DNS, security headers, and live verification.",
     deliverables: [
-      "Edge CDN production deploy",
-      "Uptime & telemetry monitoring",
-      "Ongoing product stewardship",
+      "Production deployment & DNS setup",
+      "Performance & SEO verification",
+      "Client handover & project delivery",
     ],
   },
 ];
