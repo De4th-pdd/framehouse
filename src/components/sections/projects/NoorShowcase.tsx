@@ -14,20 +14,103 @@ import { FrameContainer } from "@/components/common/FrameContainer";
 import { NOOR_PRODUCTS, NOOR_LOOKBOOK, NoorProduct } from "@/data/concepts/noor";
 import { cn } from "@/lib/utils";
 
+export interface FurnitureFinish {
+  id: string;
+  name: string;
+  label: string;
+  texture: string;
+  swatchGradient: string;
+  bodyGradient: string;
+  slabTone: string;
+  price: string;
+  priceNum: number;
+  specs: {
+    dimensions: string;
+    weight: string;
+    timber: string;
+    stone: string;
+    hardware: string;
+    leadTime: string;
+  };
+}
+
+export const FURNITURE_FINISHES: FurnitureFinish[] = [
+  {
+    id: "charred-ash",
+    name: "Charred Ash & Honed Alabaster",
+    label: "CHARRED ASH",
+    texture: "Deep Flamed Grain",
+    swatchGradient: "radial-gradient(circle at 35% 30%, #383430 0%, #1E1C1A 50%, #0D0C0B 100%)",
+    bodyGradient: "linear-gradient(175deg, #2B2724 0%, #1A1816 45%, #100F0E 100%)",
+    slabTone: "linear-gradient(90deg, #F5F1E9 0%, #E8E2D5 50%, #FAF7F0 100%)",
+    price: "$3,650 USD",
+    priceNum: 3650,
+    specs: {
+      dimensions: "2100mm W × 520mm D × 640mm H",
+      weight: "86 KG (Dry Assembled)",
+      timber: "Quarter-Sawn Flamed Ash",
+      stone: "Translucent Honed Alabaster",
+      hardware: "Unlacquered Sand-Cast Bronze",
+      leadTime: "6–8 Weeks (Bespoke)",
+    },
+  },
+  {
+    id: "raw-alabaster",
+    name: "Honed Ivory Stone & Bleached Maple",
+    label: "IVORY STONE",
+    texture: "Matte Mineral Vein",
+    swatchGradient: "radial-gradient(circle at 35% 30%, #FFFDF9 0%, #EFEAE1 50%, #D8D1C3 100%)",
+    bodyGradient: "linear-gradient(175deg, #DDD6C8 0%, #C8BFB0 45%, #B5AB9B 100%)",
+    slabTone: "linear-gradient(90deg, #FFFFFF 0%, #F5F0E6 50%, #EDE6D8 100%)",
+    price: "$4,200 USD",
+    priceNum: 4200,
+    specs: {
+      dimensions: "2100mm W × 520mm D × 640mm H",
+      weight: "114 KG (Mineral Core)",
+      timber: "Bleached Mountain Maple",
+      stone: "Honed Greek White Alabaster",
+      hardware: "Brushed Raw Champagne Bronze",
+      leadTime: "8–10 Weeks (Quarried)",
+    },
+  },
+  {
+    id: "living-bronze",
+    name: "Aged Teak & Patinated Foundry Bronze",
+    label: "AGED TEAK",
+    texture: "Waxed River Timber",
+    swatchGradient: "radial-gradient(circle at 35% 30%, #8A643E 0%, #5E4226 55%, #382615 100%)",
+    bodyGradient: "linear-gradient(175deg, #5C4127 0%, #46301A 45%, #2F1E0F 100%)",
+    slabTone: "linear-gradient(90deg, #E6DDD0 0%, #D1C5B4 50%, #DFD5C5 100%)",
+    price: "$3,950 USD",
+    priceNum: 3950,
+    specs: {
+      dimensions: "2100mm W × 520mm D × 640mm H",
+      weight: "92 KG (Solid Heartwood)",
+      timber: "Reclaimed River Teak (Waxed)",
+      stone: "Smoked Honed Travertine",
+      hardware: "Heavy Sand-Cast Living Bronze",
+      leadTime: "6–8 Weeks (Foundry Cast)",
+    },
+  },
+];
+
 export function NoorShowcase() {
   const [viewMode, setViewMode] = useState<"lookbook" | "catalog">("lookbook");
-  const [selectedProduct, setSelectedProduct] = useState<NoorProduct>(NOOR_PRODUCTS[0]);
+  const [selectedProduct, setSelectedProduct] = useState<NoorProduct>(NOOR_PRODUCTS[1]); // Default to Mizan Credenza
+  const [activeFinish, setActiveFinish] = useState(0);
   const [selectedSwatch, setSelectedSwatch] = useState(0);
   const [selectedSize, setSelectedSize] = useState<"S" | "M" | "L" | "XL">("M");
   const [checkoutNotice, setCheckoutNotice] = useState(false);
+  
+  const currentFinish = FURNITURE_FINISHES[activeFinish];
   
   // Interactive Cart Drawer state
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState<{ product: NoorProduct; size: string; swatchName: string; quantity: number }[]>([
     {
-      product: NOOR_PRODUCTS[0],
-      size: "M",
-      swatchName: "Raw Ivory",
+      product: NOOR_PRODUCTS[1],
+      size: "STD",
+      swatchName: "Charred Ash & Honed Alabaster",
       quantity: 1,
     },
   ]);
@@ -49,11 +132,21 @@ export function NoorShowcase() {
     };
   }, [cartOpen]);
 
-  const handleAddToCart = (prod: NoorProduct, swatchIdx?: number) => {
-    const swatchToUse = prod.swatches[swatchIdx !== undefined ? swatchIdx : selectedSwatch]?.name || prod.swatches[0]?.name;
+  const handleAddToCart = (prod: NoorProduct, finishOrSwatchIdx?: number) => {
+    let swatchToUse: string;
+    let priceToUse: number = prod.priceNum;
+    
+    if (prod.id === "prod-02") {
+      const finishObj = typeof finishOrSwatchIdx === "number" ? FURNITURE_FINISHES[finishOrSwatchIdx] : currentFinish;
+      swatchToUse = finishObj.name;
+      priceToUse = finishObj.priceNum;
+    } else {
+      swatchToUse = prod.swatches[typeof finishOrSwatchIdx === "number" ? finishOrSwatchIdx : selectedSwatch]?.name || prod.swatches[0]?.name;
+    }
+
     setCartItems((prev) => {
       const existing = prev.find(
-        (item) => item.product.id === prod.id && item.size === selectedSize && item.swatchName === swatchToUse
+        (item) => item.product.id === prod.id && item.swatchName === swatchToUse
       );
       if (existing) {
         return prev.map((item) =>
@@ -65,8 +158,8 @@ export function NoorShowcase() {
       return [
         ...prev,
         {
-          product: prod,
-          size: selectedSize,
+          product: { ...prod, priceNum: priceToUse },
+          size: prod.id === "prod-02" ? "STD" : selectedSize,
           swatchName: swatchToUse,
           quantity: 1,
         },
@@ -175,197 +268,345 @@ export function NoorShowcase() {
         </div>
 
         {/* Dynamic Interactive Stage: Lookbook vs Catalog */}
-        <div className="relative z-10 bg-white/70 border border-[#121110]/10 rounded-xs p-6 sm:p-8 lg:p-10 shadow-xs">
+        <div className="relative z-10 pt-2">
           {viewMode === "lookbook" ? (
-            /* MODE A: HIGH-FASHION EDITORIAL LOOKBOOK */
-            <div className="space-y-8 animate-in fade-in duration-300">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#121110]/10 pb-4">
-                <div className="space-y-0.5">
-                  <span className="text-[10px] font-mono tracking-widest uppercase text-[#8C6D46] font-semibold">
-                    AUTUMN / WINTER 2026 // MONOGRAPH FOLIO
+            /* MODE A: HIGH-FASHION EDITORIAL PRODUCT MONOGRAPH */
+            <div className="space-y-10 sm:space-y-12 animate-in fade-in duration-300">
+              {/* Monograph Folio Header */}
+              <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-[#121110]/10 pb-4">
+                <div className="space-y-1">
+                  <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#8C6D46] font-semibold">
+                    AUTUMN / WINTER 2026 // MONOGRAPH SPECIMEN 02
                   </span>
-                  <h4 className="text-xl sm:text-2xl font-serif italic text-[#121110]">
+                  <p className="text-sm font-serif italic text-[#121110]/70">
                     &ldquo;{NOOR_LOOKBOOK.quote}&rdquo;
-                  </h4>
+                  </p>
                 </div>
-                <div className="text-xs font-mono text-[#121110]/60">
-                  LOOK 04 OF 12 • SCULPTURAL SILHOUETTES
+                <div className="text-xs font-mono text-[#121110]/50 tracking-wider">
+                  EDITION 04 OF 12 • LAHORE FOUNDRY &amp; CHINIOT GUILD
                 </div>
               </div>
 
-              {/* Product Specimen Switcher in Lookbook Mode */}
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="text-[10px] font-mono tracking-widest text-[#121110]/50 uppercase">SELECT SPECIMEN:</span>
-                {NOOR_PRODUCTS.map((prod) => {
-                  const isSelected = selectedProduct.id === prod.id;
-                  return (
-                    <button
-                      key={prod.id}
-                      onClick={() => {
-                        setSelectedProduct(prod);
-                        setSelectedSwatch(0);
-                      }}
-                      className={cn(
-                        "px-3 py-1.5 text-xs font-mono tracking-wider rounded-xs border transition-all",
-                        isSelected
-                          ? "bg-[#121110] text-white border-[#121110] font-bold shadow-xs"
-                          : "bg-white/60 text-[#121110]/70 border-[#121110]/15 hover:border-[#121110]/40"
-                      )}
-                    >
-                      {prod.name}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Editorial Lookbook Composition */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                {/* Lookbook Visual Editorial Plate */}
-                <div className="lg:col-span-7 bg-[#EFECE6] border border-[#121110]/10 p-8 rounded-xs relative overflow-hidden min-h-[380px] flex flex-col justify-between group shadow-inner">
-                  {/* Subtle ambient lighting wash */}
-                  <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(ellipse_at_30%_20%,#FFFFFF_0%,transparent_75%)]" />
-
-                  <div className="flex justify-between items-start text-[10px] font-mono uppercase tracking-widest text-[#121110]/60 z-10">
-                    <span>PLATE 04 — LAHORE WORKSHOP</span>
-                    <span>NATURAL SUNLIGHT STUDY</span>
-                  </div>
-
-                  {/* Stylized Visual Mockup of the Garment / Object */}
-                  <div className="my-8 flex justify-center items-center relative z-10">
-                    <div
-                      className="relative w-full max-w-sm aspect-[4/3] border border-[#121110]/15 rounded-xs p-6 shadow-lg flex flex-col justify-between transition-colors duration-300"
-                      style={{
-                        background: `linear-gradient(145deg, #FAF7F2 0%, ${selectedProduct.swatches[selectedSwatch]?.hex || "#E5DFD3"}33 100%)`
-                      }}
-                    >
-                      <div className="flex justify-between text-[9px] font-mono text-[#121110]/60">
-                        <span>ATELIER NOOR EDITIONS</span>
-                        <span className="font-semibold">{selectedProduct.swatches[selectedSwatch]?.name}</span>
-                      </div>
-                      <div className="text-center space-y-2">
-                        <div className="w-12 h-1 bg-[#121110]/20 mx-auto" />
-                        <div className="text-xs font-mono uppercase tracking-[0.25em] text-[#8C6D46] font-bold">
-                          {selectedProduct.category}
-                        </div>
-                        <div className="text-2xl sm:text-3xl font-serif font-bold text-[#121110]">
-                          {selectedProduct.name}
-                        </div>
-                        <div className="text-sm font-mono font-bold text-[#121110]">
-                          {selectedProduct.price}
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-end text-[9px] font-mono text-[#121110]/60 pt-2 border-t border-[#121110]/10">
-                        <span>{selectedProduct.edition}</span>
-                        <span>{selectedProduct.provenance}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap justify-between items-center text-xs font-mono text-[#121110]/80 z-10 gap-2 border-t border-[#121110]/10 pt-4">
-                    <span>CURATED ATTIRE // READY-TO-SHIP</span>
-                    <button
-                      onClick={() => handleAddToCart(selectedProduct)}
-                      className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#121110] hover:text-[#8C6D46] transition-colors"
-                    >
-                      <span>ADD THIS LOOK TO BAG</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Editorial Notes & Material Provenance */}
-                <div className="lg:col-span-5 space-y-6">
-                  <div className="space-y-2">
-                    <span className="text-[10px] font-mono tracking-widest uppercase text-[#8C6D46] font-bold">
-                      THE SPECIFICATION
+              {/* Editorial Monograph Layout: Left Product Story & Specs, Right Full Editorial Viewport */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+                {/* Left Column: Monograph Narrative & Specifications (4 Cols) */}
+                <div className="lg:col-span-5 space-y-8 order-2 lg:order-1">
+                  {/* Monograph Title & Summary */}
+                  <div className="space-y-3">
+                    <span className="text-[10px] font-mono tracking-[0.28em] uppercase text-[#8C6D46] font-bold">
+                      OBJECT 02 // ATELIER JOINERY
                     </span>
-                    <h5 className="text-2xl font-bold text-[#121110] font-sans">
-                      {selectedProduct.name}
-                    </h5>
-                    <p className="text-sm text-[#121110]/70 leading-relaxed font-sans">
-                      {selectedProduct.description}
+                    <h4 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal tracking-tight text-[#121110] leading-[1.06]">
+                      The Mizan Low Credenza
+                    </h4>
+                    <p className="text-sm sm:text-base text-[#121110]/80 leading-relaxed font-sans pt-2">
+                      Hand-planed solid timber sideboard anchored with precision mortise-and-tenon
+                      joinery, unlacquered sand-cast bronze pulls, and a monolithic honed slab surface.
+                      Engineered as an architectural presence rather than conventional residential storage.
                     </p>
                   </div>
 
-                  {/* Fabric Swatch Selector */}
-                  <div className="space-y-3 pt-2">
-                    <div className="flex justify-between text-xs font-mono">
-                      <span className="text-[#121110]/60 uppercase">FINISH / MATERIAL:</span>
-                      <span className="font-bold text-[#121110]">
-                        {selectedProduct.swatches[selectedSwatch].name}
+                  {/* Tactile Material Study Bar (Circular Macro-Texture Swatches) */}
+                  <div className="space-y-4 pt-2 border-t border-[#121110]/10">
+                    <div className="flex justify-between items-baseline text-xs font-mono">
+                      <span className="text-[#121110]/60 uppercase tracking-widest text-[11px]">
+                        MATERIAL STUDY:
+                      </span>
+                      <span className="font-bold text-[#121110] tracking-wide">
+                        {currentFinish.name}
                       </span>
                     </div>
 
-                    <div className="flex gap-2.5">
-                      {selectedProduct.swatches.map((swatch, idx) => (
+                    {/* Circular tactile macro swatches with rich textures */}
+                    <div className="grid grid-cols-3 gap-3">
+                      {FURNITURE_FINISHES.map((finish, idx) => (
                         <button
-                          key={swatch.name}
-                          onClick={() => setSelectedSwatch(idx)}
+                          key={finish.id}
+                          type="button"
+                          onClick={() => setActiveFinish(idx)}
                           className={cn(
-                            "group flex items-center gap-2 px-3 py-2 border rounded-xs transition-all text-xs font-mono",
-                            selectedSwatch === idx
-                              ? "border-[#121110] bg-[#121110] text-white shadow-xs"
-                              : "border-[#121110]/15 bg-white text-[#121110]/80 hover:border-[#121110]/40"
+                            "group p-3 border rounded-xs text-left transition-all duration-200 cursor-pointer flex flex-col justify-between gap-3",
+                            activeFinish === idx
+                              ? "border-[#121110] bg-white shadow-sm ring-1 ring-[#121110]/20"
+                              : "border-[#121110]/15 bg-white/40 hover:bg-white hover:border-[#121110]/40"
                           )}
+                          aria-label={`Select ${finish.name} finish`}
                         >
-                          <span
-                            className="w-3 h-3 rounded-full border border-black/20"
-                            style={{ backgroundColor: swatch.hex }}
-                          />
-                          <span>{swatch.name}</span>
+                          <div className="flex items-center justify-between">
+                            {/* Circular Macro Texture Swatch */}
+                            <div
+                              className="w-8 h-8 rounded-full border border-black/20 shadow-xs relative overflow-hidden transition-transform group-hover:scale-105"
+                              style={{
+                                background: finish.swatchGradient,
+                              }}
+                            >
+                              {/* Texture overlay grain */}
+                              <div
+                                className="absolute inset-0 opacity-40 mix-blend-overlay"
+                                style={{
+                                  backgroundImage:
+                                    "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 60%)",
+                                }}
+                              />
+                            </div>
+                            {activeFinish === idx && (
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#121110]" />
+                            )}
+                          </div>
+                          <div>
+                            <div className="text-xs font-mono font-bold text-[#121110] truncate">
+                              {finish.label}
+                            </div>
+                            <div className="text-[10px] font-mono text-[#121110]/50 truncate">
+                              {finish.texture}
+                            </div>
+                          </div>
                         </button>
                       ))}
                     </div>
                   </div>
 
-                  {/* Size Selector */}
-                  <div className="space-y-2 pt-1">
-                    <div className="flex justify-between text-xs font-mono">
-                      <span className="text-[#121110]/60 uppercase">SELECT SIZE:</span>
-                      <span className="font-bold text-[#121110]">{selectedSize}</span>
+                  {/* Open Hairline Grid Specifications (Cassina/Boffi Monograph Style) */}
+                  <div className="divide-y divide-[#121110]/10 border-t border-b border-[#121110]/10 text-xs font-mono">
+                    <div className="py-2.5 flex justify-between items-baseline">
+                      <span className="text-[#121110]/50 tracking-wider">DIMENSIONS</span>
+                      <span className="font-semibold text-[#121110]">{currentFinish.specs.dimensions}</span>
                     </div>
-                    <div className="flex gap-2">
-                      {(["S", "M", "L", "XL"] as const).map((sz) => (
-                        <button
-                          key={sz}
-                          onClick={() => setSelectedSize(sz)}
-                          className={cn(
-                            "w-9 h-8 border rounded-xs text-xs font-mono flex items-center justify-center transition-all",
-                            selectedSize === sz
-                              ? "border-[#121110] bg-[#121110] text-white font-bold"
-                              : "border-[#121110]/15 bg-white text-[#121110]/70 hover:border-[#121110]/40"
-                          )}
-                        >
-                          {sz}
-                        </button>
-                      ))}
+                    <div className="py-2.5 flex justify-between items-baseline">
+                      <span className="text-[#121110]/50 tracking-wider">NET WEIGHT</span>
+                      <span className="font-semibold text-[#121110]">{currentFinish.specs.weight}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-baseline">
+                      <span className="text-[#121110]/50 tracking-wider">PRIMARY TIMBER</span>
+                      <span className="font-semibold text-[#121110]">{currentFinish.specs.timber}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-baseline">
+                      <span className="text-[#121110]/50 tracking-wider">SURFACE SLAB</span>
+                      <span className="font-semibold text-[#121110]">{currentFinish.specs.stone}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-baseline">
+                      <span className="text-[#121110]/50 tracking-wider">HARDWARE SPEC</span>
+                      <span className="font-semibold text-[#121110]">{currentFinish.specs.hardware}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-baseline">
+                      <span className="text-[#121110]/50 tracking-wider">LEAD TIME</span>
+                      <span className="font-semibold text-[#8C6D46]">{currentFinish.specs.leadTime}</span>
                     </div>
                   </div>
 
-                  {/* Aesthetic Guarantee List */}
-                  <div className="p-4 bg-[#F5F2EB] border border-[#121110]/10 rounded-xs space-y-2">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#8C6D46] font-bold">
-                      PROVENANCE & INTEGRITY
-                    </span>
-                    <ul className="text-xs font-mono text-[#121110]/80 space-y-1.5">
-                      {NOOR_LOOKBOOK.aestheticNotes.map((note, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <Check className="w-3.5 h-3.5 text-[#8C6D46] shrink-0" />
-                          <span>{note}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {/* Action CTA: Commission Inquiry */}
+                  <div className="pt-2 space-y-3">
+                    <div className="flex justify-between items-baseline text-xs font-mono">
+                      <span className="text-[#121110]/60">VALUATION PER PIECE:</span>
+                      <span className="text-base font-bold text-[#121110]">
+                        {currentFinish.price}
+                      </span>
+                    </div>
 
-                  {/* Action Row */}
-                  <div className="pt-2 flex items-center gap-4">
                     <button
-                      onClick={() => handleAddToCart(selectedProduct)}
-                      className="flex-1 py-3.5 px-6 bg-[#121110] text-white text-xs font-mono font-bold tracking-widest uppercase hover:bg-[#2A2826] transition-colors rounded-xs shadow-md flex items-center justify-center gap-2"
+                      onClick={() => handleAddToCart(selectedProduct, activeFinish)}
+                      className="group w-full py-4 px-6 bg-[#121110] hover:bg-[#282725] text-white text-xs font-mono font-bold tracking-[0.16em] uppercase rounded-xs shadow-md transition-all duration-200 flex items-center justify-between cursor-pointer"
                     >
-                      <ShoppingBag className="w-4 h-4" />
-                      <span>ORDER THIS PIECE — {selectedProduct.price}</span>
+                      <span>INQUIRE FOR COMMISSION — EDITION OF 12</span>
+                      <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 text-[#8C6D46]" />
                     </button>
+
+                    <div className="flex justify-between text-[11px] font-mono text-[#121110]/50 pt-1">
+                      <span>CHINIOT WORKSHOP DISPATCH</span>
+                      <span>NUMBERED BRONZE CERTIFICATE</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column: Dedicated High-End Editorial Product Viewport (7 Cols) */}
+                <div className="lg:col-span-7 space-y-4 order-1 lg:order-2">
+                  <div className="relative w-full rounded-xs overflow-hidden border border-[#121110]/15 bg-[#EBE7DF] shadow-md transition-all duration-500">
+                    {/* Architectural Editorial Plate Header Bar */}
+                    <div className="flex justify-between items-center px-6 py-4 border-b border-[#121110]/10 text-[10px] font-mono tracking-widest uppercase text-[#121110]/60 bg-[#FAF8F5]/80 backdrop-blur-xs">
+                      <span>FOLIO NO. 042 // CAMERA STUDY</span>
+                      <span className="text-[#8C6D46] font-bold">
+                        FINISH // {currentFinish.name.toUpperCase()}
+                      </span>
+                      <span>SCALE 1:1 ATELIER</span>
+                    </div>
+
+                    {/* Editorial Lighting & Layered Shadow Stage */}
+                    <div className="relative p-6 sm:p-10 lg:p-14 min-h-[360px] sm:min-h-[440px] flex flex-col justify-center items-center overflow-hidden">
+                      {/* Ambient Raking Light (South Window) */}
+                      <div
+                        className="absolute inset-0 pointer-events-none opacity-60"
+                        style={{
+                          background:
+                            "radial-gradient(circle at 18% 12%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 65%), linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 60%)",
+                        }}
+                      />
+
+                      {/* Monograph Watermark in background */}
+                      <div className="absolute right-6 bottom-6 pointer-events-none select-none text-[80px] sm:text-[110px] font-serif font-light text-[#121110]/[0.04] leading-none">
+                        NOOR
+                      </div>
+
+                      {/* EDITORIAL FURNITURE COMPOSITION (Layered CSS & Photographic Shading) */}
+                      <div className="relative w-full max-w-lg transition-all duration-500 my-4">
+                        {/* 1. Diffuse Soft Ambient Floor Shadow */}
+                        <div
+                          className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[92%] h-10 rounded-full pointer-events-none blur-lg"
+                          style={{
+                            background:
+                              "radial-gradient(ellipse at center, rgba(18,17,16,0.38) 0%, rgba(18,17,16,0) 75%)",
+                          }}
+                        />
+                        <div
+                          className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[82%] h-4 rounded-full pointer-events-none blur-xs"
+                          style={{
+                            background:
+                              "radial-gradient(ellipse at center, rgba(18,17,16,0.55) 0%, rgba(18,17,16,0) 70%)",
+                          }}
+                        />
+
+                        {/* 2. Top Honed Stone Slab (Cantilevered with Raking Chamfer Highlight) */}
+                        <div className="relative z-20 mx-auto w-[98%] shadow-md">
+                          {/* Upper Chamfer Glint */}
+                          <div className="h-1 w-full bg-white/70 rounded-t-xs" />
+                          {/* Stone Slab Body */}
+                          <div
+                            className="h-4 sm:h-5 w-full border-x border-b border-[#121110]/20 rounded-xs flex items-center justify-between px-4 transition-all duration-500"
+                            style={{
+                              background: currentFinish.slabTone,
+                              boxShadow:
+                                "inset 0 1px 2px rgba(255,255,255,0.6), 0 3px 6px rgba(0,0,0,0.12)",
+                            }}
+                          >
+                            <span className="text-[8px] font-mono tracking-widest text-black/40 uppercase">
+                              HONED {currentFinish.specs.stone.toUpperCase()}
+                            </span>
+                            <span className="text-[8px] font-mono tracking-widest text-black/30">
+                              32MM CHAMFER
+                            </span>
+                          </div>
+                          {/* Contact Shadow under Stone Slab */}
+                          <div className="h-1.5 w-full bg-gradient-to-b from-black/45 to-transparent" />
+                        </div>
+
+                        {/* 3. Main Credenza Timber Body with Continuous Grain Texture */}
+                        <div
+                          className="relative z-10 w-[94%] mx-auto h-36 sm:h-44 border border-[#121110]/30 rounded-xs overflow-hidden shadow-xl transition-all duration-500"
+                          style={{
+                            background: currentFinish.bodyGradient,
+                          }}
+                        >
+                          {/* Micro Wood Grain Overlay Lines */}
+                          <div
+                            className="absolute inset-0 opacity-25 mix-blend-overlay pointer-events-none"
+                            style={{
+                              backgroundImage:
+                                "repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 2px, transparent 2px, transparent 6px), repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0px, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 4px)",
+                            }}
+                          />
+
+                          {/* 4 Soft-Closing Cabinet Bay Doors with Deep Recessed Reveal Seams */}
+                          <div className="absolute inset-0 grid grid-cols-4 divide-x divide-black/70">
+                            {[0, 1, 2, 3].map((bay) => (
+                              <div
+                                key={bay}
+                                className="relative h-full flex flex-col justify-center items-center group/bay"
+                              >
+                                {/* Light catching on left edge of door panel */}
+                                <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-white/10" />
+
+                                {/* Sand-Cast Bronze Pull Stud with Specular Highlight */}
+                                <div
+                                  className={cn(
+                                    "relative w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full border border-black/40 shadow-md transition-transform duration-300 group-hover/bay:scale-110",
+                                    bay === 0 || bay === 1 ? "self-end mr-3" : "self-start ml-3"
+                                  )}
+                                  style={{
+                                    background:
+                                      "radial-gradient(circle at 35% 30%, #F5DEB3 0%, #C49E65 40%, #7D5D3B 80%, #3D2D1B 100%)",
+                                    boxShadow:
+                                      "0 2px 4px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.6)",
+                                  }}
+                                >
+                                  {/* Micro pin highlight */}
+                                  <div className="absolute top-0.5 left-0.5 w-1 h-1 rounded-full bg-white/60 blur-[0.2px]" />
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Subtle ambient Vignette on lower credenza belly */}
+                          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                        </div>
+
+                        {/* 4. Slender Underframe & Tapered Cast Bronze Base Legs */}
+                        <div className="relative z-0 w-[84%] mx-auto h-9 sm:h-11">
+                          {/* Horizontal Cross-Stretcher Rail */}
+                          <div
+                            className="absolute top-2 left-6 right-6 h-1 rounded-full border border-black/30 shadow-xs"
+                            style={{
+                              background:
+                                "linear-gradient(180deg, #9C7A4A 0%, #523F23 100%)",
+                            }}
+                          />
+                          {/* Left Inset Leg */}
+                          <div
+                            className="absolute top-0 left-8 w-2 h-full rounded-b-xs shadow-md"
+                            style={{
+                              background:
+                                "linear-gradient(90deg, #7A5C33 0%, #3A2B18 100%)",
+                            }}
+                          />
+                          {/* Right Inset Leg */}
+                          <div
+                            className="absolute top-0 right-8 w-2 h-full rounded-b-xs shadow-md"
+                            style={{
+                              background:
+                                "linear-gradient(90deg, #7A5C33 0%, #3A2B18 100%)",
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Editorial Caption Tag */}
+                      <div className="relative z-10 text-center space-y-1 pt-4">
+                        <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#121110]/50">
+                          ATELIER ARCHIVE // MONOGRAPH NO. 04
+                        </span>
+                        <p className="text-xs font-mono text-[#121110]/80">
+                          {currentFinish.name} • Honed {currentFinish.specs.stone} • Unlacquered Bronze
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Viewport Footer Telemetry */}
+                    <div className="flex flex-wrap justify-between items-center px-6 py-3.5 border-t border-[#121110]/10 bg-[#FAF8F5]/80 text-[11px] font-mono text-[#121110]/70">
+                      <span>FINISH: {currentFinish.name.toUpperCase()}</span>
+                      <div className="flex items-center gap-4">
+                        <span>LEAD TIME: {currentFinish.specs.leadTime}</span>
+                        <span className="text-[#121110]/20">•</span>
+                        <span className="text-[#8C6D46] font-bold">100% ARTISAN HANDMADE</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Secondary Monograph Footnotes */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-[#121110]/70 pt-2">
+                    <div className="p-3.5 border border-[#121110]/10 rounded-xs bg-white/40 space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-[#8C6D46] font-bold">
+                        JOINERY PHILOSOPHY
+                      </span>
+                      <p className="text-[11px] leading-relaxed">
+                        Precision blind mortise joints executed without metal fasteners in structural timber load paths.
+                      </p>
+                    </div>
+                    <div className="p-3.5 border border-[#121110]/10 rounded-xs bg-white/40 space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-[#8C6D46] font-bold">
+                        FOUNDRY PATINA
+                      </span>
+                      <p className="text-[11px] leading-relaxed">
+                        Hardware left unlacquered to develop a rich, living amber oxidation tailored to the commissioner&apos;s climate.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -428,7 +669,7 @@ export function NoorShowcase() {
 
                     <button
                       onClick={() => handleAddToCart(prod)}
-                      className="w-full py-2.5 px-4 bg-[#121110] text-white text-xs font-mono tracking-wider uppercase hover:bg-[#282725] transition-colors rounded-xs flex items-center justify-center gap-2"
+                      className="w-full py-2.5 px-4 bg-[#121110] text-white text-xs font-mono tracking-wider uppercase hover:bg-[#282725] transition-colors rounded-xs flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       <span>ADD TO BAG</span>
