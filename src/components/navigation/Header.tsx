@@ -17,15 +17,48 @@ const NAV_LINKS = [
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 24);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          setIsScrolled(scrollY > 20);
+
+          // Detect whether the header is currently overlapping a dark section
+          const headerCenterY = scrollY + 40;
+          const darkSections = document.querySelectorAll(
+            '[data-theme="dark"], #services, #concept-teaser, footer'
+          );
+
+          let foundDark = false;
+          darkSections.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            const top = rect.top + scrollY;
+            const bottom = top + rect.height;
+            if (headerCenterY >= top && headerCenterY <= bottom) {
+              foundDark = true;
+            }
+          });
+
+          setIsDark(foundDark);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return (
@@ -34,15 +67,23 @@ export function Header() {
         className={cn(
           "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
           isScrolled
-            ? "bg-[#F4F2ED]/90 backdrop-blur-md border-b border-[#0A0A0A]/10 py-3.5 sm:py-4 shadow-xs"
-            : "bg-transparent py-5 sm:py-6"
+            ? isDark
+              ? "bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10 py-3 sm:py-3.5 shadow-md"
+              : "bg-[#F4F2ED]/90 backdrop-blur-md border-b border-[#0A0A0A]/10 py-3 sm:py-3.5 shadow-xs"
+            : "bg-transparent py-4 sm:py-6"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Left: Wordmark */}
             <div className="flex items-center gap-3 shrink-0">
-              <Wordmark size="md" className="text-[#0A0A0A]" />
+              <Wordmark
+                size="md"
+                className={cn(
+                  "transition-colors duration-200",
+                  isDark ? "text-white" : "text-[#0A0A0A]"
+                )}
+              />
             </div>
 
             {/* Desktop Center/Right Navigation */}
@@ -51,7 +92,12 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xs font-semibold tracking-[0.16em] uppercase text-[#0A0A0A]/70 hover:text-[#0A0A0A] hover:underline underline-offset-8 transition-colors"
+                  className={cn(
+                    "text-xs font-semibold tracking-[0.16em] uppercase transition-colors hover:underline underline-offset-8",
+                    isDark
+                      ? "text-white/70 hover:text-[#C8FF3D]"
+                      : "text-[#0A0A0A]/70 hover:text-[#0A0A0A]"
+                  )}
                 >
                   {link.label}
                 </Link>
@@ -64,9 +110,9 @@ export function Header() {
               <div className="hidden md:block">
                 <Button
                   href="/contact"
-                  variant="primary"
+                  variant={isDark ? "accent" : "primary"}
                   icon="up-right"
-                  className="text-xs py-2.5 px-5"
+                  className="text-xs py-2 px-4 font-bold"
                 >
                   START A PROJECT
                 </Button>
@@ -76,7 +122,12 @@ export function Header() {
               <div className="md:hidden flex items-center gap-2 shrink-0">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#0A0A0A] text-[#C8FF3D] text-[10px] font-bold font-mono uppercase tracking-wider rounded-xs border border-[#0A0A0A]"
+                  className={cn(
+                    "inline-flex items-center gap-1 px-3 py-1.5 text-[10px] font-bold font-mono uppercase tracking-wider rounded-xs border transition-all duration-200 hover:opacity-90 active:scale-[0.98]",
+                    isDark
+                      ? "bg-[#C8FF3D] text-[#0A0A0A] border-[#C8FF3D] hover:bg-[#d6ff66]"
+                      : "bg-[#0A0A0A] text-[#C8FF3D] border-[#0A0A0A] hover:bg-black/90"
+                  )}
                 >
                   <span>START ↗</span>
                 </Link>
@@ -86,7 +137,14 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="md:hidden inline-flex items-center justify-center p-1.5 rounded-xs text-[#0A0A0A] hover:bg-[#0A0A0A]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A0A0A]"
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation"
+                className={cn(
+                  "md:hidden inline-flex items-center justify-center p-1.5 rounded-xs transition-colors focus-visible:outline-none focus-visible:ring-2",
+                  isDark
+                    ? "text-white hover:bg-white/10 focus-visible:ring-[#C8FF3D]"
+                    : "text-[#0A0A0A] hover:bg-[#0A0A0A]/5 focus-visible:ring-[#0A0A0A]"
+                )}
                 aria-label="Open Navigation Menu"
               >
                 <Menu className="w-5 h-5" />

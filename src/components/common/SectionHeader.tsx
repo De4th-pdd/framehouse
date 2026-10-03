@@ -21,6 +21,7 @@ export function SectionHeader({
     <div className={cn("space-y-4 max-w-4xl", className)}>
       <div className="flex items-center gap-3">
         <span
+          aria-hidden="true"
           className={cn(
             "w-2 h-2 rounded-full",
             isDark ? "bg-[#C8FF3D]" : "bg-[#0A0A0A]"

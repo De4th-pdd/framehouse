@@ -49,6 +49,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans bg-[#F4F2ED] text-[#0A0A0A] selection:bg-[#C8FF3D] selection:text-[#0A0A0A]">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#0A0A0A] focus:text-[#C8FF3D] focus:font-mono focus:text-xs focus:rounded-xs focus:shadow-xl"
+        >
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>

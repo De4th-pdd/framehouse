@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowUpRight, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Wordmark } from "@/components/common/Wordmark";
 import { Button } from "@/components/common/Button";
 
@@ -13,17 +13,25 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
-  // Prevent background scroll when menu is open
+  // Prevent background scroll and handle Escape key when menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
     };
-  }, [isOpen]);
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -56,7 +64,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
             className="group flex items-baseline justify-between py-2 text-3xl sm:text-4xl font-bold tracking-tight text-white hover:text-[#C8FF3D] transition-colors"
           >
             <span>{link.label}</span>
-            <span className="text-xs font-mono text-white/40 group-hover:text-[#C8FF3D]">
+            <span className="text-xs font-mono text-white/60 group-hover:text-[#C8FF3D]">
               0{idx + 1}
             </span>
           </Link>

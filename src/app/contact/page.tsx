@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ShieldCheck } from "lucide-react";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/footer/Footer";
 import { FrameContainer } from "@/components/common/FrameContainer";
 import { Button } from "@/components/common/Button";
-import { Badge } from "@/components/common/Badge";
 import { cn } from "@/lib/utils";
 
 const SERVICE_OPTIONS = [
@@ -89,7 +88,7 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen bg-[#F4F2ED] text-[#0A0A0A]">
       <Header />
 
-      <main className="flex-1 pt-32 pb-24 sm:pt-40 sm:pb-32">
+      <main className="flex-1 pt-36 sm:pt-44 lg:pt-48 pb-36 sm:pb-48">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Back link & Eyebrow */}
           <div className="flex items-center justify-between border-b border-[#0A0A0A]/10 pb-4">
@@ -102,7 +101,7 @@ export default function ContactPage() {
             </Link>
 
             <span className="text-xs font-mono tracking-widest text-[#0A0A0A]/50 uppercase">
-              START A PROJECT // COMMISSION INQUIRY
+              START A PROJECT • COMMISSION INQUIRY
             </span>
           </div>
 
@@ -148,10 +147,29 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                <div className="pt-4 flex justify-center gap-4">
+                <div className="pt-4 flex flex-wrap justify-center gap-4">
                   <Button href="/" variant="primary" icon="right">
                     BACK TO HOMEPAGE
                   </Button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({
+                        name: "",
+                        business: "",
+                        email: "",
+                        links: "",
+                        services: [],
+                        budget: "",
+                        timeline: "",
+                        message: "",
+                      });
+                    }}
+                    className="py-3 px-5 border border-[#0A0A0A]/20 text-xs font-mono uppercase hover:bg-black/5 transition-colors rounded-xs cursor-pointer"
+                  >
+                    SUBMIT ANOTHER BRIEF
+                  </button>
                 </div>
               </div>
             ) : (
@@ -159,7 +177,7 @@ export default function ContactPage() {
                 {/* Section 1: Contact Details */}
                 <div className="space-y-6">
                   <div className="text-xs font-mono font-bold tracking-widest text-[#0A0A0A]/60 uppercase border-b border-[#0A0A0A]/10 pb-2">
-                    01 // THE ESSENTIALS
+                    01 • THE ESSENTIALS
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -270,7 +288,7 @@ export default function ContactPage() {
                 {/* Section 2: Services Needed */}
                 <div className="space-y-4">
                   <div className="text-xs font-mono font-bold tracking-widest text-[#0A0A0A]/60 uppercase border-b border-[#0A0A0A]/10 pb-2">
-                    02 // WHAT DO YOU NEED? (SELECT ALL THAT APPLY)
+                    02 • WHAT DO YOU NEED? (SELECT APPLICABLE)
                   </div>
 
                   <div className="flex flex-wrap gap-2.5">
@@ -280,9 +298,10 @@ export default function ContactPage() {
                         <button
                           key={srv}
                           type="button"
+                          aria-pressed={isSelected}
                           onClick={() => toggleService(srv)}
                           className={cn(
-                            "px-4 py-2 text-xs font-mono uppercase tracking-wider border transition-all select-none",
+                            "px-4 py-2 text-xs font-mono uppercase tracking-wider border transition-all cursor-pointer",
                             isSelected
                               ? "bg-[#0A0A0A] text-white border-[#0A0A0A] font-bold shadow-xs"
                               : "bg-[#F4F2ED]/80 text-[#0A0A0A]/80 border-[#0A0A0A]/20 hover:border-[#0A0A0A]"
@@ -307,9 +326,10 @@ export default function ContactPage() {
                         <button
                           key={bgt}
                           type="button"
+                          aria-pressed={formData.budget === bgt}
                           onClick={() => setFormData({ ...formData, budget: bgt })}
                           className={cn(
-                            "py-2.5 px-3 text-xs font-mono border transition-all text-center",
+                            "py-2.5 px-3 text-xs font-mono border transition-all text-center cursor-pointer",
                             formData.budget === bgt
                               ? "bg-[#0A0A0A] text-[#C8FF3D] border-[#0A0A0A] font-bold"
                               : "bg-[#F4F2ED]/60 text-[#0A0A0A]/80 border-[#0A0A0A]/20 hover:border-[#0A0A0A]"
@@ -331,11 +351,12 @@ export default function ContactPage() {
                         <button
                           key={time}
                           type="button"
+                          aria-pressed={formData.timeline === time}
                           onClick={() =>
                             setFormData({ ...formData, timeline: time })
                           }
                           className={cn(
-                            "py-2.5 px-3 text-xs font-mono border transition-all text-center",
+                            "py-2.5 px-3 text-xs font-mono border transition-all text-center cursor-pointer",
                             formData.timeline === time
                               ? "bg-[#0A0A0A] text-[#C8FF3D] border-[#0A0A0A] font-bold"
                               : "bg-[#F4F2ED]/60 text-[#0A0A0A]/80 border-[#0A0A0A]/20 hover:border-[#0A0A0A]"
@@ -388,12 +409,12 @@ export default function ContactPage() {
                     disabled={isSubmitting}
                     className="w-full sm:w-auto text-sm py-4 px-8"
                   >
-                    {isSubmitting ? "TRANSMITTING..." : "START THE CONVERSATION"}
+                    {isSubmitting ? "SENDING INQUIRY..." : "START THE CONVERSATION"}
                   </Button>
 
                   <div className="flex items-center gap-2 text-xs font-mono text-[#0A0A0A]/60">
                     <ShieldCheck className="w-4 h-4 text-[#0A0A0A]" />
-                    <span>DIRECT INTAKE // 24-HOUR RESPONSE PROMISE</span>
+                    <span>DIRECT INTAKE • RESPONSES WITHIN 24 HOURS</span>
                   </div>
                 </div>
               </form>

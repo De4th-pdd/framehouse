@@ -19,7 +19,10 @@ const SOCIAL_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] text-white pt-20 pb-12 border-t border-white/10">
+    <footer
+      data-theme="dark"
+      className="bg-[#0A0A0A] text-white pt-20 pb-12 border-t border-white/10"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
@@ -80,7 +83,7 @@ export function Footer() {
           <div>© 2026 FRAMEHOUSE. ALL RIGHTS RESERVED.</div>
           <div className="flex items-center gap-6">
             <span>ISLAMABAD / GMT+5</span>
-            <span className="text-[#C8FF3D]">SYS: STABLE</span>
+            <span className="text-white/60">INDEPENDENT STUDIO</span>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ export function FrameContainer({
   children,
   className,
   theme = "light",
-  withCorners = true,
+  withCorners = false,
 }: FrameContainerProps) {
   const isDark = theme === "dark";
 
