@@ -55,13 +55,13 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
       </div>
 
       {/* Nav Links */}
-      <nav className="flex flex-col gap-6 my-auto py-8">
+      <nav className="flex flex-col gap-3 sm:gap-4 my-auto py-4 sm:py-6">
         {navLinks.map((link, idx) => (
           <Link
             key={link.href}
             href={link.href}
             onClick={onClose}
-            className="group flex items-baseline justify-between py-2 text-3xl sm:text-4xl font-bold tracking-tight text-white hover:text-[#C8FF3D] transition-colors"
+            className="group flex items-baseline justify-between py-1.5 sm:py-2 text-2xl sm:text-3xl font-bold tracking-tight text-white hover:text-[#C8FF3D] transition-colors"
           >
             <span>{link.label}</span>
             <span className="text-xs font-mono text-white/60 group-hover:text-[#C8FF3D]">

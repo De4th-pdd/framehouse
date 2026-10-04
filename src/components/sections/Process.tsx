@@ -67,7 +67,7 @@ export function Process() {
     <section id="process" className="py-24 sm:py-36 lg:py-44 bg-[#F4F2ED] border-t border-[#0A0A0A]/10">
       <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
         <SectionHeader
-          eyebrow="05 / PROCESS"
+          eyebrow="06 / PROCESS"
           title="A better way to build."
           description="A structured five-phase delivery methodology focused on clear milestones, iterative feedback, and rigorous technical execution."
           theme="light"

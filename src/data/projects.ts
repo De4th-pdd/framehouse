@@ -2,26 +2,26 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
-    id: "noor",
-    name: "NOOR",
-    eyebrow: "SELF-INITIATED CONCEPT / CONTEMPORARY EDITORIAL",
+    id: "lumen",
+    name: "LUMEN ARCHIVE",
+    eyebrow: "SELF-INITIATED CONCEPT / DIGITAL MONOGRAPH",
     conceptLabel: "CONCEPT / 01",
-    category: "BRAND / E-COMMERCE / WEB",
-    tags: ["E-Commerce", "Art Direction", "Tactile UI", "Custom Catalog"],
+    category: "EDITORIAL / INTERACTIVE / ARCHIVE",
+    tags: ["Digital Monograph", "Editorial Layout", "Typographic System", "Spatial Studies"],
     description:
-      "A self-initiated storefront concept for a contemporary Pakistani design house, combining editorial storytelling with a considered e-commerce experience.",
+      "A self-initiated digital monograph exploring how editorial storytelling, image composition and motion can shape a more immersive web experience.",
     year: "Concept",
     deliverables: [
-      "Custom E-Commerce Architecture",
-      "Material Spec Switcher",
-      "Editorial Layout Engine",
-      "Dynamic Cart Drawer",
+      "Editorial Monograph Layout",
+      "Catalogue Index & Filtering",
+      "Asymmetric Grid Composition",
+      "Curatorial Study Dossiers",
     ],
     palette: {
-      bg: "#1C1A17",
-      text: "#E8E4DC",
-      accent: "#D4A373",
-      border: "rgba(232, 228, 220, 0.15)",
+      bg: "#141312",
+      text: "#FAF8F5",
+      accent: "#8C6D46",
+      border: "rgba(226, 221, 211, 0.15)",
     },
   },
   {

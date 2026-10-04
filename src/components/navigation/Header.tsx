@@ -9,16 +9,20 @@ import { MobileMenu } from "./MobileMenu";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "WORK", href: "/#work" },
-  { label: "SERVICES", href: "/#services" },
-  { label: "PROCESS", href: "/#process" },
-  { label: "ABOUT", href: "/#about" },
+  { label: "WORK", href: "/#work", sectionId: "work" },
+  { label: "SERVICES", href: "/#services", sectionId: "services" },
+  { label: "PRICING", href: "/#pricing", sectionId: "pricing" },
+  { label: "PROCESS", href: "/#process", sectionId: "process" },
+  { label: "ABOUT", href: "/#about", sectionId: "about" },
+  { label: "FAQ", href: "/#faq", sectionId: "faq" },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     let ticking = false;
@@ -29,10 +33,40 @@ export function Header() {
           const scrollY = window.scrollY;
           setIsScrolled(scrollY > 20);
 
+          // Calculate 0 - 100% scroll progress
+          const totalDocHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+          const progress =
+            totalDocHeight > 0 ? (scrollY / totalDocHeight) * 100 : 0;
+          setScrollProgress(Math.min(100, Math.max(0, progress)));
+
+          // Active section spy
+          const sectionIds = [
+            "work",
+            "services",
+            "pricing",
+            "process",
+            "about",
+            "faq",
+            "contact",
+          ];
+          let currentActive = "";
+          for (const id of sectionIds) {
+            const el = document.getElementById(id);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= 160 && rect.bottom >= 160) {
+                currentActive = id;
+                break;
+              }
+            }
+          }
+          setActiveSection(currentActive);
+
           // Detect whether the header is currently overlapping a dark section
           const headerCenterY = scrollY + 40;
           const darkSections = document.querySelectorAll(
-            '[data-theme="dark"], #services, #concept-teaser, footer'
+            '[data-theme="dark"], #services, footer'
           );
 
           let foundDark = false;
@@ -73,6 +107,16 @@ export function Header() {
             : "bg-transparent py-4 sm:py-6"
         )}
       >
+        {/* Top 2px scroll progress bar */}
+        <div
+          className="absolute top-0 left-0 h-[2px] bg-[#C8FF3D] transition-all duration-75 z-50 pointer-events-none"
+          style={{ width: `${scrollProgress}%` }}
+          role="progressbar"
+          aria-valuenow={Math.round(scrollProgress)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Left: Wordmark */}
@@ -87,19 +131,31 @@ export function Header() {
             </div>
 
             {/* Desktop Center/Right Navigation */}
-            <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+            <nav className="hidden md:flex items-center gap-6 lg:gap-8">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-xs font-semibold tracking-[0.16em] uppercase transition-colors hover:underline underline-offset-8",
-                    isDark
+                    "relative text-xs font-semibold tracking-[0.16em] uppercase transition-colors hover:underline underline-offset-8",
+                    activeSection === link.sectionId
+                      ? isDark
+                        ? "text-[#C8FF3D]"
+                        : "text-[#0A0A0A]"
+                      : isDark
                       ? "text-white/70 hover:text-[#C8FF3D]"
                       : "text-[#0A0A0A]/70 hover:text-[#0A0A0A]"
                   )}
                 >
                   {link.label}
+                  {activeSection === link.sectionId && (
+                    <span
+                      className={cn(
+                        "absolute -bottom-1 left-0 right-0 h-[1.5px] rounded-full",
+                        isDark ? "bg-[#C8FF3D]" : "bg-[#0A0A0A]"
+                      )}
+                    />
+                  )}
                 </Link>
               ))}
             </nav>

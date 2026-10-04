@@ -69,7 +69,7 @@ export function About() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-24">
         <SectionHeader
-          eyebrow="06 / STUDIO PROFILE"
+          eyebrow="07 / STUDIO PROFILE"
           title="Independent by design."
           description="Direct founder involvement. Small by design. No agency bloat."
           theme="light"
@@ -85,7 +85,7 @@ export function About() {
             software and digital experiences for businesses worldwide.
           </p>
           <p className="text-lg sm:text-2xl text-[#0A0A0A]/70 font-medium leading-relaxed">
-            Small by design. Direct by default. Focused on making excellent digital work.
+            Every project stays close to the person building it. No unnecessary agency layers. No handoffs between sales, design and development.
           </p>
         </div>
 
@@ -96,15 +96,15 @@ export function About() {
         >
           <div className="space-y-4">
             <span className="text-xs font-mono font-bold tracking-widest text-[#0A0A0A]/50 uppercase">
-              {"// HOW WE WORK"}
+              {"// DIRECT PRACTITIONER MODEL"}
             </span>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0A0A0A]">
-              Direct collaboration, not layers of account managers.
+              Direct involvement, from first sketch to final deploy.
             </h3>
             <p className="text-base text-[#0A0A0A]/75 leading-relaxed font-normal">
-              When you hire Framehouse, you work directly with the practitioners who design
-              and build your product. We eliminate miscommunication, speed up iteration cycles,
-              and protect the structural integrity of your product from inception to production.
+              When you hire Framehouse, you work directly with the founder and practitioners
+              who shape the art direction and write the production code. We eliminate miscommunication,
+              shorten feedback loops, and protect the structural integrity of your product.
             </p>
           </div>
 
@@ -113,12 +113,12 @@ export function About() {
               {"// STUDIO PRESENCE"}
             </span>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0A0A0A]">
-              Pakistan roots. Global ambitions.
+              Direct communication. Serious taste. Modern development.
             </h3>
             <p className="text-base text-[#0A0A0A]/75 leading-relaxed font-normal">
-              Modern design and engineering for businesses in Pakistan and beyond. We bring
-              dedicated focus, front-end precision, and fullstack reliability to every digital
-              product we build.
+              We bring disciplined typography, responsive precision, and fullstack reliability
+              to every product we build—whether you are an ambitious business in Pakistan or an
+              international company looking for digital craft that genuinely stands out.
             </p>
           </div>
         </div>

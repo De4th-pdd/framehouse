@@ -80,8 +80,8 @@ export function Statement() {
               </p>
 
               <div className="pt-4 border-t border-[#0A0A0A]/15 flex items-center justify-between text-xs font-mono tracking-wider uppercase text-[#0A0A0A]/60">
-                <span>BESPOKE ARCHITECTURE</span>
-                <span>ZERO COMPROMISES</span>
+                <span>BUILT AROUND YOUR BUSINESS</span>
+                <span>NO TEMPLATES</span>
               </div>
             </div>
           </div>

@@ -51,7 +51,7 @@ export function WhyFramehouse() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-24">
         <SectionHeader
-          eyebrow="04 / PRINCIPLES"
+          eyebrow="05 / PRINCIPLES"
           title="Principles over compromises."
           description="We built Framehouse around four strict engineering and design boundaries. This is how we protect quality."
           theme="light"

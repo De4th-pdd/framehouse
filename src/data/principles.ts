@@ -21,8 +21,8 @@ export const principles: Principle[] = [
   },
   {
     number: "04",
-    title: "NO HANDOFF-AND-DISAPPEAR.",
-    description: "We stay involved through launch and can continue improving the product when needed.",
-    detail: "We stay involved through launch and can continue improving the product when needed. We ensure clean deployments, robust code handoff, and direct practitioner support.",
+    title: "NO UNNECESSARY HANDOFFS.",
+    description: "Direct involvement from start to finish.",
+    detail: "Every project stays close to the person building it. No account managers, no telephone games, and no handoffs between disconnected sales and engineering teams.",
   },
 ];

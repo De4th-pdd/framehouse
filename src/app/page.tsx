@@ -3,10 +3,12 @@ import { Hero } from "@/components/sections/Hero";
 import { Statement } from "@/components/sections/Statement";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { Services } from "@/components/sections/Services";
+import { Pricing } from "@/components/sections/Pricing";
 import { WhyFramehouse } from "@/components/sections/WhyFramehouse";
 import { Process } from "@/components/sections/Process";
-import { ConceptTeaser } from "@/components/sections/ConceptTeaser";
 import { About } from "@/components/sections/About";
+import { Faq } from "@/components/sections/Faq";
+import { ProjectBrief } from "@/components/sections/ProjectBrief";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/footer/Footer";
 
@@ -27,22 +29,28 @@ export default function HomePage() {
         {/* SECTION 04 — SERVICES */}
         <Services />
 
-        {/* SECTION 05 — WHY FRAMEHOUSE */}
+        {/* SECTION 05 — PRICING & PACKAGES */}
+        <Pricing />
+
+        {/* SECTION 06 — PRINCIPLES */}
         <WhyFramehouse />
 
-        {/* SECTION 06 — PROCESS */}
+        {/* SECTION 07 — PROCESS */}
         <Process />
-
-        {/* SECTION 07 — INTERACTIVE CTA / CONCEPT GENERATOR TEASER */}
-        <ConceptTeaser />
 
         {/* SECTION 08 — ABOUT */}
         <About />
 
-        {/* SECTION 09 — FINAL CTA */}
+        {/* SECTION 09 — FREQUENTLY ASKED QUESTIONS */}
+        <Faq />
+
+        {/* SECTION 10 — PROJECT INTAKE / BRIEF */}
+        <ProjectBrief />
+
+        {/* SECTION 11 — FINAL CALL TO ACTION */}
         <FinalCta />
       </main>
-      {/* SECTION 10 — FOOTER */}
+      {/* SECTION 12 — FOOTER */}
       <Footer />
     </div>
   );

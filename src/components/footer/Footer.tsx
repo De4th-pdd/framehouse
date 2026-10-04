@@ -5,9 +5,11 @@ import { ArrowUpRight } from "lucide-react";
 const FOOTER_NAV = [
   { label: "WORK", href: "/#work" },
   { label: "SERVICES", href: "/#services" },
+  { label: "PRICING", href: "/#pricing" },
   { label: "PROCESS", href: "/#process" },
   { label: "ABOUT", href: "/#about" },
-  { label: "CONTACT", href: "/contact" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "CONTACT", href: "/#contact" },
 ];
 
 const SOCIAL_LINKS = [

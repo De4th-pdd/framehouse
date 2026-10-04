@@ -14,12 +14,12 @@ if (typeof window !== "undefined") {
 
 const SHOWCASE_MODES = [
   {
-    id: "commerce",
-    label: "01 NOOR",
-    shortName: "NOOR",
-    title: "ATELIER NOOR — Concept Luxury Storefront",
+    id: "lumen",
+    label: "01 LUMEN",
+    shortName: "LUMEN",
+    title: "LUMEN ARCHIVE — Digital Monograph Concept",
     clientType: "SELF-INITIATED CONCEPT",
-    spec: "Lookbook Storytelling & Dynamic Bag Drawer",
+    spec: "Editorial Storytelling & Curated Monograph Layout",
     bgClass: "bg-[#FAF8F5] text-[#121110] border-[#121110]/15",
     accentColor: "#8C6D48",
   },
@@ -45,36 +45,36 @@ const SHOWCASE_MODES = [
   },
 ];
 
-const NOOR_MATERIALS = [
+const LUMEN_PLATES = [
   {
-    name: "Charred Ash & Alabaster",
-    label: "CHARRED ASH",
-    finish: "Quarter-Sawn Flamed Ash",
-    price: "$3,650",
-    swatchGradient: "radial-gradient(circle at 35% 30%, #383430 0%, #1E1C1A 50%, #0D0C0B 100%)",
-    bodyGradient: "linear-gradient(175deg, #2B2724 0%, #1A1816 45%, #100F0E 100%)",
-    slabTone: "linear-gradient(90deg, #F5F1E9 0%, #E8E2D5 50%, #FAF7F0 100%)",
-    stone: "Honed Alabaster",
+    num: "01",
+    name: "Light & Monolith",
+    label: "PLATE 01",
+    aspect: "16:9 Landscape",
+    medium: "Photographic Monograph",
+    gradient: "linear-gradient(135deg, #2A2724 0%, #151413 55%, #0D0C0B 100%)",
+    caption: "Study I — Monolithic Mass & Negative Margins",
+    ratio: "1.618",
   },
   {
-    name: "Honed Ivory & Maple",
-    label: "IVORY STONE",
-    finish: "Bleached Mountain Maple",
-    price: "$4,200",
-    swatchGradient: "radial-gradient(circle at 35% 30%, #FFFDF9 0%, #EFEAE1 50%, #D8D1C3 100%)",
-    bodyGradient: "linear-gradient(175deg, #DDD6C8 0%, #C8BFB0 45%, #B5AB9B 100%)",
-    slabTone: "linear-gradient(90deg, #FFFFFF 0%, #F5F0E6 50%, #EDE6D8 100%)",
-    stone: "Greek Alabaster",
+    num: "02",
+    name: "Tactile Topography",
+    label: "PLATE 02",
+    aspect: "4:5 Portrait",
+    medium: "Materiality & Texture Archive",
+    gradient: "linear-gradient(145deg, #35312C 0%, #1E1C19 60%, #12110F 100%)",
+    caption: "Study II — Textural Strata & Fibrous Substrate",
+    ratio: "1.250",
   },
   {
-    name: "Aged Teak & Bronze",
-    label: "AGED TEAK",
-    finish: "Reclaimed River Teak",
-    price: "$3,950",
-    swatchGradient: "radial-gradient(circle at 35% 30%, #8A643E 0%, #5E4226 55%, #382615 100%)",
-    bodyGradient: "linear-gradient(175deg, #5C4127 0%, #46301A 45%, #2F1E0F 100%)",
-    slabTone: "linear-gradient(90deg, #E6DDD0 0%, #D1C5B4 50%, #DFD5C5 100%)",
-    stone: "Smoked Travertine",
+    num: "03",
+    name: "The Silent Archive",
+    label: "PLATE 03",
+    aspect: "1:1 Square",
+    medium: "Digital Exhibition Architecture",
+    gradient: "linear-gradient(160deg, #222326 0%, #131417 50%, #0A0A0C 100%)",
+    caption: "Study III — Minimalist Archival Vitrine",
+    ratio: "1.000",
   },
 ];
 
@@ -92,7 +92,7 @@ const VERTEX_PROJECT_PREVIEWS = [
 
 export function Hero() {
   const [activeMode, setActiveMode] = useState(0);
-  const [noorMat, setNoorMat] = useState(0);
+  const [lumenPlate, setLumenPlate] = useState(0);
   const [meridianTf, setMeridianTf] = useState(1);
   const [vertexProj, setVertexProj] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
@@ -181,7 +181,7 @@ export function Hero() {
   }, []);
 
   const current = SHOWCASE_MODES[activeMode];
-  const activeNoorMaterial = NOOR_MATERIALS[noorMat];
+  const activeLumen = LUMEN_PLATES[lumenPlate];
   const activeMeridian = MERIDIAN_RANGES[meridianTf];
   const activeVertex = VERTEX_PROJECT_PREVIEWS[vertexProj];
 
@@ -322,60 +322,61 @@ export function Hero() {
                   "text-[10px] font-mono tracking-widest uppercase",
                   activeMode === 0 ? "text-[#121110]/50" : activeMode === 1 ? "text-white/40" : "text-[#0A0A0A]/50"
                 )}>
-                  {activeMode === 0 ? "FLAGSHIP E-COMMERCE" : activeMode === 1 ? "BUSINESS OPERATIONS APP" : "SPATIAL MONOGRAPH"}
+                  {activeMode === 0 ? "INTERACTIVE EDITORIAL" : activeMode === 1 ? "BUSINESS OPERATIONS APP" : "SPATIAL MONOGRAPH"}
                 </div>
               </div>
 
               {/* ART-DIRECTED DIGITAL PRODUCT PREVIEW CANVAS */}
               <div className="relative z-10 my-4 sm:my-6">
-                {/* 01 COMMERCE: NOOR Luxury Furniture Editorial Showcase (Warm Paper & Craft) */}
+                {/* 01 EDITORIAL: LUMEN ARCHIVE Digital Monograph Showcase */}
                 {activeMode === 0 && (
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center text-[#121110]">
-                    {/* Left: Product Monograph & Macro Swatches */}
+                    {/* Left: Plate Monograph Selector & Curatorial Focus */}
                     <div className="md:col-span-5 space-y-5">
                       <div className="flex items-center gap-2 text-[10px] font-mono text-[#8C6D48] tracking-[0.22em] uppercase font-semibold">
-                        <span>NOOR MONOGRAPH // COLLECTION 04</span>
+                        <span>LUMEN MONOGRAPH // FOLIO 2026</span>
                       </div>
 
                       <div className="space-y-1">
-                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-normal tracking-tight text-[#121110] leading-[1.08]">
-                          The Mizan Low Credenza
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif italic font-normal tracking-tight text-[#121110] leading-[1.08]">
+                          {activeLumen.name}
                         </h3>
                         <p className="text-xs sm:text-sm text-[#121110]/75 font-sans leading-relaxed pt-1">
-                          Hand-planed solid timber sideboard with precision mortise joinery, unlacquered cast bronze
-                          hardware, and a continuous honed stone slab surface.
+                          A digital monograph exploring how editorial storytelling, image composition and motion can shape a more immersive web experience.
                         </p>
                       </div>
 
-                      {/* Material Swatch Interaction (Circular Macro Textures) */}
-                      <div className="space-y-2.5 pt-1">
-                        <div className="flex justify-between text-[11px] font-mono text-[#121110]/70">
-                          <span className="uppercase tracking-widest text-[10px]">MATERIAL FINISH:</span>
-                          <span className="text-[#8C6D48] font-bold">{activeNoorMaterial.name}</span>
+                      {/* Plate Selection Buttons */}
+                      <div className="space-y-2 pt-1 font-mono">
+                        <div className="flex justify-between text-[11px] text-[#121110]/70">
+                          <span className="uppercase tracking-widest text-[10px]">SELECTED PLATE:</span>
+                          <span className="text-[#8C6D48] font-bold">{activeLumen.name}</span>
                         </div>
                         <div className="grid grid-cols-3 gap-2">
-                          {NOOR_MATERIALS.map((mat, idx) => (
+                          {LUMEN_PLATES.map((plate, idx) => (
                             <button
-                              key={mat.label}
+                              key={plate.num}
                               type="button"
-                              onClick={() => setNoorMat(idx)}
+                              onClick={() => setLumenPlate(idx)}
                               className={cn(
-                                "p-2 border text-[10px] font-mono tracking-wider transition-all duration-200 rounded-xs flex flex-col justify-between gap-2 cursor-pointer text-left",
-                                noorMat === idx
-                                  ? "border-[#121110] bg-white shadow-xs ring-1 ring-[#121110]/20"
+                                "p-2 border text-[10px] transition-all duration-200 rounded-xs flex flex-col justify-between gap-1 text-left cursor-pointer",
+                                lumenPlate === idx
+                                  ? "border-[#121110] bg-white shadow-xs ring-1 ring-[#121110]/20 font-bold"
                                   : "border-[#121110]/15 bg-white/40 hover:bg-white text-[#121110]/70 hover:border-[#121110]/30"
                               )}
-                              aria-label={`Select ${mat.name}`}
+                              aria-label={`Select ${plate.name}`}
                             >
                               <div className="flex items-center justify-between">
-                                <div
-                                  className="w-5 h-5 rounded-full border border-black/20 shadow-xs relative overflow-hidden"
-                                  style={{ background: mat.swatchGradient }}
-                                />
-                                {noorMat === idx && <Check className="w-3 h-3 text-[#121110]" />}
+                                <span className={cn(
+                                  "text-[9px]",
+                                  lumenPlate === idx ? "text-[#8C6D48]" : "text-[#121110]/50"
+                                )}>
+                                  {plate.label}
+                                </span>
+                                {lumenPlate === idx && <Check className="w-3 h-3 text-[#121110]" />}
                               </div>
-                              <span className="font-bold truncate text-[10px] text-[#121110]">
-                                {mat.label}
+                              <span className="truncate text-[10px] text-[#121110]">
+                                {plate.name}
                               </span>
                             </button>
                           ))}
@@ -383,159 +384,69 @@ export function Hero() {
                       </div>
 
                       <div className="pt-2 flex items-center justify-between text-xs font-mono border-t border-[#121110]/10">
-                        <span className="text-[#121110]/60">SAMPLE FINISH: <strong className="text-[#121110]">{activeNoorMaterial.price}</strong></span>
+                        <span className="text-[#121110]/60">ASPECT: <strong className="text-[#121110]">{activeLumen.aspect}</strong></span>
                         <a href="#work" className="text-[#8C6D46] font-bold hover:underline">
-                          EXPLORE CONCEPT →
+                          VIEW FULL CONCEPT →
                         </a>
                       </div>
                     </div>
 
-                    {/* Right: Dedicated Editorial Product Viewport (Photographic & Layered CSS) */}
-                    <div className="md:col-span-7 rounded-xs overflow-hidden border border-[#121110]/15 bg-[#EBE7DF] shadow-md transition-all duration-500">
+                    {/* Right: Editorial Monograph Canvas Stage */}
+                    <div className="md:col-span-7 rounded-xs overflow-hidden border border-[#121110]/15 bg-[#121110] shadow-md transition-all duration-500 text-white">
                       {/* Top Plate Bar */}
-                      <div className="flex justify-between items-center px-4 py-2.5 border-b border-[#121110]/10 text-[9px] font-mono tracking-widest uppercase text-[#121110]/60 bg-[#FAF8F5]/80">
-                        <span>PLATE 042 // CAMERA STUDY</span>
-                        <span className="text-[#8C6D46] font-bold">{activeNoorMaterial.name.toUpperCase()}</span>
+                      <div className="flex justify-between items-center px-4 py-2.5 border-b border-white/10 text-[9px] font-mono tracking-widest uppercase text-white/60 bg-black/40">
+                        <span>{activeLumen.label} // MONOGRAPH SPECIMEN</span>
+                        <span className="text-[#C8FF3D] font-bold">RATIO {activeLumen.ratio}</span>
                         <span>SCALE 1:1</span>
                       </div>
 
-                      {/* Editorial Stage with Natural Sunlight Wash */}
-                      <div className="relative p-6 sm:p-8 min-h-[260px] sm:min-h-[290px] flex flex-col justify-center items-center overflow-hidden">
+                      {/* Editorial Canvas Stage */}
+                      <div
+                        className="relative p-6 sm:p-8 min-h-[260px] sm:min-h-[290px] flex flex-col justify-between overflow-hidden transition-all duration-500"
+                        style={{ background: activeLumen.gradient }}
+                      >
+                        {/* Drafting Grid */}
                         <div
-                          className="absolute inset-0 pointer-events-none opacity-60"
-                          style={{
-                            background:
-                              "radial-gradient(circle at 18% 15%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 65%), linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 60%)",
-                          }}
+                          className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:2rem_2rem]"
+                          aria-hidden="true"
                         />
 
-                        {/* Monograph Watermark in background */}
-                        <div className="absolute right-4 bottom-4 pointer-events-none select-none text-[64px] sm:text-[80px] font-serif font-light text-[#121110]/[0.04] leading-none">
-                          NOOR
+                        {/* Monograph Watermark */}
+                        <div className="absolute right-4 bottom-4 pointer-events-none select-none text-[64px] sm:text-[80px] font-serif font-light text-white/[0.04] leading-none">
+                          LUMEN
                         </div>
 
-                        {/* Layered Editorial Credenza Visual */}
-                        <div className="relative w-full max-w-md transition-all duration-500 my-2">
-                          {/* Diffuse Soft Ambient Floor Shadow */}
-                          <div
-                            className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[90%] h-8 rounded-full pointer-events-none blur-md"
-                            style={{
-                              background:
-                                "radial-gradient(ellipse at center, rgba(18,17,16,0.35) 0%, rgba(18,17,16,0) 75%)",
-                            }}
-                          />
-                          <div
-                            className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[80%] h-3 rounded-full pointer-events-none blur-xs"
-                            style={{
-                              background:
-                                "radial-gradient(ellipse at center, rgba(18,17,16,0.5) 0%, rgba(18,17,16,0) 70%)",
-                            }}
-                          />
+                        <div className="relative z-10 space-y-1 max-w-xs">
+                          <span className="text-[9px] font-mono tracking-[0.22em] uppercase text-white/40 block">
+                            EDITORIAL EXPERIMENT
+                          </span>
+                          <h4 className="text-2xl sm:text-3xl font-serif italic text-white tracking-tight leading-tight">
+                            {activeLumen.name}
+                          </h4>
+                        </div>
 
-                          {/* Top Honed Stone Slab */}
-                          <div className="relative z-20 mx-auto w-[98%] shadow-sm">
-                            <div className="h-0.5 w-full bg-white/70 rounded-t-xs" />
-                            <div
-                              className="h-3.5 sm:h-4 w-full border-x border-b border-[#121110]/20 rounded-xs flex items-center justify-between px-3 transition-all duration-500"
-                              style={{
-                                background: activeNoorMaterial.slabTone,
-                                boxShadow:
-                                  "inset 0 1px 2px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.1)",
-                              }}
-                            >
-                              <span className="text-[7px] font-mono tracking-widest text-black/40 uppercase">
-                                HONED {activeNoorMaterial.stone.toUpperCase()}
-                              </span>
-                              <span className="text-[7px] font-mono tracking-widest text-black/30">
-                                32MM
-                              </span>
-                            </div>
-                            <div className="h-1 w-full bg-gradient-to-b from-black/40 to-transparent" />
+                        {/* Physical Archival Plate Preview */}
+                        <div className="relative z-10 my-4 bg-white/5 border border-white/15 p-4 rounded-xs backdrop-blur-xs space-y-3">
+                          <div className="flex justify-between items-center text-[9px] font-mono text-white/50 border-b border-white/10 pb-1.5">
+                            <span>{activeLumen.medium}</span>
+                            <span className="text-[#C8FF3D]">OPTICAL KERNING</span>
                           </div>
-
-                          {/* Main Credenza Timber Body */}
-                          <div
-                            className="relative z-10 w-[94%] mx-auto h-28 sm:h-34 border border-[#121110]/30 rounded-xs overflow-hidden shadow-lg transition-all duration-500"
-                            style={{
-                              background: activeNoorMaterial.bodyGradient,
-                            }}
-                          >
-                            {/* Wood Grain Overlay Lines */}
-                            <div
-                              className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none"
-                              style={{
-                                backgroundImage:
-                                  "repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 2px, transparent 2px, transparent 6px), repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0px, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 4px)",
-                              }}
-                            />
-
-                            {/* 4 Cabinet Door Panels with Recessed Seams & Bronze Stud Pulls */}
-                            <div className="absolute inset-0 grid grid-cols-4 divide-x divide-black/70">
-                              {[0, 1, 2, 3].map((bay) => (
-                                <div
-                                  key={bay}
-                                  className="relative h-full flex flex-col justify-center items-center"
-                                >
-                                  <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-white/10" />
-                                  <div
-                                    className={cn(
-                                      "relative w-3 h-3 rounded-full border border-black/40 shadow-xs",
-                                      bay === 0 || bay === 1 ? "self-end mr-2.5" : "self-start ml-2.5"
-                                    )}
-                                    style={{
-                                      background:
-                                        "radial-gradient(circle at 35% 30%, #F5DEB3 0%, #C49E65 40%, #7D5D3B 80%, #3D2D1B 100%)",
-                                      boxShadow:
-                                        "0 2px 4px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.6)",
-                                    }}
-                                  >
-                                    <div className="absolute top-0.5 left-0.5 w-0.5 h-0.5 rounded-full bg-white/60 blur-[0.2px]" />
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-
-                            <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
-                          </div>
-
-                          {/* Slender Bronze Base & Legs */}
-                          <div className="relative z-0 w-[84%] mx-auto h-7 sm:h-9">
-                            <div
-                              className="absolute top-1.5 left-4 right-4 h-0.5 rounded-full border border-black/30"
-                              style={{
-                                background:
-                                  "linear-gradient(180deg, #9C7A4A 0%, #523F23 100%)",
-                              }}
-                            />
-                            <div
-                              className="absolute top-0 left-6 w-1.5 h-full rounded-b-xs shadow-sm"
-                              style={{
-                                background:
-                                  "linear-gradient(90deg, #7A5C33 0%, #3A2B18 100%)",
-                              }}
-                            />
-                            <div
-                              className="absolute top-0 right-6 w-1.5 h-full rounded-b-xs shadow-sm"
-                              style={{
-                                background:
-                                  "linear-gradient(90deg, #7A5C33 0%, #3A2B18 100%)",
-                              }}
-                            />
+                          <div className="text-xs font-mono text-white/80">
+                            {activeLumen.caption}
                           </div>
                         </div>
 
-                        {/* Viewport Caption */}
-                        <div className="relative z-10 text-center pt-2">
-                          <p className="text-[11px] font-mono text-[#121110]/70">
-                            {activeNoorMaterial.finish} • Honed {activeNoorMaterial.stone}
-                          </p>
+                        {/* Viewport Bottom Info */}
+                        <div className="relative z-10 flex justify-between items-center text-[10px] font-mono text-white/50 pt-2 border-t border-white/10">
+                          <span>CONCEPT FOLIO // MONOGRAPH</span>
+                          <span className="text-[#C8FF3D]">FRAMEHOUSE EDITORIAL LAB</span>
                         </div>
                       </div>
 
                       {/* Viewport Bottom Bar */}
-                      <div className="flex justify-between items-center px-4 py-2 border-t border-[#121110]/10 bg-[#FAF8F5]/80 text-[10px] font-mono text-[#121110]/60">
-                        <span>CONCEPT PRODUCT // BESPOKE STUDY</span>
-                        <span className="text-[#8C6D48] font-bold">ATELIER JOINERY DEMO</span>
+                      <div className="flex justify-between items-center px-4 py-2 border-t border-white/10 bg-[#0C0D10] text-[10px] font-mono text-white/60">
+                        <span>STUDY // EDITORIAL COMPOSITION</span>
+                        <span className="text-[#C8FF3D] font-bold">DIGITAL MONOGRAPH DEMO</span>
                       </div>
                     </div>
                   </div>
@@ -708,7 +619,7 @@ export function Hero() {
                   )}
                 >
                   <span>
-                    {activeMode === 0 ? "EXPLORE ATELIER NOOR BELOW" : activeMode === 1 ? "EXPLORE MERIDIAN TREASURY OS BELOW" : "EXPLORE VERTEX STUDIO BELOW"}
+                    {activeMode === 0 ? "EXPLORE LUMEN ARCHIVE BELOW" : activeMode === 1 ? "EXPLORE MERIDIAN WEB APP BELOW" : "EXPLORE VERTEX STUDIO BELOW"}
                   </span>
                   <ArrowDown className="w-3.5 h-3.5" />
                 </a>

@@ -1,5 +1,5 @@
 import { SectionHeader } from "@/components/common/SectionHeader";
-import { NoorShowcase } from "./projects/NoorShowcase";
+import { LumenShowcase } from "./projects/LumenShowcase";
 import { MeridianShowcase } from "./projects/MeridianShowcase";
 import { VertexShowcase } from "./projects/VertexShowcase";
 
@@ -23,7 +23,7 @@ export function SelectedWork() {
 
         {/* Project Showcases */}
         <div className="space-y-16 sm:space-y-24">
-          <NoorShowcase />
+          <LumenShowcase />
           <MeridianShowcase />
           <VertexShowcase />
         </div>
