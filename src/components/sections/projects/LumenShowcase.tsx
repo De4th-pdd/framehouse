@@ -176,14 +176,6 @@ export function LumenShowcase() {
                     {activeStudy.subtitle}
                   </p>
                 </div>
-
-                {/* Clean Bottom Canvas Metadata */}
-                <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-white/60 pt-4 border-t border-white/15">
-                  <span className="text-xs text-white/80">Concept Monograph Study</span>
-                  <span className="text-[10px] tracking-widest text-[#C8FF3D] uppercase">
-                    FRAMEHOUSE STUDIO
-                  </span>
-                </div>
               </div>
 
               {/* Viewport Bottom Strip */}

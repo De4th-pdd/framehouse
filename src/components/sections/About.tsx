@@ -153,7 +153,7 @@ export function About() {
               CODE OWNERSHIP
             </div>
             <div className="font-bold text-[#0A0A0A]">
-              100% Client-Owned
+              Client-Owned on Handover
             </div>
           </div>
         </div>

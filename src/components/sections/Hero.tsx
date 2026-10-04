@@ -421,12 +421,6 @@ export function Hero() {
                             {activeLumen.caption}
                           </p>
                         </div>
-
-                        {/* Minimalist Bottom Canvas Indicator */}
-                        <div className="relative z-10 flex justify-between items-center text-[10px] font-mono text-white/50 pt-4 border-t border-white/10">
-                          <span>CONCEPT ARCHIVE</span>
-                          <span className="text-[#C8FF3D]">FRAMEHOUSE STUDIO</span>
-                        </div>
                       </div>
 
                       {/* Viewport Bottom Bar */}
@@ -594,9 +588,10 @@ export function Hero() {
                 "relative z-10 flex flex-wrap items-center justify-between gap-3 pt-3 border-t text-xs font-mono",
                 activeMode === 0 ? "border-[#121110]/15 text-[#121110]/60" : activeMode === 1 ? "border-white/10 text-white/50" : "border-[#0A0A0A]/15 text-[#0A0A0A]/60"
               )}>
-                <div className="flex items-center gap-3">
-                  <span className="font-bold">
-                    {activeMode === 0 ? "DISCIPLINE: FLAGSHIP EDITORIAL COMMERCE" : activeMode === 1 ? "DISCIPLINE: CUSTOM B2B WEB APPLICATION" : "DISCIPLINE: ARCHITECTURAL SPATIAL MONOGRAPH"}
+                <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-inherit opacity-75">
+                  <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />
+                  <span>
+                    {activeMode === 0 ? "Concept 01 — Editorial Publishing" : activeMode === 1 ? "Concept 02 — B2B Web Application" : "Concept 03 — Architecture Studio"}
                   </span>
                 </div>
                 <a
@@ -607,7 +602,7 @@ export function Hero() {
                   )}
                 >
                   <span>
-                    {activeMode === 0 ? "EXPLORE LUMEN ARCHIVE BELOW" : activeMode === 1 ? "EXPLORE MERIDIAN WEB APP BELOW" : "EXPLORE VERTEX STUDIO BELOW"}
+                    {activeMode === 0 ? "EXPLORE LUMEN IN PORTFOLIO" : activeMode === 1 ? "EXPLORE MERIDIAN IN PORTFOLIO" : "EXPLORE VERTEX IN PORTFOLIO"}
                   </span>
                   <ArrowDown className="w-3.5 h-3.5" />
                 </a>

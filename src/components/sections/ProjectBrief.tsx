@@ -42,11 +42,14 @@ export function ProjectBrief() {
     timeline: "Flexible",
     details: "",
     websiteUrl: "",
+    hp_title: "",
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const [inquiryId, setInquiryId] = useState<string | null>(null);
 
   const validate = () => {
     const errs: Record<string, string> = {};
@@ -63,16 +66,38 @@ export function ProjectBrief() {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
-    // Structured client-side handler prepared for API integration
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmissionError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "homepage_brief",
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to submit project brief.");
+      }
+
+      setInquiryId(data.inquiryId || null);
       setSubmitted(true);
-    }, 600);
+    } catch (err: any) {
+      console.error("[ProjectBrief] Submission failed:", err);
+      setSubmissionError(
+        err.message || "Network error. Please click below to email your brief directly."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -118,6 +143,13 @@ export function ProjectBrief() {
                     Thank you, <span className="font-bold text-[#0A0A0A]">{formData.name}</span>. We will review your project requirements and follow up directly at{" "}
                     <span className="font-mono text-[#0A0A0A] font-semibold">{formData.email}</span> within 24 hours.
                   </p>
+                  {inquiryId && (
+                    <div className="pt-2">
+                      <span className="px-3 py-1 bg-[#0A0A0A]/5 border border-[#0A0A0A]/10 rounded-xs text-[11px] font-mono text-[#0A0A0A]/70 uppercase tracking-wider">
+                        REFERENCE ID: {inquiryId}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="pt-4">
@@ -125,6 +157,7 @@ export function ProjectBrief() {
                     type="button"
                     onClick={() => {
                       setSubmitted(false);
+                      setInquiryId(null);
                       setFormData({
                         name: "",
                         email: "",
@@ -134,6 +167,7 @@ export function ProjectBrief() {
                         timeline: "Flexible",
                         details: "",
                         websiteUrl: "",
+                        hp_title: "",
                       });
                     }}
                     className="py-3 px-6 border border-[#0A0A0A]/20 text-xs font-mono uppercase font-bold hover:bg-black/5 transition-colors rounded-xs cursor-pointer"
@@ -144,6 +178,17 @@ export function ProjectBrief() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8 font-mono text-xs">
+                {/* Anti-spam honeypot (invisible to humans) */}
+                <input
+                  type="text"
+                  name="hp_title"
+                  value={formData.hp_title}
+                  onChange={(e) => setFormData({ ...formData, hp_title: e.target.value })}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
                 {/* 01: Contact Information */}
                 <div className="space-y-4">
                   <span className="text-[10px] tracking-widest uppercase text-[#0A0A0A]/40 block">
@@ -315,6 +360,27 @@ export function ProjectBrief() {
                     <p className="text-[10px] text-red-600 font-sans">{errors.details}</p>
                   )}
                 </div>
+
+                {/* Submission Error Banner with Direct Mailto Fallback */}
+                {submissionError && (
+                  <div className="p-4 bg-red-50 border border-red-200 text-red-900 rounded-xs space-y-2">
+                    <div className="flex items-center gap-2 font-bold text-xs">
+                      <span className="w-2 h-2 rounded-full bg-red-500" />
+                      <span>{submissionError}</span>
+                    </div>
+                    <p className="text-[11px] font-sans text-red-700">
+                      Your inquiry will not be lost. Click below to open an email draft with your brief pre-filled:
+                    </p>
+                    <a
+                      href={`mailto:hello@framehouse.com?subject=Project Brief: ${encodeURIComponent(formData.name || "Inquiry")}&body=${encodeURIComponent(
+                        `Hi Framehouse,\n\nName: ${formData.name}\nEmail: ${formData.email}\nBusiness: ${formData.business}\nProject Type: ${formData.projectType}\nBudget Range: ${formData.budgetRange}\nTimeline: ${formData.timeline}\nWebsite: ${formData.websiteUrl}\n\nProject Details:\n${formData.details}\n`
+                      )}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-bold underline hover:text-red-950 pt-1"
+                    >
+                      <span>OPEN EMAIL CLIENT DIRECTLY (hello@framehouse.com) →</span>
+                    </a>
+                  </div>
+                )}
 
                 {/* Submit Row */}
                 <div className="pt-4 border-t border-[#0A0A0A]/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4">

@@ -115,7 +115,7 @@ export function Process() {
         <div className="pt-6 border-t border-[#0A0A0A]/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-[#0A0A0A]/60">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#0A0A0A]" />
-            <span>AVERAGE DELIVERY: 2 TO 6 WEEKS DEPENDING ON SCOPE</span>
+            <span>TYPICAL DELIVERY: 2 TO 8 WEEKS DEPENDING ON SCOPE</span>
           </div>
 
           <a

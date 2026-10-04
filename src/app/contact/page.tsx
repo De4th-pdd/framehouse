@@ -19,10 +19,11 @@ const SERVICE_OPTIONS = [
 ];
 
 const BUDGET_OPTIONS = [
-  "< $10,000",
-  "$10,000 – $25,000",
-  "$25,000 – $50,000",
-  "$50,000+",
+  "PKR 75k – 150k",
+  "PKR 150k – 300k",
+  "PKR 300k – 600k",
+  "PKR 600k+ / Custom",
+  "International / $1k – $5k+",
 ];
 
 const TIMELINE_OPTIONS = [
@@ -42,11 +43,14 @@ export default function ContactPage() {
     budget: "",
     timeline: "",
     message: "",
+    hp_title: "",
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const [inquiryId, setInquiryId] = useState<string | null>(null);
 
   const toggleService = (srv: string) => {
     setFormData((prev) => ({
@@ -72,16 +76,46 @@ export default function ContactPage() {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
-    // Simulate lightweight client-side submission handler structured for future API hook
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmissionError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          business: formData.business,
+          email: formData.email,
+          links: formData.links,
+          services: formData.services,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          message: formData.message,
+          hp_title: formData.hp_title,
+          source: "contact_page",
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to submit inquiry.");
+      }
+
+      setInquiryId(data.inquiryId || null);
       setSubmitted(true);
-    }, 600);
+    } catch (err: any) {
+      console.error("[ContactPage] Submission failed:", err);
+      setSubmissionError(
+        err.message || "Network error. Please click below to email your brief directly."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -145,6 +179,13 @@ export default function ContactPage() {
                     We review all briefs directly and will follow up with you at{" "}
                     <span className="font-mono text-[#0A0A0A]">{formData.email}</span> within 24 hours.
                   </p>
+                  {inquiryId && (
+                    <div className="pt-2">
+                      <span className="px-3 py-1 bg-[#0A0A0A]/5 border border-[#0A0A0A]/10 rounded-xs text-[11px] font-mono text-[#0A0A0A]/70 uppercase tracking-wider">
+                        REFERENCE ID: {inquiryId}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="pt-4 flex flex-wrap justify-center gap-4">
@@ -155,6 +196,7 @@ export default function ContactPage() {
                     type="button"
                     onClick={() => {
                       setSubmitted(false);
+                      setInquiryId(null);
                       setFormData({
                         name: "",
                         business: "",
@@ -164,6 +206,7 @@ export default function ContactPage() {
                         budget: "",
                         timeline: "",
                         message: "",
+                        hp_title: "",
                       });
                     }}
                     className="py-3 px-5 border border-[#0A0A0A]/20 text-xs font-mono uppercase hover:bg-black/5 transition-colors rounded-xs cursor-pointer"
@@ -174,6 +217,17 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-10" noValidate>
+                {/* Anti-spam honeypot (invisible to humans) */}
+                <input
+                  type="text"
+                  name="hp_title"
+                  value={formData.hp_title}
+                  onChange={(e) => setFormData({ ...formData, hp_title: e.target.value })}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
                 {/* Section 1: Contact Details */}
                 <div className="space-y-6">
                   <div className="text-xs font-mono font-bold tracking-widest text-[#0A0A0A]/60 uppercase border-b border-[#0A0A0A]/10 pb-2">
@@ -399,6 +453,27 @@ export default function ContactPage() {
                     </p>
                   )}
                 </div>
+
+                {/* Submission Error Banner with Direct Mailto Fallback */}
+                {submissionError && (
+                  <div className="p-4 bg-red-50 border border-red-200 text-red-900 rounded-xs space-y-2">
+                    <div className="flex items-center gap-2 font-bold text-xs">
+                      <span className="w-2 h-2 rounded-full bg-red-500" />
+                      <span>{submissionError}</span>
+                    </div>
+                    <p className="text-[11px] font-sans text-red-700">
+                      Your inquiry will not be lost. Click below to open an email draft with your brief pre-filled:
+                    </p>
+                    <a
+                      href={`mailto:hello@framehouse.com?subject=Project Inquiry: ${encodeURIComponent(formData.name || "Inquiry")}&body=${encodeURIComponent(
+                        `Hi Framehouse,\n\nName: ${formData.name}\nEmail: ${formData.email}\nBusiness: ${formData.business}\nServices: ${formData.services.join(", ")}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\nLinks: ${formData.links}\n\nProject Overview:\n${formData.message}\n`
+                      )}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-bold underline hover:text-red-950 pt-1"
+                    >
+                      <span>OPEN EMAIL CLIENT DIRECTLY (hello@framehouse.com) →</span>
+                    </a>
+                  </div>
+                )}
 
                 {/* Submit Action */}
                 <div className="pt-4 border-t border-[#0A0A0A]/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

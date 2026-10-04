@@ -117,7 +117,7 @@ export function Pricing() {
               PROJECT BASELINE
             </span>
             <span className="px-3 py-1.5 bg-[#0A0A0A] text-[#C8FF3D] font-bold tracking-wider uppercase rounded-xs inline-block">
-              Projects typically start from PKR 60,000
+              Projects typically start from PKR 75,000
             </span>
           </div>
         </div>
@@ -305,7 +305,7 @@ export function Pricing() {
         {/* Engineering Foundation & Pricing Disclaimer */}
         <div className="text-center font-mono text-xs text-[#0A0A0A]/60 pt-4 space-y-1.5 max-w-3xl mx-auto">
           <p className="text-[#0A0A0A]/80 font-medium">
-            Engineering standard: Every Framehouse build is written from scratch using modern web standards (React / Next.js / TypeScript). Clean, fast, and 100% owned by your business.
+            Engineering standard: Every Framehouse build is written from scratch using modern web standards (React / Next.js / TypeScript). Clean, fast, and transferred completely to your business upon delivery (no proprietary lock-in or recurring studio licensing).
           </p>
           <p>
             * Final pricing is agreed upfront based on project scope, pages, integrations, and technical requirements.
