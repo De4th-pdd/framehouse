@@ -53,8 +53,8 @@ const LUMEN_PLATES = [
     aspect: "16:9 Landscape",
     medium: "Photographic Monograph",
     gradient: "linear-gradient(135deg, #2A2724 0%, #151413 55%, #0D0C0B 100%)",
-    caption: "Study I — Monolithic Mass & Negative Margins",
-    ratio: "1.618",
+    caption: "Study I — Editorial Typography & Asymmetrical Grid",
+    ratio: "16:9",
   },
   {
     num: "02",
@@ -63,8 +63,8 @@ const LUMEN_PLATES = [
     aspect: "4:5 Portrait",
     medium: "Materiality & Texture Archive",
     gradient: "linear-gradient(145deg, #35312C 0%, #1E1C19 60%, #12110F 100%)",
-    caption: "Study II — Textural Strata & Fibrous Substrate",
-    ratio: "1.250",
+    caption: "Study II — Material Presentation & Visual Rhythm",
+    ratio: "4:5",
   },
   {
     num: "03",
@@ -73,15 +73,15 @@ const LUMEN_PLATES = [
     aspect: "1:1 Square",
     medium: "Digital Exhibition Architecture",
     gradient: "linear-gradient(160deg, #222326 0%, #131417 50%, #0A0A0C 100%)",
-    caption: "Study III — Minimalist Archival Vitrine",
-    ratio: "1.000",
+    caption: "Study III — Minimalist Catalogue & Collection Index",
+    ratio: "1:1",
   },
 ];
 
 const MERIDIAN_RANGES = [
-  { tf: "24H", vol: "48.2K OPS", flow: "1.2K OPS/HR", change: "+14.2%" },
-  { tf: "7D", vol: "284K OPS", flow: "8.9K OPS/HR", change: "+28.6%" },
-  { tf: "30D", vol: "1.24M OPS", flow: "36.2K OPS/HR", change: "+41.3%" },
+  { tf: "24H", vol: "142 Orders", flow: "24 Projects", change: "+12.4% today" },
+  { tf: "7D", vol: "984 Orders", flow: "18 Open Tasks", change: "+18.6% this week" },
+  { tf: "30D", vol: "4,120 Orders", flow: "28 Active", change: "+24.2% this month" },
 ];
 
 const VERTEX_PROJECT_PREVIEWS = [
@@ -395,8 +395,8 @@ export function Hero() {
                     <div className="md:col-span-7 rounded-xs overflow-hidden border border-[#121110]/15 bg-[#121110] shadow-md transition-all duration-500 text-white">
                       {/* Top Plate Bar */}
                       <div className="flex justify-between items-center px-4 py-2.5 border-b border-white/10 text-[9px] font-mono tracking-widest uppercase text-white/60 bg-black/40">
-                        <span>{activeLumen.label} // MONOGRAPH SPECIMEN</span>
-                        <span className="text-[#C8FF3D] font-bold">RATIO {activeLumen.ratio}</span>
+                        <span>{activeLumen.label} // EDITORIAL STUDY</span>
+                        <span className="text-[#C8FF3D] font-bold">{activeLumen.aspect}</span>
                         <span>SCALE 1:1</span>
                       </div>
 
@@ -418,7 +418,7 @@ export function Hero() {
 
                         <div className="relative z-10 space-y-1 max-w-xs">
                           <span className="text-[9px] font-mono tracking-[0.22em] uppercase text-white/40 block">
-                            EDITORIAL EXPERIMENT
+                            EDITORIAL MONOGRAPH
                           </span>
                           <h4 className="text-2xl sm:text-3xl font-serif italic text-white tracking-tight leading-tight">
                             {activeLumen.name}
@@ -429,7 +429,7 @@ export function Hero() {
                         <div className="relative z-10 my-4 bg-white/5 border border-white/15 p-4 rounded-xs backdrop-blur-xs space-y-3">
                           <div className="flex justify-between items-center text-[9px] font-mono text-white/50 border-b border-white/10 pb-1.5">
                             <span>{activeLumen.medium}</span>
-                            <span className="text-[#C8FF3D]">OPTICAL KERNING</span>
+                            <span className="text-[#C8FF3D]">SERIF HIERARCHY</span>
                           </div>
                           <div className="text-xs font-mono text-white/80">
                             {activeLumen.caption}
@@ -494,7 +494,7 @@ export function Hero() {
                       </div>
 
                       <div className="pt-2 flex items-center justify-between text-xs font-mono border-t border-white/10 text-white/60">
-                        <span>THROUGHPUT: <strong className="text-white">{activeMeridian.flow}</strong></span>
+                        <span>SCOPE: <strong className="text-white">{activeMeridian.flow}</strong></span>
                         <a href="#work" className="text-[#C8FF3D] font-bold hover:underline">
                           TEST LIVE COMMAND PALETTE →
                         </a>
@@ -503,8 +503,8 @@ export function Hero() {
 
                     <div className="md:col-span-6 bg-[#080A0D] border border-white/10 p-5 rounded-xs space-y-3 relative z-10">
                       <div className="flex justify-between text-[9px] font-mono text-white/50 border-b border-white/10 pb-2">
-                        <span className="text-[#C8FF3D] font-bold">OPERATIONAL TRAJECTORY</span>
-                        <span>SIMULATED UI FEED</span>
+                        <span className="text-[#C8FF3D] font-bold">ACTIVITY TRAJECTORY</span>
+                        <span>LIVE DASHBOARD PREVIEW</span>
                       </div>
 
                       {/* Mini Live Curve */}
@@ -521,7 +521,7 @@ export function Hero() {
                       </div>
 
                       <div className="p-2.5 bg-white/5 border border-white/10 rounded-xs flex justify-between items-center text-xs font-mono">
-                        <span className="text-white/80 font-bold truncate">OP-9042 // INVENTORY SYNC</span>
+                        <span className="text-white/80 font-bold truncate">WF-1042 // INVENTORY SYNC</span>
                         <span className="px-2 py-0.5 bg-[#C8FF3D]/10 text-[#C8FF3D] text-[10px] font-bold rounded-xs">
                           COMPLETED
                         </span>

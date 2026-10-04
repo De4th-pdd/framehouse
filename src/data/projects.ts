@@ -15,7 +15,7 @@ export const projects: Project[] = [
       "Editorial Monograph Layout",
       "Catalogue Index & Filtering",
       "Asymmetric Grid Composition",
-      "Curatorial Study Dossiers",
+      "Editorial Concept Notes",
     ],
     palette: {
       bg: "#141312",
@@ -30,14 +30,14 @@ export const projects: Project[] = [
     eyebrow: "SELF-INITIATED CONCEPT / OPERATIONAL WEB APP",
     conceptLabel: "CONCEPT / 02",
     category: "WEB / APPLICATION / SOFTWARE",
-    tags: ["High-Perf Web App", "Interactive Prototype", "Command Palette (⌘K)", "Telemetry"],
+    tags: ["High-Perf Web App", "Interactive Prototype", "Command Palette (⌘K)", "Workflow Engine"],
     description:
       "A self-initiated operational web application exploring high-density data architecture, Linear-style keyboard workflows (⌘K), and instant state transitions.",
     year: "Concept",
     deliverables: [
       "Command Palette (⌘K) Interaction",
-      "Interactive Throughput Trajectory Chart",
-      "High-Density Workstream Ledger",
+      "Interactive Activity & Volume Chart",
+      "Operational Workflow Ledger",
       "State Filtering & Search",
     ],
     palette: {
@@ -61,7 +61,7 @@ export const projects: Project[] = [
       "Spatial Project Viewer",
       "Materiality Specification Matrix",
       "Multi-Axis Typology Filtering",
-      "Interactive Study Dossier",
+      "Interactive Concept Dossier",
     ],
     palette: {
       bg: "#121417",

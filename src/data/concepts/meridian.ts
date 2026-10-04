@@ -11,94 +11,104 @@ export interface WorkstreamItem {
 }
 
 export interface MetricTimeframe {
-  operations: string;
-  change: string;
-  throughput: string;
+  activeProjects: string;
+  openTasks: string;
+  orders: string;
+  ordersSub: string;
+  activityChange: string;
   points: number[];
 }
 
 export const MERIDIAN_METRICS: Record<"24H" | "7D" | "30D" | "YTD", MetricTimeframe> = {
   "24H": {
-    operations: "48,290 OPS",
-    change: "+14.2% activity",
-    throughput: "1,280 OPS/HR",
+    activeProjects: "24",
+    openTasks: "18",
+    orders: "142",
+    ordersSub: "PKR 485,000 processed",
+    activityChange: "+12.4% vs yesterday",
     points: [35, 42, 40, 58, 62, 54, 78, 85, 92],
   },
   "7D": {
-    operations: "284,530 OPS",
-    change: "+28.6% activity",
-    throughput: "8,920 OPS/HR",
+    activeProjects: "24",
+    openTasks: "18",
+    orders: "984",
+    ordersSub: "PKR 3,240,000 processed",
+    activityChange: "+18.6% vs last week",
     points: [28, 38, 45, 60, 55, 74, 82, 88, 96],
   },
   "30D": {
-    operations: "1,241,000 OPS",
-    change: "+41.3% activity",
-    throughput: "36,200 OPS/HR",
+    activeProjects: "28",
+    openTasks: "22",
+    orders: "4,120",
+    ordersSub: "PKR 14,800,000 processed",
+    activityChange: "+24.2% vs last month",
     points: [20, 32, 44, 52, 68, 64, 79, 86, 100],
   },
   YTD: {
-    operations: "8,420,000 OPS",
-    change: "+112% activity",
-    throughput: "245,000 OPS/HR",
+    activeProjects: "36",
+    openTasks: "14",
+    orders: "38,400",
+    ordersSub: "Annual fulfillment",
+    activityChange: "+42.8% YoY",
     points: [15, 25, 38, 48, 62, 70, 81, 91, 105],
   },
 };
 
 export const MERIDIAN_WORKSTREAMS: WorkstreamItem[] = [
   {
-    id: "OP-9042",
-    stream: "Inventory Sync Pipeline",
-    module: "Catalog Synchronization",
-    units: "14,250 RECORDS",
-    unitsNum: 14250,
+    id: "WF-1042",
+    stream: "Inventory Catalog Sync",
+    module: "E-Commerce Catalog",
+    units: "1,284 ITEMS",
+    unitsNum: 1284,
     environment: "Production",
     status: "Completed",
     timestamp: "TODAY • 14:22",
-    handler: "Scheduled Catalog Sync",
+    handler: "Catalog Synchronization",
   },
   {
-    id: "OP-9041",
-    stream: "Media Asset Optimization",
-    module: "Image Pipeline Service",
-    units: "6,840 ASSETS",
-    unitsNum: 6840,
+    id: "WF-1041",
+    stream: "Wholesale Order Dispatch",
+    module: "Fulfillment Module",
+    units: "48 ORDERS",
+    unitsNum: 48,
     environment: "Production",
     status: "Completed",
     timestamp: "TODAY • 11:05",
-    handler: "Image Processing Queue",
+    handler: "Fulfillment Dispatcher",
   },
   {
-    id: "OP-9040",
-    stream: "Customer Order Reconciliation",
-    module: "Billing & Order Auditing",
-    units: "3,500 ENTRIES",
-    unitsNum: 3500,
+    id: "WF-1040",
+    stream: "Customer Account Onboarding",
+    module: "Client Management",
+    units: "12 PROFILES",
+    unitsNum: 12,
     environment: "Staging",
     status: "Active",
     timestamp: "YESTERDAY • 18:40",
-    handler: "Order Reconciler",
+    handler: "Client Onboarding Flow",
   },
   {
-    id: "OP-9039",
-    stream: "Edge Cache Revalidation",
-    module: "Content Delivery Router",
-    units: "1,845 PATHS",
-    unitsNum: 1845,
+    id: "WF-1039",
+    stream: "Invoice Reconciliation",
+    module: "Billing & Accounts",
+    units: "86 INVOICES",
+    unitsNum: 86,
     environment: "Production",
     status: "Completed",
     timestamp: "OCT 01 • 16:15",
-    handler: "Cache Purge Worker",
+    handler: "Automated Ledger Audit",
   },
   {
-    id: "OP-9038",
-    stream: "System Health & Uptime Check",
-    module: "Application Health Sentinel",
-    units: "1,200 CHECKS",
-    unitsNum: 1200,
+    id: "WF-1038",
+    stream: "Warehouse Stock Health",
+    module: "Inventory Sentinel",
+    units: "24 LOCATIONS",
+    unitsNum: 24,
     environment: "Sandbox",
     status: "Queued",
     timestamp: "OCT 01 • 09:30",
-    handler: "Health Probe Service",
+    handler: "Threshold Auditor",
   },
 ];
 
@@ -107,6 +117,6 @@ export const COMMAND_ACTIONS = [
   { label: "Switch Env: Production", id: "env-prod", shortcut: "⌘1" },
   { label: "Switch Env: Staging", id: "env-stg", shortcut: "⌘2" },
   { label: "Switch Env: Sandbox", id: "env-sbx", shortcut: "⌘3" },
-  { label: "Filter: High-Density Jobs (> 10k)", id: "filter-high", shortcut: "⌘F" },
-  { label: "Simulate Ledger Export (CSV/JSON)", id: "export-data", shortcut: "⌘E" },
+  { label: "Filter: Active Workflows Only", id: "filter-active", shortcut: "⌘F" },
+  { label: "Export Operational Ledger (CSV)", id: "export-data", shortcut: "⌘E" },
 ];

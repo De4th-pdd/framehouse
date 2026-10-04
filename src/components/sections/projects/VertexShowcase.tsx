@@ -122,10 +122,10 @@ export function VertexShowcase() {
               {/* Dossier Button */}
               <button
                 onClick={() => setDossierOpen(true)}
-                className="inline-flex items-center gap-2 px-3.5 py-2 bg-[#0A0A0A] text-white text-xs font-mono tracking-wider uppercase hover:bg-[#2A2A2A] transition-colors rounded-xs shadow-xs"
+                className="inline-flex items-center gap-2 px-3.5 py-2 bg-[#0A0A0A] text-white text-xs font-mono tracking-wider uppercase hover:bg-[#2A2A2A] transition-colors rounded-xs shadow-xs cursor-pointer"
               >
                 <FileText className="w-3.5 h-3.5" />
-                <span>DOSSIER</span>
+                <span>VIEW CONCEPT</span>
               </button>
             </div>
           </div>
@@ -268,12 +268,12 @@ export function VertexShowcase() {
                   </div>
 
                   <div className="flex justify-between items-center text-xs font-mono text-[#0A0A0A]/80 z-10 pt-4 border-t border-[#0A0A0A]/15">
-                    <span>PORTFOLIO ASSET // PRIVATE ACCESS</span>
+                    <span>CONCEPT STUDY // ARCHITECTURAL PORTFOLIO</span>
                     <button
                       onClick={() => setDossierOpen(true)}
                       className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#1E3A5F] hover:underline cursor-pointer"
                     >
-                      <span>INSPECT FULL ARCHITECTURAL DOSSIER</span>
+                      <span>VIEW CONCEPT DOSSIER</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -339,7 +339,7 @@ export function VertexShowcase() {
                       className="w-full py-3.5 px-6 bg-[#0A0A0A] text-white text-xs font-mono font-bold tracking-widest uppercase hover:bg-[#282828] transition-colors rounded-xs shadow-md flex items-center justify-center gap-2"
                     >
                       <Building2 className="w-4 h-4" />
-                      <span>INSPECT STUDY DOSSIER</span>
+                      <span>VIEW CONCEPT DOSSIER</span>
                     </button>
                   </div>
                 </div>

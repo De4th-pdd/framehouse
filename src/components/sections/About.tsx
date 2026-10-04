@@ -85,7 +85,7 @@ export function About() {
             software and digital experiences for businesses worldwide.
           </p>
           <p className="text-lg sm:text-2xl text-[#0A0A0A]/70 font-medium leading-relaxed">
-            Every project stays close to the person building it. No unnecessary agency layers. No handoffs between sales, design and development.
+            Every project stays close to the person building it. No account managers, no junior handoffs, and no layers of agency overhead.
           </p>
         </div>
 
@@ -96,29 +96,25 @@ export function About() {
         >
           <div className="space-y-4">
             <span className="text-xs font-mono font-bold tracking-widest text-[#0A0A0A]/50 uppercase">
-              {"// DIRECT PRACTITIONER MODEL"}
+              {"// HOW WE WORK"}
             </span>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0A0A0A]">
-              Direct involvement, from first sketch to final deploy.
+              You work directly with the person building your product.
             </h3>
             <p className="text-base text-[#0A0A0A]/75 leading-relaxed font-normal">
-              When you hire Framehouse, you work directly with the founder and practitioners
-              who shape the art direction and write the production code. We eliminate miscommunication,
-              shorten feedback loops, and protect the structural integrity of your product.
+              When you work with Framehouse, you talk directly with the designer and developer who actually shapes the visuals and writes the code. Decisions get made in hours instead of days, feedback is implemented immediately, and nothing gets lost between a sales rep and a remote team.
             </p>
           </div>
 
           <div className="space-y-4">
             <span className="text-xs font-mono font-bold tracking-widest text-[#0A0A0A]/50 uppercase">
-              {"// STUDIO PRESENCE"}
+              {"// OUR STANDARD"}
             </span>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0A0A0A]">
               Direct communication. Serious taste. Modern development.
             </h3>
             <p className="text-base text-[#0A0A0A]/75 leading-relaxed font-normal">
-              We bring disciplined typography, responsive precision, and fullstack reliability
-              to every product we build—whether you are an ambitious business in Pakistan or an
-              international company looking for digital craft that genuinely stands out.
+              Most business websites look identical because they start from generic templates or bloated page builders. We start from disciplined typography, clean spacing, and fast, modern code. We deliberately take on fewer projects so each one receives genuine focus, craft, and care.
             </p>
           </div>
         </div>
@@ -145,19 +141,19 @@ export function About() {
 
           <div className="space-y-1">
             <div className="text-[#0A0A0A]/40 uppercase tracking-wider text-[10px]">
-              CORE FOCUS
+              CLIENT ACCESS
             </div>
             <div className="font-bold text-[#0A0A0A]">
-              Web & Software Products
+              Direct Practitioner
             </div>
           </div>
 
           <div className="space-y-1">
             <div className="text-[#0A0A0A]/40 uppercase tracking-wider text-[10px]">
-              ENGAGEMENT
+              CODE OWNERSHIP
             </div>
             <div className="font-bold text-[#0A0A0A]">
-              Bespoke Digital Projects
+              100% Client-Owned
             </div>
           </div>
         </div>

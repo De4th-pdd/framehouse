@@ -22,14 +22,14 @@ const PRIMARY_PACKAGES: WebPackage[] = [
     id: "frame",
     name: "FRAME",
     price: "PKR 75,000",
-    purpose: "For focused business websites and smaller digital launches.",
+    purpose: "For focused business websites, product launches, and clean portfolio sites.",
     deliverables: [
-      "Custom page structure & information flow",
-      "Bespoke responsive design (320px–1920px)",
-      "Production Next.js / TypeScript frontend",
-      "Essential state & interaction choreography",
-      "Mobile ergonomic tuning & speed audit",
-      "DNS configuration & production deployment",
+      "Custom page layout designed from scratch (no templates)",
+      "Bespoke responsive design for mobile, tablet & desktop",
+      "Fast page load speed & clean interaction states",
+      "Structured inquiry form & contact flow",
+      "Search visibility (SEO) foundation & domain launch",
+      "Full code ownership with zero monthly platform lock-in",
     ],
   },
   {
@@ -38,15 +38,15 @@ const PRIMARY_PACKAGES: WebPackage[] = [
     price: "PKR 175,000",
     badge: "MOST REQUESTED",
     isPopular: true,
-    purpose: "Our flagship website package for businesses establishing a distinct digital presence.",
+    purpose: "Our flagship website package for businesses establishing a distinct, premium digital presence.",
     deliverables: [
-      "Deeper custom art direction & brand framing",
-      "Tailored multi-page digital architecture",
-      "Richer component interactions & transitions",
-      "Content hierarchy & copy optimization",
-      "Performance optimization & SEO foundation",
-      "Cross-browser & cross-device stress testing",
-      "Structured launch handover & refinement",
+      "Tailored multi-page digital architecture & layout",
+      "Distinctive art direction aligned with your brand advantage",
+      "Richer component interactions & smooth page transitions",
+      "Strategic content hierarchy & conversion-focused copywriting flow",
+      "Cross-device mobile ergonomic tuning & speed optimization",
+      "Search engine readiness & Google indexing setup",
+      "Structured launch handover & 14-day post-launch warranty",
     ],
   },
   {
@@ -54,15 +54,14 @@ const PRIMARY_PACKAGES: WebPackage[] = [
     name: "EXPERIENCE",
     price: "PKR 300,000",
     pricePrefix: "FROM ",
-    purpose: "For highly custom editorial, immersive, or interactive brand experiences.",
+    purpose: "For custom editorial showcases, immersive brand platforms, and high-impact digital experiences.",
     deliverables: [
-      "Experimental layout & editorial design",
-      "Advanced motion design & fluid spatial states",
-      "Complex brand storytelling & digital vitrines",
-      "High-end frontend engineering & custom shaders",
-      "Asset pipeline & media optimization",
-      "Comprehensive performance profiling",
-      "Direct practitioner collaboration throughout",
+      "Experimental layout, digital monograph, or bespoke vitrine",
+      "Fluid interactive storytelling & custom motion choreography",
+      "High-touch visual presentation for luxury, fashion, or architecture",
+      "Custom product filter systems & media vitrines",
+      "Rapid media delivery & asset optimization",
+      "Comprehensive cross-device stress testing & white-glove launch",
     ],
   },
 ];
@@ -208,7 +207,7 @@ export function Pricing() {
                 {/* Card Action */}
                 <div className="pt-8 mt-8 border-t border-current/10">
                   <Button
-                    href="/contact"
+                    href="#contact"
                     variant={pkg.isPopular ? "accent" : "primary"}
                     icon="up-right"
                     className="w-full justify-center py-3.5 text-xs font-bold"
@@ -244,7 +243,7 @@ export function Pricing() {
                 </p>
                 <div className="pt-1">
                   <a
-                    href="/contact"
+                    href="#contact"
                     className="inline-flex items-center gap-1 text-xs font-mono text-[#0A0A0A] font-bold hover:underline"
                   >
                     <span>DISCUSS SCOPE</span>
@@ -297,16 +296,19 @@ export function Pricing() {
 
           <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-white/50">
             <span>* Ongoing maintenance is optional and can be started or paused anytime after project delivery.</span>
-            <a href="/contact" className="text-[#C8FF3D] font-bold hover:underline inline-flex items-center gap-1 shrink-0">
+            <a href="#contact" className="text-[#C8FF3D] font-bold hover:underline inline-flex items-center gap-1 shrink-0">
               INQUIRE ABOUT CARE <ArrowRight className="w-3 h-3" />
             </a>
           </div>
         </div>
 
-        {/* Pricing Disclaimer */}
-        <div className="text-center font-mono text-xs text-[#0A0A0A]/60 pt-4">
+        {/* Engineering Foundation & Pricing Disclaimer */}
+        <div className="text-center font-mono text-xs text-[#0A0A0A]/60 pt-4 space-y-1.5 max-w-3xl mx-auto">
+          <p className="text-[#0A0A0A]/80 font-medium">
+            Engineering standard: Every Framehouse build is written from scratch using modern web standards (React / Next.js / TypeScript). Clean, fast, and 100% owned by your business.
+          </p>
           <p>
-            * Final pricing depends on project scope, content availability, third-party integrations, complexity, and technical requirements.
+            * Final pricing is agreed upfront based on project scope, pages, integrations, and technical requirements.
           </p>
         </div>
       </div>

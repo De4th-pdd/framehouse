@@ -57,7 +57,7 @@ export function MeridianShowcase() {
   const filteredWorkstreams = useMemo(() => {
     return MERIDIAN_WORKSTREAMS.filter((item) => {
       const matchEnv = selectedEnv === "ALL" || item.environment === selectedEnv;
-      const matchDensity = !highDensityOnly || item.unitsNum >= 10000;
+      const matchDensity = !highDensityOnly || item.status === "Active" || item.unitsNum > 50;
       const matchSearch =
         item.stream.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.module.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -145,38 +145,38 @@ export function MeridianShowcase() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pb-6 border-b border-white/10">
             <div className="p-4 bg-white/5 border border-white/10 rounded-xs space-y-1">
               <div className="text-[10px] font-mono uppercase tracking-widest text-white/50">
-                PROCESSED OPERATIONS ({timeframe})
+                ACTIVE PROJECTS
               </div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white font-sans tracking-tight">
-                {metrics.operations}
+                {metrics.activeProjects}
               </div>
               <div className="text-xs font-mono text-[#C8FF3D] font-bold flex items-center gap-1 pt-0.5">
                 <TrendingUp className="w-3.5 h-3.5" />
-                <span>{metrics.change}</span>
+                <span>{metrics.activityChange}</span>
               </div>
             </div>
 
             <div className="p-4 bg-white/5 border border-white/10 rounded-xs space-y-1">
               <div className="text-[10px] font-mono uppercase tracking-widest text-white/50">
-                THROUGHPUT RUNTIME
+                OPEN TASKS
               </div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white font-sans tracking-tight">
-                {metrics.throughput}
+                {metrics.openTasks}
               </div>
               <div className="text-xs font-mono text-white/60 pt-0.5">
-                Simulated cluster telemetry
+                All prioritized & assigned
               </div>
             </div>
 
             <div className="p-4 bg-white/5 border border-white/10 rounded-xs space-y-1">
               <div className="text-[10px] font-mono uppercase tracking-widest text-white/50">
-                STATE TRANSITIONS
+                ORDERS TODAY
               </div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white font-sans tracking-tight">
-                INSTANT
+                {metrics.orders}
               </div>
               <div className="text-xs font-mono text-[#C8FF3D] font-bold pt-0.5">
-                Optimistic client updates
+                {metrics.ordersSub}
               </div>
             </div>
           </div>
@@ -187,9 +187,9 @@ export function MeridianShowcase() {
               <div className="flex items-center gap-2 text-xs font-mono">
                 <span className="w-2 h-2 rounded-full bg-[#C8FF3D]" />
                 <span className="font-bold uppercase tracking-wider text-white">
-                  OPERATIONAL THROUGHPUT CURVE
+                  ORDER &amp; WORKFLOW ACTIVITY
                 </span>
-                <span className="text-white/40">({timeframe} SIMULATION)</span>
+                <span className="text-white/40">({timeframe} TIMEFRAME)</span>
               </div>
 
               {/* Timeframe Selector Pills */}
@@ -263,14 +263,14 @@ export function MeridianShowcase() {
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-mono uppercase tracking-wider text-white font-bold">
-                  OPERATIONAL WORKSTREAMS
+                  OPERATIONAL WORKFLOWS
                 </span>
                 <span className="text-[10px] font-mono px-2 py-0.5 bg-white/10 text-white/80 rounded-xs">
                   {filteredWorkstreams.length} ENTRIES
                 </span>
                 {highDensityOnly && (
                   <span className="text-[10px] font-mono px-2 py-0.5 bg-[#C8FF3D]/20 text-[#C8FF3D] rounded-xs font-bold">
-                    &gt; 10K DENSITY FILTER
+                    ACTIVE FILTER
                   </span>
                 )}
               </div>
@@ -314,10 +314,10 @@ export function MeridianShowcase() {
               <table className="w-full text-left font-mono text-xs">
                 <thead>
                   <tr className="text-white/40 border-b border-white/10 text-[10px] uppercase tracking-wider">
-                    <th className="py-2.5 px-3">JOB ID</th>
-                    <th className="py-2.5 px-3">WORKSTREAM</th>
-                    <th className="py-2.5 px-3">MODULE</th>
-                    <th className="py-2.5 px-3 text-right">WORKLOAD UNITS</th>
+                    <th className="py-2.5 px-3">WORKFLOW ID</th>
+                    <th className="py-2.5 px-3">WORKFLOW</th>
+                    <th className="py-2.5 px-3">BUSINESS MODULE</th>
+                    <th className="py-2.5 px-3 text-right">VOLUME / UNITS</th>
                     <th className="py-2.5 px-3">STATUS</th>
                     <th className="py-2.5 px-3">HANDLER</th>
                   </tr>

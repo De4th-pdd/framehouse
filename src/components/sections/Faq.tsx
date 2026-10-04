@@ -64,10 +64,13 @@ const FAQ_ITEMS: FaqItem[] = [
 ];
 
 export function Faq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndices, setOpenIndices] = useState<Record<number, boolean>>({ 0: true });
 
   const toggleItem = (idx: number) => {
-    setOpenIndex((prev) => (prev === idx ? null : idx));
+    setOpenIndices((prev) => ({
+      ...prev,
+      [idx]: !prev[idx],
+    }));
   };
 
   return (
@@ -90,14 +93,16 @@ export function Faq() {
         {/* FAQ Accordion List */}
         <div className="max-w-4xl mx-auto divide-y divide-[#0A0A0A]/15 border-t border-b border-[#0A0A0A]/15">
           {FAQ_ITEMS.map((item, idx) => {
-            const isOpen = openIndex === idx;
+            const isOpen = !!openIndices[idx];
             return (
               <div key={item.question} className="py-6 sm:py-8 transition-colors">
                 <button
                   type="button"
+                  id={`faq-question-${idx}`}
                   onClick={() => toggleItem(idx)}
                   className="w-full flex items-center justify-between text-left gap-6 group cursor-pointer focus-visible:outline-none"
                   aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
                 >
                   <span className="text-lg sm:text-xl font-bold text-[#0A0A0A] group-hover:text-[#0A0A0A]/70 transition-colors">
                     {item.question}
@@ -110,11 +115,19 @@ export function Faq() {
                   </span>
                 </button>
 
-                {isOpen && (
-                  <div className="pt-4 pr-12 text-sm sm:text-base text-[#0A0A0A]/75 leading-relaxed font-normal animate-in fade-in duration-200">
-                    <p>{item.answer}</p>
-                  </div>
-                )}
+                <div
+                  id={`faq-answer-${idx}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${idx}`}
+                  className={cn(
+                    "overflow-hidden transition-all duration-300 ease-in-out",
+                    isOpen ? "max-h-96 opacity-100 pt-4" : "max-h-0 opacity-0"
+                  )}
+                >
+                  <p className="pr-12 text-sm sm:text-base text-[#0A0A0A]/75 leading-relaxed font-normal">
+                    {item.answer}
+                  </p>
+                </div>
               </div>
             );
           })}

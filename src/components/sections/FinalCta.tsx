@@ -23,7 +23,7 @@ export function FinalCta() {
 
         <div className="pt-4 flex flex-col items-center gap-4">
           <Button
-            href="/contact"
+            href="#contact"
             variant="primary"
             icon="up-right"
             className="text-sm sm:text-base py-5 px-10 shadow-lg"
