@@ -270,7 +270,7 @@ export function Pricing() {
               </p>
             </div>
             <span className="text-xs font-mono text-white/40 uppercase tracking-widest">
-              DIRECT PRACTITIONER SUPPORT
+              DIRECT FOUNDER SUPPORT
             </span>
           </div>
 

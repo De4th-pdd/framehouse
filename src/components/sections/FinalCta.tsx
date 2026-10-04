@@ -32,7 +32,7 @@ export function FinalCta() {
           </Button>
 
           <p className="text-xs sm:text-sm font-mono text-[#0A0A0A]/60 tracking-wider">
-            Usually replying within 24 hours.
+            Direct response on all project inquiries.
           </p>
         </div>
       </div>

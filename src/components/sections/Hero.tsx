@@ -331,26 +331,24 @@ export function Hero() {
                 {/* 01 EDITORIAL: LUMEN ARCHIVE Digital Monograph Showcase */}
                 {activeMode === 0 && (
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center text-[#121110]">
-                    {/* Left: Plate Monograph Selector & Curatorial Focus */}
+                    {/* Left: What is it & Why it matters */}
                     <div className="md:col-span-5 space-y-5">
-                      <div className="flex items-center gap-2 text-[10px] font-mono text-[#8C6D48] tracking-[0.22em] uppercase font-semibold">
-                        <span>LUMEN MONOGRAPH // FOLIO 2026</span>
-                      </div>
-
-                      <div className="space-y-1">
-                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif italic font-normal tracking-tight text-[#121110] leading-[1.08]">
-                          {activeLumen.name}
+                      <div className="space-y-2">
+                        <span className="text-[10px] font-mono text-[#8C6D48] tracking-[0.2em] uppercase font-bold">
+                          EDITORIAL &amp; LUXURY MONOGRAPHS
+                        </span>
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif italic font-normal tracking-tight text-[#121110] leading-tight">
+                          Lumen Archive
                         </h3>
-                        <p className="text-xs sm:text-sm text-[#121110]/75 font-sans leading-relaxed pt-1">
-                          A digital monograph exploring how editorial storytelling, image composition and motion can shape a more immersive web experience.
+                        <p className="text-xs sm:text-sm text-[#121110]/80 font-sans leading-relaxed">
+                          A self-initiated editorial website concept demonstrating how typography, spacious layout, and fluid transitions create a luxurious brand presence for architecture, fashion, and cultural brands.
                         </p>
                       </div>
 
-                      {/* Plate Selection Buttons */}
+                      {/* Direction Switcher */}
                       <div className="space-y-2 pt-1 font-mono">
-                        <div className="flex justify-between text-[11px] text-[#121110]/70">
-                          <span className="uppercase tracking-widest text-[10px]">SELECTED PLATE:</span>
-                          <span className="text-[#8C6D48] font-bold">{activeLumen.name}</span>
+                        <div className="text-[10px] text-[#121110]/50 uppercase tracking-widest font-semibold">
+                          VISUAL DIRECTION:
                         </div>
                         <div className="grid grid-cols-3 gap-2">
                           {LUMEN_PLATES.map((plate, idx) => (
@@ -366,15 +364,12 @@ export function Hero() {
                               )}
                               aria-label={`Select ${plate.name}`}
                             >
-                              <div className="flex items-center justify-between">
-                                <span className={cn(
-                                  "text-[9px]",
-                                  lumenPlate === idx ? "text-[#8C6D48]" : "text-[#121110]/50"
-                                )}>
-                                  {plate.label}
-                                </span>
-                                {lumenPlate === idx && <Check className="w-3 h-3 text-[#121110]" />}
-                              </div>
+                              <span className={cn(
+                                "text-[9px]",
+                                lumenPlate === idx ? "text-[#8C6D48]" : "text-[#121110]/50"
+                              )}>
+                                {plate.label}
+                              </span>
                               <span className="truncate text-[10px] text-[#121110]">
                                 {plate.name}
                               </span>
@@ -384,25 +379,24 @@ export function Hero() {
                       </div>
 
                       <div className="pt-2 flex items-center justify-between text-xs font-mono border-t border-[#121110]/10">
-                        <span className="text-[#121110]/60">ASPECT: <strong className="text-[#121110]">{activeLumen.aspect}</strong></span>
+                        <span className="text-[#121110]/60">Design standard: Bespoke Typography</span>
                         <a href="#work" className="text-[#8C6D46] font-bold hover:underline">
-                          VIEW FULL CONCEPT →
+                          VIEW IN PORTFOLIO ↓
                         </a>
                       </div>
                     </div>
 
-                    {/* Right: Editorial Monograph Canvas Stage */}
+                    {/* Right: Pure, Uncluttered Editorial Canvas */}
                     <div className="md:col-span-7 rounded-xs overflow-hidden border border-[#121110]/15 bg-[#121110] shadow-md transition-all duration-500 text-white">
                       {/* Top Plate Bar */}
-                      <div className="flex justify-between items-center px-4 py-2.5 border-b border-white/10 text-[9px] font-mono tracking-widest uppercase text-white/60 bg-black/40">
-                        <span>{activeLumen.label} // EDITORIAL STUDY</span>
-                        <span className="text-[#C8FF3D] font-bold">{activeLumen.aspect}</span>
-                        <span>SCALE 1:1</span>
+                      <div className="flex justify-between items-center px-4 py-2.5 border-b border-white/10 text-[10px] font-mono tracking-wider text-white/60 bg-black/40">
+                        <span className="text-[#C8FF3D] font-bold">{activeLumen.label}</span>
+                        <span>{activeLumen.name.toUpperCase()}</span>
                       </div>
 
                       {/* Editorial Canvas Stage */}
                       <div
-                        className="relative p-6 sm:p-8 min-h-[260px] sm:min-h-[290px] flex flex-col justify-between overflow-hidden transition-all duration-500"
+                        className="relative p-8 sm:p-10 min-h-[260px] sm:min-h-[290px] flex flex-col justify-between overflow-hidden transition-all duration-500"
                         style={{ background: activeLumen.gradient }}
                       >
                         {/* Drafting Grid */}
@@ -416,37 +410,31 @@ export function Hero() {
                           LUMEN
                         </div>
 
-                        <div className="relative z-10 space-y-1 max-w-xs">
-                          <span className="text-[9px] font-mono tracking-[0.22em] uppercase text-white/40 block">
+                        <div className="relative z-10 space-y-2 max-w-sm">
+                          <span className="text-[10px] font-mono tracking-widest uppercase text-white/40 block">
                             EDITORIAL MONOGRAPH
                           </span>
-                          <h4 className="text-2xl sm:text-3xl font-serif italic text-white tracking-tight leading-tight">
+                          <h4 className="text-3xl sm:text-4xl font-serif italic text-white tracking-tight leading-tight">
                             {activeLumen.name}
                           </h4>
-                        </div>
-
-                        {/* Physical Archival Plate Preview */}
-                        <div className="relative z-10 my-4 bg-white/5 border border-white/15 p-4 rounded-xs backdrop-blur-xs space-y-3">
-                          <div className="flex justify-between items-center text-[9px] font-mono text-white/50 border-b border-white/10 pb-1.5">
-                            <span>{activeLumen.medium}</span>
-                            <span className="text-[#C8FF3D]">SERIF HIERARCHY</span>
-                          </div>
-                          <div className="text-xs font-mono text-white/80">
+                          <p className="text-xs text-white/70 font-sans leading-relaxed pt-1">
                             {activeLumen.caption}
-                          </div>
+                          </p>
                         </div>
 
-                        {/* Viewport Bottom Info */}
-                        <div className="relative z-10 flex justify-between items-center text-[10px] font-mono text-white/50 pt-2 border-t border-white/10">
-                          <span>CONCEPT FOLIO // MONOGRAPH</span>
-                          <span className="text-[#C8FF3D]">FRAMEHOUSE EDITORIAL LAB</span>
+                        {/* Minimalist Bottom Canvas Indicator */}
+                        <div className="relative z-10 flex justify-between items-center text-[10px] font-mono text-white/50 pt-4 border-t border-white/10">
+                          <span>CONCEPT ARCHIVE</span>
+                          <span className="text-[#C8FF3D]">FRAMEHOUSE STUDIO</span>
                         </div>
                       </div>
 
                       {/* Viewport Bottom Bar */}
                       <div className="flex justify-between items-center px-4 py-2 border-t border-white/10 bg-[#0C0D10] text-[10px] font-mono text-white/60">
-                        <span>STUDY // EDITORIAL COMPOSITION</span>
-                        <span className="text-[#C8FF3D] font-bold">DIGITAL MONOGRAPH DEMO</span>
+                        <span>WHAT WE DEMONSTRATED: BESPOKE EDITORIAL LAYOUT</span>
+                        <a href="#work" className="text-[#C8FF3D] font-bold hover:underline">
+                          SEE CASE STUDY →
+                        </a>
                       </div>
                     </div>
                   </div>

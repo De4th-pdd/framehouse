@@ -49,7 +49,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Do you build web apps and software?",
     answer:
-      "Yes. We engineer responsive web applications, operational dashboards, client portals, and bespoke internal tools with production TypeScript, React, and modern fullstack architecture.",
+      "Yes. We engineer responsive web applications, operational dashboards, client portals, and bespoke internal tools with clean TypeScript, React, and modern, reliable web standards.",
   },
   {
     question: "How does payment work?",

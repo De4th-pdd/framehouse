@@ -144,7 +144,7 @@ export function About() {
               CLIENT ACCESS
             </div>
             <div className="font-bold text-[#0A0A0A]">
-              Direct Practitioner
+              Founder-Led
             </div>
           </div>
 

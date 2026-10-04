@@ -23,6 +23,6 @@ export const principles: Principle[] = [
     number: "04",
     title: "NO UNNECESSARY HANDOFFS.",
     description: "Direct involvement from start to finish.",
-    detail: "Every project stays close to the person building it. No account managers, no telephone games, and no handoffs between disconnected sales and engineering teams.",
+    detail: "Every project stays close to the person building it. No account managers, no telephone games, and no handoffs between disconnected agency layers.",
   },
 ];

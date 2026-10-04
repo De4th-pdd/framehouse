@@ -20,9 +20,9 @@ export function LumenShowcase() {
         withCorners={true}
         className="p-6 sm:p-10 lg:p-14 bg-[#FAF8F5] border-[#121110]/15 relative overflow-hidden transition-all duration-300 shadow-md text-[#121110]"
       >
-        {/* Subtle Textured Background */}
+        {/* Subtle Background */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-30 bg-[radial-gradient(#12111008_1px,transparent_1px)] bg-[size:1.5rem_1.5rem]"
+          className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#12111008_1px,transparent_1px)] bg-[size:1.5rem_1.5rem]"
           aria-hidden="true"
         />
 
@@ -31,28 +31,23 @@ export function LumenShowcase() {
           <div className="flex items-center gap-3">
             <Badge variant="concept">CONCEPT / 01</Badge>
             <span className="text-xs font-mono tracking-[0.2em] uppercase text-[#121110]/70 font-semibold">
-              LUMEN ARCHIVE // SELF-INITIATED DIGITAL MONOGRAPH
+              LUMEN ARCHIVE — DIGITAL MONOGRAPH CONCEPT
             </span>
           </div>
-          <div className="flex items-center gap-3 text-xs font-mono text-[#121110]/70">
-            <span>EDITORIAL PUBLISHING</span>
-            <span className="text-[#121110]/20">•</span>
-            <span className="text-[#8C6D46] font-bold">DIGITAL MONOGRAPH</span>
-          </div>
+          <span className="text-xs font-mono text-[#8C6D46] font-bold uppercase tracking-wider">
+            EDITORIAL PUBLISHING
+          </span>
         </div>
 
-        {/* Title & Concept Intent */}
+        {/* Title & Core Purpose */}
         <div className="relative z-10 space-y-4 mb-8 sm:mb-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
             <div className="lg:col-span-8 space-y-2">
-              <span className="text-xs font-mono tracking-[0.22em] text-[#8C6D46] uppercase font-semibold">
-                EDITORIAL DESIGN &amp; PUBLICATION ARCHITECTURE
-              </span>
               <h3 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#121110] leading-[1.02] font-sans">
                 LUMEN ARCHIVE
               </h3>
               <p className="text-base sm:text-lg text-[#121110]/80 max-w-2xl font-normal leading-relaxed pt-1">
-                A self-initiated digital monograph demonstrating how editorial typography, asymmetric layout, and considered motion can create an immersive web presence for cultural, fashion, and luxury brands.
+                A self-initiated digital monograph demonstrating how custom typography, asymmetric layouts, and calm motion elevate high-end brand publishing.
               </p>
             </div>
 
@@ -69,13 +64,13 @@ export function LumenShowcase() {
           </div>
         </div>
 
-        {/* Interactive Monograph Stage */}
+        {/* Interactive Showcase Grid */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Plate Tabs & Curatorial Summary */}
+          {/* Left Column: Visual Studies & Purpose */}
           <div className="lg:col-span-5 space-y-5">
             <div className="space-y-2">
-              <div className="text-[10px] font-mono tracking-widest text-[#121110]/50 uppercase">
-                STUDY SELECTION:
+              <div className="text-[10px] font-mono tracking-widest text-[#121110]/50 uppercase font-semibold">
+                VISUAL STUDY:
               </div>
               <div className="flex flex-col gap-2">
                 {LUMEN_STUDIES.map((study, idx) => {
@@ -119,23 +114,20 @@ export function LumenShowcase() {
               </div>
             </div>
 
-            {/* Concise Description Card */}
+            {/* Concise Value Card */}
             <div className="p-5 bg-white/80 border border-[#121110]/10 rounded-xs space-y-4 shadow-2xs">
               <div className="space-y-1">
                 <span className="text-[10px] font-mono tracking-widest uppercase text-[#8C6D46] font-semibold">
-                  DEMONSTRATION FOCUS
+                  WHY IT MATTERS
                 </span>
-                <h4 className="text-base font-bold text-[#121110] tracking-tight">
-                  {activeStudy.subtitle}
-                </h4>
-                <p className="text-xs sm:text-sm text-[#121110]/75 leading-relaxed pt-1">
+                <p className="text-xs sm:text-sm text-[#121110]/80 leading-relaxed font-normal pt-1">
                   {activeStudy.description}
                 </p>
               </div>
 
               <div className="border-t border-[#121110]/10 pt-3 space-y-2">
                 <div className="text-[10px] font-mono text-[#121110]/50 uppercase tracking-wider">
-                  DESIGN HIGHLIGHTS
+                  WHAT WE DEMONSTRATED
                 </div>
                 <div className="space-y-1.5 text-xs font-mono text-[#121110]/80">
                   {activeStudy.highlights.map((h) => (
@@ -153,12 +145,12 @@ export function LumenShowcase() {
           <div className="lg:col-span-7">
             <div className="border border-[#121110]/20 bg-[#121110] rounded-xs overflow-hidden shadow-xl text-white relative">
               {/* Top Viewport Header */}
-              <div className="flex items-center justify-between px-4 py-2.5 bg-black/40 border-b border-white/10 text-[10px] font-mono text-white/60">
+              <div className="flex items-center justify-between px-5 py-3 bg-black/40 border-b border-white/10 text-[10px] font-mono text-white/60">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#C8FF3D]" />
-                  <span>{activeStudy.number} // EDITORIAL CANVAS</span>
+                  <span>{activeStudy.number} // {activeStudy.title.toUpperCase()}</span>
                 </div>
-                <span className="text-[#C8FF3D] font-bold">{activeStudy.aspect}</span>
+                <span className="text-white/40">{activeStudy.aspect}</span>
               </div>
 
               {/* Main Viewport Stage */}
@@ -185,25 +177,9 @@ export function LumenShowcase() {
                   </p>
                 </div>
 
-                {/* Clean Composition Frame (Simplified from 4 nested boxes) */}
-                <div className="relative z-10 my-6 py-6 border-t border-b border-white/15 flex items-center justify-between text-xs font-mono text-white/70">
-                  <div className="space-y-1">
-                    <span className="text-[9px] uppercase tracking-widest text-white/40 block">
-                      TYPOGRAPHIC SPEC
-                    </span>
-                    <span className="text-white font-semibold">Editorial Serif &amp; Monospace Accents</span>
-                  </div>
-                  <div className="text-right space-y-1">
-                    <span className="text-[9px] uppercase tracking-widest text-white/40 block">
-                      LAYOUT ENGINE
-                    </span>
-                    <span className="text-[#C8FF3D] font-semibold">Asymmetric Fluid Grid</span>
-                  </div>
-                </div>
-
-                {/* Bottom Canvas Metadata */}
-                <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-white/60 pt-2">
-                  <span className="text-[11px] text-white/80">Lumen Archive — Folio Edition</span>
+                {/* Clean Bottom Canvas Metadata */}
+                <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-white/60 pt-4 border-t border-white/15">
+                  <span className="text-xs text-white/80">Concept Monograph Study</span>
                   <span className="text-[10px] tracking-widest text-[#C8FF3D] uppercase">
                     FRAMEHOUSE STUDIO
                   </span>
@@ -212,13 +188,13 @@ export function LumenShowcase() {
 
               {/* Viewport Bottom Strip */}
               <div className="px-5 py-3 bg-[#0C0D10] border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/60">
-                <span>DEMONSTRATES: EDITORIAL COMPOSITION &amp; TYPOGRAPHY</span>
+                <span>WHAT WE DEMONSTRATED: BESPOKE EDITORIAL PUBLISHING</span>
                 <button
                   type="button"
                   onClick={() => setNotesOpen(true)}
                   className="text-[#C8FF3D] hover:underline font-bold inline-flex items-center gap-1 cursor-pointer"
                 >
-                  <span>CONCEPT NOTES</span>
+                  <span>VIEW NOTES</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -261,16 +237,16 @@ export function LumenShowcase() {
 
             <div className="space-y-4 text-xs sm:text-sm text-[#121110]/80 leading-relaxed font-sans">
               <p>
-                <strong>What this concept is:</strong> A self-initiated digital monograph created by Framehouse to demonstrate how editorial pacing, high-contrast serif typography, and asymmetrical layouts can translate the feel of physical monographs into high-speed digital web experiences.
+                <strong>What this concept demonstrates:</strong> How editorial typography, generous whitespace, and calm motion translate the prestige of high-end print monographs into fast, responsive web experiences.
               </p>
               <div className="p-4 bg-white border border-[#121110]/10 rounded-xs space-y-2 font-mono text-xs">
                 <div className="text-[10px] text-[#121110]/50 uppercase tracking-widest font-bold">
-                  BEST SUITED FOR
+                  IDEAL FOR
                 </div>
                 <div className="text-[#121110] font-medium space-y-1">
                   <div>• Architecture and interior design studios</div>
                   <div>• Fashion lookbooks and cultural publications</div>
-                  <div>• High-end craft, furniture, and product monographs</div>
+                  <div>• Luxury craft, furniture, and product monographs</div>
                 </div>
               </div>
             </div>
